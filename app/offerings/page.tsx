@@ -6,7 +6,8 @@ const offerings = [
   {
     name: "Starter",
     title: "AI Output Check Review",
-    forText: "teams with one AI workflow they want to understand before piloting.",
+    forText:
+      "teams with one AI workflow they want to understand before piloting.",
     includes: [
       "one AI workflow review",
       "draft reply and action checks",
@@ -34,7 +35,8 @@ const offerings = [
   {
     name: "Enterprise",
     title: "Corentis Shield",
-    forText: "regulated organisations moving AI into live customer or business workflows.",
+    forText:
+      "regulated organisations moving AI into live customer or business workflows.",
     includes: [
       "AI output checkpoint",
       "policy and approval checks",
@@ -95,7 +97,14 @@ export default function OfferingsPage() {
         <div className="card-base card-premium overflow-x-auto rounded-lg">
           <div>
             <div className="grid min-w-[900px] grid-cols-[0.7fr_1.1fr_1.35fr_1.15fr_1.1fr_1fr] border-b border-white/10 bg-white/[0.04] text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
-              {["Offer", "Best for", "What it proves", "Output", "Typical buyer", "Next step"].map((heading) => (
+              {[
+                "Offer",
+                "Best for",
+                "What it proves",
+                "Output",
+                "Typical buyer",
+                "Next step",
+              ].map((heading) => (
                 <div key={heading} className="p-4">
                   {heading}
                 </div>

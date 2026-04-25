@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Corentis Technologies | AI checkpoint for regulated workflows",
+    default: "Corentis Shield | AI checkpoint for regulated workflows",
     template: "%s | Corentis Technologies",
   },
   description:
-    "Corentis Shield checks AI agent outputs before they reach customers, teams or live systems, helping organisations review, control and evidence sensitive AI actions.",
+    "Corentis Shield checks AI outputs before they reach customers, teams or live systems, helping regulated organisations route review, stop risky outputs and record evidence before action.",
 };
 
 export default function RootLayout({
@@ -30,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <div className="min-h-screen bg-ink/80">
           <Header />
           <main>{children}</main>

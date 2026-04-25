@@ -34,7 +34,10 @@ export default function FinancialServicesPage() {
           <div>
             <div className="grid gap-4 sm:grid-cols-2">
               {useCases.map((useCase) => (
-                <div key={useCase} className="card-base card-info card-lift p-5 text-slate-100">
+                <div
+                  key={useCase}
+                  className="card-base card-info card-lift p-5 text-slate-100"
+                >
                   {useCase}
                 </div>
               ))}
@@ -58,7 +61,10 @@ export default function FinancialServicesPage() {
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {examples.map((example) => (
-            <div key={example} className="card-base card-info card-lift p-5 text-sm leading-6 text-cyan-50">
+            <div
+              key={example}
+              className="card-base card-info card-lift p-5 text-sm leading-6 text-cyan-50"
+            >
               {example}
             </div>
           ))}

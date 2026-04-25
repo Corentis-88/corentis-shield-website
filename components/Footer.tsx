@@ -25,7 +25,11 @@ export function Footer() {
         </div>
         <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm sm:grid-cols-3">
           {footerLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-slate-400 transition hover:text-white">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-slate-400 transition hover:text-white"
+            >
               {link.label}
             </Link>
           ))}

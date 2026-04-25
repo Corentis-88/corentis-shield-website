@@ -6,7 +6,10 @@ type FlowDiagramProps = {
 
 export function FlowDiagram({ steps }: FlowDiagramProps) {
   return (
-    <div className="grid gap-3 lg:grid-cols-[repeat(var(--step-count),minmax(0,1fr))]" style={{ "--step-count": steps.length } as React.CSSProperties}>
+    <div
+      className="grid gap-3 lg:grid-cols-[repeat(var(--step-count),minmax(0,1fr))]"
+      style={{ "--step-count": steps.length } as React.CSSProperties}
+    >
       {steps.map((step, index) => (
         <div key={step} className="flex items-stretch gap-3">
           <div className="card-base card-info card-lift flex min-h-28 flex-1 items-center p-5">

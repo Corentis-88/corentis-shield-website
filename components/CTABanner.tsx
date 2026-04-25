@@ -18,7 +18,9 @@ export function CTABanner({
   return (
     <div className="card-base card-premium overflow-hidden p-8 shadow-glow sm:p-10">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white text-balance">{title}</h2>
+        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white text-balance">
+          {title}
+        </h2>
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={primaryHref}>{primaryLabel}</ButtonLink>
           {secondaryLabel && secondaryHref && (

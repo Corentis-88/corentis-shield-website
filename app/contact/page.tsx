@@ -25,18 +25,27 @@ export default function ContactPage() {
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="space-y-6">
           <div className="card-base card-premium p-6">
-            <h2 className="text-xl font-semibold text-white">Good reasons to get in touch</h2>
+            <h2 className="text-xl font-semibold text-white">
+              Good reasons to get in touch
+            </h2>
             <div className="mt-5 space-y-3">
               {enquiryOptions.map((option) => (
-                <div key={option} className="card-base card-info card-lift p-4 text-slate-200">
+                <div
+                  key={option}
+                  className="card-base card-info card-lift p-4 text-slate-200"
+                >
                   {option}
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-sm text-slate-400">Email: hello@corentis.co.uk</p>
+            <p className="mt-5 text-sm text-slate-400">
+              Email: hello@corentis.co.uk
+            </p>
           </div>
           <div className="card-base card-info p-6">
-            <h2 className="text-xl font-semibold text-white">What a first conversation looks like</h2>
+            <h2 className="text-xl font-semibold text-white">
+              What a first conversation looks like
+            </h2>
             <div className="mt-5 space-y-3">
               {conversationSteps.map((step) => (
                 <p key={step} className="text-sm leading-6 text-cyan-50">

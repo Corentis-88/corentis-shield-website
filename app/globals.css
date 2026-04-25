@@ -17,9 +17,21 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(48, 213, 255, 0.12), transparent 32rem),
-    radial-gradient(circle at 18% 42%, rgba(246, 210, 139, 0.055), transparent 24rem),
-    radial-gradient(circle at 75% 10%, rgba(79, 140, 255, 0.08), transparent 28rem),
+    radial-gradient(
+      circle at top left,
+      rgba(48, 213, 255, 0.12),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at 18% 42%,
+      rgba(246, 210, 139, 0.055),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(79, 140, 255, 0.08),
+      transparent 28rem
+    ),
     #050a14;
   color: #f8fafc;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -33,8 +45,15 @@ body {
   background-image:
     linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 12% 18%, rgba(246, 210, 139, 0.08), transparent 22rem);
-  background-size: 64px 64px, 64px 64px, auto;
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(246, 210, 139, 0.08),
+      transparent 22rem
+    );
+  background-size:
+    64px 64px,
+    64px 64px,
+    auto;
 }
 
 .card-border {
@@ -51,7 +70,11 @@ body {
   border-radius: 0.875rem;
   border: 1px solid rgba(148, 163, 184, 0.16);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.028)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.028)
+    ),
     rgba(13, 23, 40, 0.72);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.07),
@@ -68,7 +91,11 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.1), transparent 16rem);
+  background: radial-gradient(
+    circle at 18% 0%,
+    rgba(255, 255, 255, 0.1),
+    transparent 16rem
+  );
   opacity: 0.7;
 }
 
@@ -89,7 +116,12 @@ body {
 .card-premium {
   border-color: rgba(48, 213, 255, 0.2);
   background:
-    linear-gradient(145deg, rgba(48, 213, 255, 0.105), rgba(246, 210, 139, 0.045) 48%, rgba(255, 255, 255, 0.028)),
+    linear-gradient(
+      145deg,
+      rgba(48, 213, 255, 0.105),
+      rgba(246, 210, 139, 0.045) 48%,
+      rgba(255, 255, 255, 0.028)
+    ),
     rgba(13, 23, 40, 0.78);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -107,7 +139,11 @@ body {
 .card-success {
   border-color: rgba(45, 212, 191, 0.26);
   background:
-    linear-gradient(145deg, rgba(45, 212, 191, 0.14), rgba(48, 213, 255, 0.035)),
+    linear-gradient(
+      145deg,
+      rgba(45, 212, 191, 0.14),
+      rgba(48, 213, 255, 0.035)
+    ),
     rgba(13, 23, 40, 0.76);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -118,7 +154,11 @@ body {
 .card-warning {
   border-color: rgba(246, 210, 139, 0.32);
   background:
-    linear-gradient(145deg, rgba(246, 210, 139, 0.14), rgba(48, 213, 255, 0.025)),
+    linear-gradient(
+      145deg,
+      rgba(246, 210, 139, 0.14),
+      rgba(48, 213, 255, 0.025)
+    ),
     rgba(13, 23, 40, 0.76);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -129,7 +169,11 @@ body {
 .card-danger {
   border-color: rgba(251, 113, 133, 0.3);
   background:
-    linear-gradient(145deg, rgba(251, 113, 133, 0.14), rgba(246, 210, 139, 0.025)),
+    linear-gradient(
+      145deg,
+      rgba(251, 113, 133, 0.14),
+      rgba(246, 210, 139, 0.025)
+    ),
     rgba(13, 23, 40, 0.78);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),

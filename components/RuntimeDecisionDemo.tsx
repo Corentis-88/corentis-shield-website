@@ -30,7 +30,9 @@ export function RuntimeDecisionDemo() {
       <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm font-medium text-slate-400">Corentis Shield</p>
-          <h3 className="mt-1 text-2xl font-semibold text-white">The checkpoint in action</h3>
+          <h3 className="mt-1 text-2xl font-semibold text-white">
+            The checkpoint in action
+          </h3>
         </div>
         <Badge tone="danger">Decision: BLOCKED</Badge>
       </div>
@@ -47,17 +49,21 @@ export function RuntimeDecisionDemo() {
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                     {row.label}
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-200">{row.text}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-200">
+                    {row.text}
+                  </p>
                 </div>
               </div>
             </div>
           );
         })}
         <div className="card-base card-danger p-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-200">Reason</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-200">
+            Reason
+          </p>
           <p className="mt-2 text-sm leading-6 text-red-50">
-            Customer hardship disclosed. Collections-pressure wording conflicts with the configured
-            vulnerability handling policy.
+            Customer hardship disclosed. Collections-pressure wording conflicts
+            with the configured vulnerability handling policy.
           </p>
         </div>
       </div>
