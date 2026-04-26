@@ -44,8 +44,7 @@ const checks = [
   },
   {
     title: "The customer or case context",
-    description:
-      "Risk signals, vulnerability, complaints, evidence and business rules.",
+    description: "Risk signals, vulnerability, complaints, evidence and business rules.",
   },
   {
     title: "The policy rules",
@@ -72,8 +71,7 @@ const decisions = [
   },
   {
     title: "Block",
-    description:
-      "The output conflicts with policy, risk or evidence requirements.",
+    description: "The output conflicts with policy, risk or evidence requirements.",
   },
 ];
 
@@ -109,17 +107,23 @@ export default function Home() {
               If it can act, it needs a checkpoint.
             </div>
             <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white text-balance sm:text-6xl lg:text-7xl">
-              AI needs a checkpoint before it acts. Corentis provides it.
+              AI and AI agents are here.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Corentis Shield checks AI outputs before they reach customers,
-              teams or live systems — so sensitive actions can proceed, be
-              reviewed, be escalated or be stopped with evidence recorded.
+              McKinsey says 62% of surveyed organisations are at least experimenting with AI agents.
+              Deloitte says worker access to AI rose by 50% in 2025, and companies expect more AI
+              projects to move into production.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
+              As more AI projects move into production, so do AI-related incidents. BCG reported
+              that these incidents rose by 21% from 2024 to 2025.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
+              In one 2025 EY survey of 975 large global companies, AI-related risks were associated
+              with an estimated $4.3bn in losses across this sample alone.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/runtime-guard">
-                See the checkpoint in action
-              </ButtonLink>
+              <ButtonLink href="/runtime-guard">See the checkpoint in action</ButtonLink>
               <ButtonLink href="/contact" variant="secondary">
                 Book a conversation
               </ButtonLink>
@@ -141,26 +145,10 @@ export default function Home() {
         </div>
       </section>
 
-      <Section className="bg-white/[0.02]" title="AI and AI agents are here.">
+      <Section className="bg-white/[0.02]">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-5 text-lg leading-8 text-slate-300">
-            <p>
-              McKinsey says 62% of surveyed organisations are at least
-              experimenting with AI agents. Deloitte says worker access to AI
-              rose by 50% in 2025, and companies expect more AI projects to move
-              into production.
-            </p>
-            <p>
-              As more AI projects move into production, so do AI-related
-              incidents. BCG reported that these incidents rose by 21% from 2024
-              to 2025.
-            </p>
-            <p>
-              In one 2025 EY survey of 975 large global companies, AI-related
-              risks were associated with an estimated $4.3bn in losses across
-              this sample alone.
-            </p>
-            <div className="card-base card-premium mt-8 p-7">
+            <div className="card-base card-premium p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyanx">
                 This is the problem Corentis Shield is built for.
               </p>
@@ -168,9 +156,9 @@ export default function Home() {
                 AI needs a checkpoint before it acts. Corentis provides it.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-300">
-                Corentis Shield checks AI outputs before they reach customers,
-                teams or live systems — so sensitive actions can proceed, be
-                reviewed, be escalated or be stopped with evidence recorded.
+                Corentis Shield checks AI outputs before they reach customers, teams or live systems
+                - so sensitive actions can proceed, be reviewed, be escalated or be stopped with
+                evidence recorded.
               </p>
             </div>
           </div>
@@ -197,9 +185,7 @@ export default function Home() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {riskItems.map((item) => (
             <div key={item} className="card-base card-danger card-lift p-5">
-              <p className="text-sm font-medium leading-6 text-rose-50">
-                {item}
-              </p>
+              <p className="text-sm font-medium leading-6 text-rose-50">{item}</p>
             </div>
           ))}
         </div>
@@ -211,9 +197,7 @@ export default function Home() {
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-base card-warning p-7">
-            <h3 className="text-2xl font-semibold text-white">
-              AI agent on its own
-            </h3>
+            <h3 className="text-2xl font-semibold text-white">AI agent on its own</h3>
             <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-200">
               {[
                 "output may move straight to action",
@@ -230,9 +214,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="card-base card-success p-7">
-            <h3 className="text-2xl font-semibold text-white">
-              AI agent with Corentis Shield
-            </h3>
+            <h3 className="text-2xl font-semibold text-white">AI agent with Corentis Shield</h3>
             <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-200">
               {[
                 "output is checked first",
@@ -259,9 +241,7 @@ export default function Home() {
           {shieldReasons.map((item) => (
             <div key={item.title} className="card-base card-info card-lift p-6">
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
             </div>
           ))}
         </div>
@@ -276,9 +256,7 @@ export default function Home() {
           {checks.map((item) => (
             <div key={item.title} className="card-base card-info card-lift p-6">
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
             </div>
           ))}
         </div>
@@ -322,9 +300,8 @@ export default function Home() {
               Before you deploy an AI agent, test the checkpoint.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300">
-              Start with one sensitive workflow. Corentis can help you test AI
-              outputs, find where review is needed and see what evidence should
-              be recorded before live use.
+              Start with one sensitive workflow. Corentis can help you test AI outputs, find where
+              review is needed and see what evidence should be recorded before live use.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">Book a conversation</ButtonLink>

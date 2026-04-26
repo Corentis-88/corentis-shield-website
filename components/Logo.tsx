@@ -13,14 +13,7 @@ export function Logo({ showWordmark = true, className = "" }: LogoProps) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect
-          x="3"
-          y="3"
-          width="42"
-          height="42"
-          rx="12"
-          fill="url(#corentisMarkBg)"
-        />
+        <rect x="3" y="3" width="42" height="42" rx="12" fill="url(#corentisMarkBg)" />
         <path
           d="M15 24C15 18.48 19.48 14 25 14H34"
           stroke="#D9FBFF"

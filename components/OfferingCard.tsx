@@ -9,19 +9,11 @@ type OfferingCardProps = {
   positioning: string;
 };
 
-export function OfferingCard({
-  name,
-  title,
-  forText,
-  includes,
-  positioning,
-}: OfferingCardProps) {
+export function OfferingCard({ name, title, forText, includes, positioning }: OfferingCardProps) {
   return (
     <div className="card-base card-premium card-lift flex h-full flex-col p-6">
       <Badge tone={name === "Enterprise" ? "cyan" : "neutral"}>{name}</Badge>
-      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">
-        {title}
-      </h3>
+      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{title}</h3>
       <p className="mt-3 text-sm leading-6 text-slate-300">
         <span className="font-semibold text-slate-100">For: </span>
         {forText}

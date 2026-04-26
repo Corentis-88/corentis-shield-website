@@ -22,11 +22,7 @@ function inferVariant(title: string): RuntimeDecisionCardProps["variant"] {
   return "premium";
 }
 
-export function RuntimeDecisionCard({
-  title,
-  description,
-  variant,
-}: RuntimeDecisionCardProps) {
+export function RuntimeDecisionCard({ title, description, variant }: RuntimeDecisionCardProps) {
   const cardVariant = variant ?? inferVariant(title) ?? "default";
   return (
     <div className={`${variantClasses[cardVariant]} p-6`}>

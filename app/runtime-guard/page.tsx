@@ -49,11 +49,7 @@ export default function RuntimeGuardPage() {
       <Section className="bg-white/[0.02]" title="Clear outcomes before action">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {decisions.map(([title, description]) => (
-            <RuntimeDecisionCard
-              key={title}
-              title={title}
-              description={description}
-            />
+            <RuntimeDecisionCard key={title} title={title} description={description} />
           ))}
         </div>
       </Section>
@@ -69,10 +65,7 @@ export default function RuntimeGuardPage() {
             "Policy and approval rules",
             "Missing evidence or escalation needs",
           ].map((item) => (
-            <div
-              key={item}
-              className="card-base card-info card-lift p-5 text-cyan-50"
-            >
+            <div key={item} className="card-base card-info card-lift p-5 text-cyan-50">
               {item}
             </div>
           ))}
@@ -105,9 +98,9 @@ evidence_needed: hardship disclosure, complaint history, proposed resolution`}</
       <Section title="Action-level control, not just risk documentation">
         <div className="card-base card-info p-7">
           <p className="max-w-4xl text-lg leading-8 text-cyan-50">
-            Governance tools document AI risk. Prompt guardrails filter model
-            behaviour. Corentis Shield focuses on the moment before an AI output
-            reaches a customer, system or live workflow.
+            Governance tools document AI risk. Prompt guardrails filter model behaviour. Corentis
+            Shield focuses on the moment before an AI output reaches a customer, system or live
+            workflow.
           </p>
         </div>
         <div className="mt-12">

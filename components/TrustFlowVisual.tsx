@@ -24,19 +24,12 @@ export function TrustFlowVisual() {
         ].map((item) => {
           const Icon = item.icon;
           return (
-            <div
-              key={item.label}
-              className="card-base card-info card-lift p-5 backdrop-blur"
-            >
+            <div key={item.label} className="card-base card-info card-lift p-5 backdrop-blur">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-cyanx/25 bg-cyanx/10 text-cyanx">
                 <Icon aria-hidden className="h-5 w-5" />
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-white">
-                {item.label}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                {item.text}
-              </p>
+              <h3 className="mt-5 text-lg font-semibold text-white">{item.label}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{item.text}</p>
             </div>
           );
         })}

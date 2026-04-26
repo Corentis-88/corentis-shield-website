@@ -34,10 +34,7 @@ export default function AssuranceLabPage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {tests.map((test) => (
-              <div
-                key={test}
-                className="card-base card-info card-lift p-4 text-sm text-slate-200"
-              >
+              <div key={test} className="card-base card-info card-lift p-4 text-sm text-slate-200">
                 {test}
               </div>
             ))}
