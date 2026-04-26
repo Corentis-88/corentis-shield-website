@@ -113,7 +113,7 @@ export default function Home() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               Corentis Shield checks AI outputs before they reach customers,
-              teams or live systems - so sensitive actions can proceed, be
+              teams or live systems — so sensitive actions can proceed, be
               reviewed, be escalated or be stopped with evidence recorded.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -169,7 +169,7 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-300">
                 Corentis Shield checks AI outputs before they reach customers,
-                teams or live systems - so sensitive actions can proceed, be
+                teams or live systems — so sensitive actions can proceed, be
                 reviewed, be escalated or be stopped with evidence recorded.
               </p>
             </div>
