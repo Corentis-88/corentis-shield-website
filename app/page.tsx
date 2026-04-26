@@ -122,8 +122,34 @@ export default function Home() {
               In one 2025 EY survey of 975 large global companies, AI-related risks were associated
               with an estimated $4.3bn in losses across this sample alone.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#shield-solution">See the checkpoint in action</ButtonLink>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {sources.map((source) => (
+                <a
+                  key={source.label}
+                  href={source.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card-base card-warning card-lift block p-4 text-xs font-medium leading-5 text-amber-50"
+                >
+                  {source.label}
+                </a>
+              ))}
+            </div>
+            <div className="card-base card-premium mt-8 p-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyanx">
+                This is the problem Corentis Shield is built for.
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white text-balance">
+                AI needs a checkpoint before it acts. Corentis provides it.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-300">
+                Corentis Shield checks AI outputs before they reach customers, teams or live systems
+                — so sensitive actions can proceed, be reviewed, be escalated or be stopped with
+                evidence recorded.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/runtime-guard">See the checkpoint in action</ButtonLink>
               <ButtonLink href="/contact" variant="secondary">
                 Book a conversation
               </ButtonLink>
@@ -144,39 +170,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Section className="bg-white/[0.02]" id="shield-solution">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="space-y-5 text-lg leading-8 text-slate-300">
-            <div className="card-base card-premium p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyanx">
-                This is the problem Corentis Shield is built for.
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white text-balance">
-                AI needs a checkpoint before it acts. Corentis provides it.
-              </h2>
-              <p className="mt-4 text-base leading-7 text-slate-300">
-                Corentis Shield checks AI outputs before they reach customers, teams or live systems
-                - so sensitive actions can proceed, be reviewed, be escalated or be stopped with
-                evidence recorded.
-              </p>
-            </div>
-          </div>
-          <div className="grid gap-3">
-            {sources.map((source) => (
-              <a
-                key={source.label}
-                href={source.href}
-                target="_blank"
-                rel="noreferrer"
-                className="card-base card-warning card-lift block p-4 text-sm font-medium leading-6 text-amber-50"
-              >
-                {source.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </Section>
 
       <Section
         title="A bad output becomes a bigger problem when it reaches the real world."
