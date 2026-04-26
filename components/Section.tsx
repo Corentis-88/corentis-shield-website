@@ -6,11 +6,12 @@ type SectionProps = {
   intro?: string;
   children: React.ReactNode;
   className?: string;
+  id?: string;
 };
 
-export function Section({ eyebrow, title, intro, children, className = "" }: SectionProps) {
+export function Section({ eyebrow, title, intro, children, className = "", id }: SectionProps) {
   return (
-    <section className={`px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24 ${className}`}>
+    <section id={id} className={`px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl">
         {(eyebrow || title || intro) && (
           <div className="mb-10 max-w-3xl lg:mb-12">

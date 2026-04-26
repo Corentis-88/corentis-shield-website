@@ -123,7 +123,7 @@ export default function Home() {
               with an estimated $4.3bn in losses across this sample alone.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/runtime-guard">See the checkpoint in action</ButtonLink>
+              <ButtonLink href="#shield-solution">See the checkpoint in action</ButtonLink>
               <ButtonLink href="/contact" variant="secondary">
                 Book a conversation
               </ButtonLink>
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Section className="bg-white/[0.02]">
+      <Section className="bg-white/[0.02]" id="shield-solution">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-5 text-lg leading-8 text-slate-300">
             <div className="card-base card-premium p-7">
