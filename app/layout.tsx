@@ -14,13 +14,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description = [
+  "Corentis Shield checks AI outputs before they reach customers, teams or live systems,",
+  "helping regulated organisations route review, stop risky outputs and record evidence before action.",
+].join(" ");
+
 export const metadata: Metadata = {
   title: {
     default: "Corentis Shield | AI checkpoint for regulated workflows",
     template: "%s | Corentis Technologies",
   },
-  description:
-    "Corentis Shield checks AI outputs before they reach customers, teams or live systems, helping regulated organisations route review, stop risky outputs and record evidence before action.",
+  description,
 };
 
 export default function RootLayout({

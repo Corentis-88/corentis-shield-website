@@ -13,6 +13,12 @@ const tests = [
   "create a report before deployment",
 ];
 
+const heroIntro = [
+  "Run AI replies, actions and workflow updates through realistic scenarios",
+  "before they are used in sensitive work.",
+  "Test before live use.",
+].join(" ");
+
 export default function AssuranceLabPage() {
   return (
     <>
@@ -20,7 +26,7 @@ export default function AssuranceLabPage() {
         className="grid-bg pt-20"
         eyebrow="Assurance Lab"
         title="Test AI outputs before they go live."
-        intro="Run AI replies, actions and workflow updates through realistic scenarios before they are used in sensitive work. Test before live use."
+        intro={heroIntro}
       >
         <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="card-base card-premium overflow-hidden rounded-2xl p-3 shadow-card">

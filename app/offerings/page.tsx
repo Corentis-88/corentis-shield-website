@@ -75,6 +75,27 @@ const comparison = [
   },
 ];
 
+const comparisonGridClassName = [
+  "grid min-w-[900px]",
+  "grid-cols-[0.7fr_1.1fr_1.35fr_1.15fr_1.1fr_1fr]",
+].join(" ");
+
+const comparisonHeaderClassName = [
+  comparisonGridClassName,
+  "border-b border-white/10 bg-white/[0.04]",
+  "text-xs font-semibold uppercase tracking-[0.16em] text-slate-400",
+].join(" ");
+
+const comparisonRowClassName = [
+  comparisonGridClassName,
+  "border-b border-white/10 text-sm text-slate-300 last:border-b-0",
+].join(" ");
+
+const adoptionPathIntro = [
+  "Begin with a focused output review. Move into scenario testing.",
+  "Adopt Corentis Shield when you are ready to check AI outputs in live workflows.",
+].join(" ");
+
 export default function OfferingsPage() {
   return (
     <>
@@ -94,7 +115,7 @@ export default function OfferingsPage() {
       <Section className="bg-white/[0.02]" title="Compare the adoption path">
         <div className="card-base card-premium overflow-x-auto rounded-lg">
           <div>
-            <div className="grid min-w-[900px] grid-cols-[0.7fr_1.1fr_1.35fr_1.15fr_1.1fr_1fr] border-b border-white/10 bg-white/[0.04] text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+            <div className={comparisonHeaderClassName}>
               {["Offer", "Best for", "What it proves", "Output", "Typical buyer", "Next step"].map(
                 (heading) => (
                   <div key={heading} className="p-4">
@@ -104,10 +125,7 @@ export default function OfferingsPage() {
               )}
             </div>
             {comparison.map((row) => (
-              <div
-                key={row.offer}
-                className="grid min-w-[900px] grid-cols-[0.7fr_1.1fr_1.35fr_1.15fr_1.1fr_1fr] border-b border-white/10 text-sm text-slate-300 last:border-b-0"
-              >
+              <div key={row.offer} className={comparisonRowClassName}>
                 <div className="p-4 font-semibold text-white">{row.offer}</div>
                 <div className="p-4">{row.bestFor}</div>
                 <div className="p-4">{row.proves}</div>
@@ -120,10 +138,7 @@ export default function OfferingsPage() {
         </div>
       </Section>
 
-      <Section
-        title="Start small. Learn fast. Add control."
-        intro="Begin with a focused output review. Move into scenario testing. Adopt Corentis Shield when you are ready to check AI outputs in live workflows."
-      >
+      <Section title="Start small. Learn fast. Add control." intro={adoptionPathIntro}>
         <CTABanner
           title="Start with the AI workflow that matters most."
           primaryLabel="Book an AI assurance review"

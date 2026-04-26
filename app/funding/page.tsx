@@ -30,6 +30,28 @@ const designPartners = [
   "outsourced customer-service providers",
 ];
 
+const heroIntro = [
+  "AI is moving from chat to action. Sensitive workflows need a way to check outputs,",
+  "route human review and record evidence before anything reaches the real world.",
+].join(" ");
+
+const briefIconClassName = [
+  "flex h-12 w-12 items-center justify-center rounded-lg",
+  "border border-cyanx/30 bg-ink text-cyanx",
+].join(" ");
+
+const infrastructureIntro = [
+  "Corentis may start with focused reviews. The long-term product is a repeatable",
+  "checkpoint platform with policy rules, review routes, evidence records and",
+  "runtime control underneath.",
+].join(" ");
+
+const expansionIntro = [
+  "Financial services is the first proof point. The same checkpoint pattern can",
+  "expand to insurance, healthcare administration, public sector, housing and",
+  "enterprise operations.",
+].join(" ");
+
 export default function FundingPage() {
   return (
     <>
@@ -37,7 +59,7 @@ export default function FundingPage() {
         className="grid-bg pt-20"
         eyebrow="Funding & Partners"
         title="Building the checkpoint layer for AI adoption."
-        intro="AI is moving from chat to action. Sensitive workflows need a way to check outputs, route human review and record evidence before anything reaches the real world."
+        intro={heroIntro}
       >
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="card-base card-premium p-7">
@@ -49,7 +71,7 @@ export default function FundingPage() {
             </p>
           </div>
           <div className="card-base card-info card-lift p-7">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-cyanx/30 bg-ink text-cyanx">
+            <div className={briefIconClassName}>
               <FileText aria-hidden className="h-6 w-6" />
             </div>
             <h2 className="mt-5 text-2xl font-semibold text-white">Funding brief</h2>
@@ -86,10 +108,7 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section
-        title="Why this is infrastructure, not consultancy"
-        intro="Corentis may start with focused reviews. The long-term product is a repeatable checkpoint platform with policy rules, review routes, evidence records and runtime control underneath."
-      >
+      <Section title="Why this is infrastructure, not consultancy" intro={infrastructureIntro}>
         <div className="grid gap-5 md:grid-cols-4">
           {["Policy rules", "Review routes", "Evidence records", "Checkpoint API"].map((item) => (
             <div key={item} className="card-base card-info card-lift p-5 text-cyan-50">
@@ -109,10 +128,7 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section
-        title="First proof point, wider pattern"
-        intro="Financial services is the first proof point. The same checkpoint pattern can expand to insurance, healthcare administration, public sector, housing and enterprise operations."
-      >
+      <Section title="First proof point, wider pattern" intro={expansionIntro}>
         <CTABanner
           title="Explore whether Corentis is a fit for your funding, pilot or partnership goals."
           primaryLabel="Discuss a design partnership"

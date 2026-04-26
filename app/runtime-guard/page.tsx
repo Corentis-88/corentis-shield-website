@@ -12,6 +12,16 @@ const decisions = [
   ["Block", "The output conflicts with policy, risk or evidence requirements."],
 ];
 
+const heroIntro = [
+  "If it can act, it needs a checkpoint.",
+  "Corentis Shield sits between an AI output and a customer, system or workflow action.",
+].join(" ");
+
+const technicalIntro = [
+  "Under the simple checkpoint is the control layer technical teams need:",
+  "policy checks, approval routing and evidence records before AI outputs are used.",
+].join(" ");
+
 export default function RuntimeGuardPage() {
   return (
     <>
@@ -19,7 +29,7 @@ export default function RuntimeGuardPage() {
         className="grid-bg pt-20"
         eyebrow="Corentis Shield"
         title="Check AI outputs before they reach the real world."
-        intro="If it can act, it needs a checkpoint. Corentis Shield sits between an AI output and a customer, system or workflow action."
+        intro={heroIntro}
       >
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.95fr]">
           <RuntimeDecisionDemo />
@@ -72,11 +82,7 @@ export default function RuntimeGuardPage() {
         </div>
       </Section>
 
-      <Section
-        className="bg-white/[0.02]"
-        title="For technical teams"
-        intro="Under the simple checkpoint is the control layer technical teams need: policy checks, approval routing and evidence records before AI outputs are used."
-      >
+      <Section className="bg-white/[0.02]" title="For technical teams" intro={technicalIntro}>
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-base card-info p-6 font-mono text-sm leading-7 text-slate-200">
             <p className="text-cyan-100">Example input</p>

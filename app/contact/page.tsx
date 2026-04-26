@@ -14,13 +14,34 @@ const conversationSteps = [
   "Agree whether a review, scenario test or design-partner discussion makes sense.",
 ];
 
+const contactIntro = [
+  "Whether you are exploring a pilot, reviewing an AI workflow, or looking at funding",
+  "and partnerships, we would be happy to talk. Start with one workflow.",
+].join(" ");
+
+const inputClassName = [
+  "mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white",
+  "outline-none transition placeholder:text-slate-600 focus:border-cyanx",
+].join(" ");
+
+const selectClassName = [
+  "mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white",
+  "outline-none transition focus:border-cyanx",
+].join(" ");
+
+const submitClassName = [
+  "mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cyanx px-5 py-3",
+  "text-sm font-semibold text-ink shadow-[0_12px_34px_rgba(48,213,255,0.18)]",
+  "transition hover:bg-cyan-200",
+].join(" ");
+
 export default function ContactPage() {
   return (
     <Section
       className="grid-bg pt-20"
       eyebrow="Contact"
       title="Let's talk about safer AI workflows."
-      intro="Whether you are exploring a pilot, reviewing an AI workflow, or looking at funding and partnerships, we would be happy to talk. Start with one workflow."
+      intro={contactIntro}
     >
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="space-y-6">
@@ -58,29 +79,21 @@ export default function ContactPage() {
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="text-sm font-medium text-slate-200">
               Name
-              <input
-                name="name"
-                className="mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-cyanx"
-                placeholder="Your name"
-              />
+              <input name="name" className={inputClassName} placeholder="Your name" />
             </label>
             <label className="text-sm font-medium text-slate-200">
               Email
               <input
                 type="email"
                 name="email"
-                className="mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-cyanx"
+                className={inputClassName}
                 placeholder="you@example.com"
               />
             </label>
           </div>
           <label className="mt-5 block text-sm font-medium text-slate-200">
             Enquiry type
-            <select
-              name="enquiry"
-              className="mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white outline-none transition focus:border-cyanx"
-              defaultValue={enquiryOptions[0]}
-            >
+            <select name="enquiry" className={selectClassName} defaultValue={enquiryOptions[0]}>
               {enquiryOptions.map((option) => (
                 <option key={option}>{option}</option>
               ))}
@@ -91,14 +104,11 @@ export default function ContactPage() {
             <textarea
               name="message"
               rows={6}
-              className="mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-cyanx"
+              className={inputClassName}
               placeholder="Tell us about the AI workflow, pilot, funding conversation or partnership opportunity."
             />
           </label>
-          <button
-            type="submit"
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cyanx px-5 py-3 text-sm font-semibold text-ink shadow-[0_12px_34px_rgba(48,213,255,0.18)] transition hover:bg-cyan-200"
-          >
+          <button type="submit" className={submitClassName}>
             <Mail aria-hidden className="h-4 w-4" />
             Open email draft
           </button>

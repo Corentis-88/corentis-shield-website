@@ -24,6 +24,11 @@ const demoRows = [
   },
 ];
 
+const rowIconClassName = [
+  "flex h-10 w-10 flex-none items-center justify-center rounded-lg",
+  "border border-cyanx/25 bg-cyanx/10 text-cyanx",
+].join(" ");
+
 export function RuntimeDecisionDemo() {
   return (
     <div className="card-base card-premium p-6 shadow-card">
@@ -40,7 +45,7 @@ export function RuntimeDecisionDemo() {
           return (
             <div key={row.label} className="card-base card-info card-lift p-4">
               <div className="flex gap-4">
-                <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg border border-cyanx/25 bg-cyanx/10 text-cyanx">
+                <div className={rowIconClassName}>
                   <Icon aria-hidden className="h-5 w-5" />
                 </div>
                 <div>

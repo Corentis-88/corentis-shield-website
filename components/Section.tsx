@@ -1,5 +1,10 @@
 import { Badge } from "@/components/Badge";
 
+const headingClassName = [
+  "mt-5 text-3xl font-semibold tracking-tight text-white text-balance",
+  "sm:text-4xl lg:text-5xl",
+].join(" ");
+
 type SectionProps = {
   eyebrow?: string;
   title?: string;
@@ -16,11 +21,7 @@ export function Section({ eyebrow, title, intro, children, className = "", id }:
         {(eyebrow || title || intro) && (
           <div className="mb-10 max-w-3xl lg:mb-12">
             {eyebrow && <Badge tone="neutral">{eyebrow}</Badge>}
-            {title && (
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white text-balance sm:text-4xl lg:text-5xl">
-                {title}
-              </h2>
-            )}
+            {title && <h2 className={headingClassName}>{title}</h2>}
             {intro && <p className="mt-4 text-lg leading-8 text-slate-300">{intro}</p>}
           </div>
         )}

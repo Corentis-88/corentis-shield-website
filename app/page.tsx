@@ -6,6 +6,35 @@ import { RuntimeDecisionCard } from "@/components/RuntimeDecisionCard";
 import { RuntimeDecisionDemo } from "@/components/RuntimeDecisionDemo";
 import { Section } from "@/components/Section";
 
+const badgeClassName = [
+  "mt-5 inline-flex rounded-full border border-amber-200/25",
+  "bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100",
+].join(" ");
+
+const heroTitleClassName = [
+  "mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white",
+  "text-balance sm:text-6xl lg:text-7xl",
+].join(" ");
+
+const sourceCardClassName = [
+  "card-base card-warning card-lift block p-4",
+  "text-xs font-medium leading-5 text-amber-50",
+].join(" ");
+
+const outputRiskIntro = [
+  "A risky AI reply is not just a bad answer if it reaches a customer.",
+  "A missing evidence check is not just a gap if a case is closed.",
+  "Once AI outputs move into action, teams need a clear checkpoint.",
+].join(" ");
+
+const workflowIntro = [
+  "You do not need to redesign every AI process on day one.",
+  "Start with one sensitive workflow.",
+  "Test the outputs.",
+  "Find the review points.",
+  "See where a checkpoint is needed before live use.",
+].join(" ");
+
 const riskItems = [
   "a payment-pressure message sent to a vulnerable customer",
   "a complaint closed without enough evidence",
@@ -82,7 +111,10 @@ const sources = [
   },
   {
     label: "Source: Deloitte, State of AI in the Enterprise 2026",
-    href: "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
+    href: [
+      "https://www.deloitte.com/us/en/what-we-do/capabilities/",
+      "applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
+    ].join(""),
   },
   {
     label: "Source: BCG, When AI Acts Alone, 2025",
@@ -103,12 +135,8 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyanx">
               Corentis Shield - AI checkpoint for regulated workflows
             </p>
-            <div className="mt-5 inline-flex rounded-full border border-amber-200/25 bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100">
-              If it can act, it needs a checkpoint.
-            </div>
-            <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white text-balance sm:text-6xl lg:text-7xl">
-              AI and AI agents are here.
-            </h1>
+            <div className={badgeClassName}>If it can act, it needs a checkpoint.</div>
+            <h1 className={heroTitleClassName}>AI and AI agents are here.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               McKinsey says 62% of surveyed organisations are at least experimenting with AI agents.
               Deloitte says worker access to AI rose by 50% in 2025, and companies expect more AI
@@ -129,7 +157,7 @@ export default function Home() {
                   href={source.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="card-base card-warning card-lift block p-4 text-xs font-medium leading-5 text-amber-50"
+                  className={sourceCardClassName}
                 >
                   {source.label}
                 </a>
@@ -173,7 +201,7 @@ export default function Home() {
 
       <Section
         title="A bad output becomes a bigger problem when it reaches the real world."
-        intro="A risky AI reply is not just a bad answer if it reaches a customer. A missing evidence check is not just a gap if a case is closed. Once AI outputs move into action, teams need a clear checkpoint."
+        intro={outputRiskIntro}
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {riskItems.map((item) => (
@@ -282,10 +310,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section
-        title="Start with one workflow."
-        intro="You do not need to redesign every AI process on day one. Start with one sensitive workflow. Test the outputs. Find the review points. See where a checkpoint is needed before live use."
-      >
+      <Section title="Start with one workflow." intro={workflowIntro}>
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <RuntimeDecisionDemo />
           <div className="card-base card-premium p-8">

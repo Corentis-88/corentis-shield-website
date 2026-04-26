@@ -21,6 +21,22 @@ const useCases = [
   "audit evidence",
 ];
 
+const heroIntro = [
+  "Complaints, hardship and vulnerable-customer situations need careful handling.",
+  "Corentis Shield checks AI replies and proposed actions before they reach the customer.",
+  "Human review where it matters.",
+].join(" ");
+
+const examplesIntro = [
+  "Corentis Shield checks AI outputs in sensitive customer workflows,",
+  "where tone, timing, evidence and escalation matter.",
+].join(" ");
+
+const expansionIntro = [
+  "The same checkpoint pattern can extend into insurance claims, pension servicing,",
+  "customer support, public-sector casework, healthcare administration and other regulated workflows.",
+].join(" ");
+
 export default function FinancialServicesPage() {
   return (
     <>
@@ -28,7 +44,7 @@ export default function FinancialServicesPage() {
         className="grid-bg pt-20"
         eyebrow="Financial Services"
         title="Helping financial-services teams use AI with more confidence."
-        intro="Complaints, hardship and vulnerable-customer situations need careful handling. Corentis Shield checks AI replies and proposed actions before they reach the customer. Human review where it matters."
+        intro={heroIntro}
       >
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.95fr]">
           <div>
@@ -52,10 +68,7 @@ export default function FinancialServicesPage() {
         </div>
       </Section>
 
-      <Section
-        title="Where Corentis Shield helps first"
-        intro="Corentis Shield checks AI outputs in sensitive customer workflows, where tone, timing, evidence and escalation matter."
-      >
+      <Section title="Where Corentis Shield helps first" intro={examplesIntro}>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {examples.map((example) => (
             <div
@@ -71,7 +84,7 @@ export default function FinancialServicesPage() {
       <Section
         className="bg-white/[0.02]"
         title="Financial services is the first proof point, not the limit"
-        intro="The same checkpoint pattern can extend into insurance claims, pension servicing, customer support, public-sector casework, healthcare administration and other regulated workflows."
+        intro={expansionIntro}
       >
         <CTABanner
           title="Bring clearer oversight to a sensitive AI workflow."
