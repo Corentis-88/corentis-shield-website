@@ -108,9 +108,9 @@ export default function FinancialServicesPage() {
         <CTABanner
           title="Bring clearer oversight to a sensitive AI workflow."
           primaryLabel="Book an AI assurance review"
-          primaryHref="/contact"
+          primaryHref="/contact#assurance"
           secondaryLabel="See the checkpoint in action"
-          secondaryHref="/runtime-guard"
+          secondaryHref="/walkthrough"
         />
       </Section>
     </>

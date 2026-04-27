@@ -155,7 +155,7 @@ export default function OfferingsPage() {
         <CTABanner
           title="Start with the AI workflow that matters most."
           primaryLabel="Book a conversation"
-          primaryHref="/contact"
+          primaryHref="/contact#walkthrough"
           secondaryLabel="Why Corentis?"
           secondaryHref="/why-corentis"
         />

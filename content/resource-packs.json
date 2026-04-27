@@ -1,0 +1,443 @@
+[
+  {
+    "slug": "investor-overview",
+    "title": "Investor Overview PDF",
+    "pdfTitle": "Corentis Investor Overview",
+    "subtitle": "AI checkpoint infrastructure for regulated workflows.",
+    "audience": "Investors",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-investor-overview.pdf",
+    "shortDescription": "Market timing, product path, commercial route and expansion logic for Corentis.",
+    "evidenceHook": "Frames Corentis at the intersection of regulated-service pressure and rapid AI adoption.",
+    "ctaText": "Request an investor or design partner conversation.",
+    "disclaimer": "This document is for discussion and pilot exploration only. It does not constitute legal, regulatory, investment or compliance advice.",
+    "evidenceIds": [
+      "fca-complaints-volume-2025-h1",
+      "fca-complaints-redress-2025-h1",
+      "fos-complaint-escalation-2024-25",
+      "mckinsey-ai-adoption-2025",
+      "mckinsey-agentic-ai-2025",
+      "ibm-ai-governance-gap-2025"
+    ],
+    "sections": [
+      {
+        "heading": "Opening position",
+        "body": "Corentis Shield is an AI checkpoint for regulated workflows. It is designed to sit between AI agents and regulated actions, checking proposed outputs against policy, risk rules, human-review requirements and evidence requirements before anything sensitive moves forward."
+      },
+      {
+        "heading": "The core problem",
+        "body": "AI adoption is accelerating, but regulated teams cannot rely on AI agents in sensitive workflows unless actions are controlled, reviewed and evidenced. The risk is not only that AI may produce a weak answer. The risk grows when that answer becomes a customer message, record update, recommendation or workflow action."
+      },
+      {
+        "heading": "Why now: AI adoption is moving faster than operational control",
+        "body": "Corentis sits at the intersection of two trends: rising regulated-service pressure and rapid AI/agentic AI adoption. The opportunity is not simply to add more AI, but to make AI actions controlled, reviewable and evidenced."
+      },
+      {
+        "heading": "Why policies alone are insufficient",
+        "body": "Policies describe intent, but they do not automatically control runtime AI behaviour. Corentis is designed to create a checkpoint before action, so proposed outputs can be checked, routed, paused or recorded before they affect customers, teams or live systems."
+      },
+      {
+        "heading": "The Corentis answer",
+        "bullets": [
+          "Corentis Shield: the checkpoint before AI outputs become real-world action.",
+          "Policy Controls: operational rules derived from policy, risk and evidence requirements.",
+          "Review Queue: human approval and escalation where judgement is needed.",
+          "Assurance Lab: scenario testing before live use.",
+          "Evidence Vault: records of proposals, decisions, reviews and timestamps.",
+          "Pilot Report: a structured evidence pack for rollout decisions."
+        ]
+      },
+      {
+        "heading": "Narrow wedge, broader platform",
+        "body": "The first wedge is financial-services complaints and vulnerable-customer workflows because they combine high contact volume, sensitive customer context, evidence requirements, escalation rules and reputational risk. Once the control pattern works for one regulated workflow, it can be adapted to other regulated support, casework and AI-agent workflows."
+      },
+      {
+        "heading": "Commercial value",
+        "bullets": [
+          "Faster safe AI rollout through a clear checkpoint-before-action pattern.",
+          "Clearer operational oversight around AI-assisted work.",
+          "Reusable evidence instead of manual evidence chasing.",
+          "Reduced duplicated governance effort across pilot workflows.",
+          "Stronger procurement and buyer confidence through evidence-led controls."
+        ]
+      },
+      {
+        "heading": "What Corentis is seeking",
+        "bullets": [
+          "Design partners with sensitive regulated workflows.",
+          "Pilot conversations around complaints, vulnerability and regulated support.",
+          "Strategic investors and funders who understand AI assurance infrastructure.",
+          "Regulated workflow collaborators who want a practical path from review to deployment."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "assurance-governance-summary",
+    "title": "Assurance & Governance Summary PDF",
+    "pdfTitle": "Assurance & Governance Summary",
+    "subtitle": "How Corentis supports controlled AI workflows and evidence-led assurance.",
+    "audience": "Assurance reviewers",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-assurance-governance-summary.pdf",
+    "shortDescription": "How Corentis maps AI outputs to controls, review and evidence.",
+    "evidenceHook": "Shows why assurance needs evidence captured while the workflow runs.",
+    "ctaText": "Review the sample pilot report or discuss an assurance workflow.",
+    "disclaimer": "Corentis supports governance and assurance workflows. It does not replace legal, compliance, risk or regulatory judgement. This document is for discussion and pilot exploration only.",
+    "evidenceIds": [
+      "fca-vulnerable-customer-scale-2024",
+      "fca-consumer-duty-communications-2025",
+      "fca-complaints-redress-2025-h1",
+      "fca-enforcement-redress-2024-25",
+      "fca-tsb-financial-difficulty-2024",
+      "fca-volkswagen-finance-2024",
+      "ibm-ai-governance-gap-2025"
+    ],
+    "sections": [
+      {
+        "heading": "What Corentis is",
+        "body": "Corentis Shield is a checkpoint and evidence layer for AI-assisted regulated workflows. It is designed to help teams review sensitive outputs, route exceptions and capture evidence before action."
+      },
+      {
+        "heading": "What it helps control",
+        "bullets": [
+          "Sensitive outputs and customer-impacting actions.",
+          "Policy exceptions and escalation conditions.",
+          "Vulnerability signals and hardship context.",
+          "Human approval requirements before sensitive action.",
+          "Evidence requirements for reviewable decisions."
+        ]
+      },
+      {
+        "heading": "Why assurance needs runtime evidence",
+        "body": "The commercial risk is not only that an AI model may be wrong. It is that a firm may be unable to show which controls operated, why a sensitive action was paused, who reviewed it, and what evidence was captured."
+      },
+      {
+        "heading": "Control loop",
+        "bullets": [
+          "Define the workflow boundary.",
+          "Translate policy into controls.",
+          "Test scenarios in Assurance Lab.",
+          "Check AI outputs or actions at runtime.",
+          "Route exceptions to review.",
+          "Capture evidence.",
+          "Generate pilot and reporting artefacts."
+        ]
+      },
+      {
+        "heading": "Evidence outputs",
+        "bullets": [
+          "Control matrix.",
+          "Scenario test log.",
+          "Blocked-action log.",
+          "Review queue history.",
+          "Policy version trail.",
+          "Pilot summary."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "design-partner-pack",
+    "title": "Design Partner Pack PDF",
+    "pdfTitle": "Design Partner Pack",
+    "subtitle": "A practical path to pilot Corentis Shield on one regulated workflow.",
+    "audience": "Design partners",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-design-partner-pack.pdf",
+    "shortDescription": "A practical outline for starting with one sensitive workflow.",
+    "evidenceHook": "Explains why complaints and vulnerable-customer workflows are a strong first pilot wedge.",
+    "ctaText": "Start a design partner conversation.",
+    "disclaimer": "This document is for discussion and pilot exploration only. A design partner pilot can begin as non-production testing and should be scoped with appropriate risk, compliance and operational stakeholders.",
+    "evidenceIds": [
+      "fca-complaints-volume-2025-h1",
+      "fos-complaint-escalation-2024-25",
+      "fca-vulnerable-customer-scale-2024",
+      "fca-contact-difficulty-2024",
+      "salesforce-ai-agent-trust-2026",
+      "qualtrics-cx-spending-2025"
+    ],
+    "sections": [
+      {
+        "heading": "Who this is for",
+        "body": "This pack is for regulated teams exploring AI-assisted workflows where actions need controls, review and evidence. The first pilot can be narrow, practical and non-production."
+      },
+      {
+        "heading": "Why start with complaints and vulnerable-customer workflows?",
+        "body": "A non-production pilot can test whether AI-assisted workflows can be made more controlled before deployment: sensitive outputs paused, vulnerability signals escalated, human approval routed, and evidence captured."
+      },
+      {
+        "heading": "Ideal first pilot",
+        "bullets": [
+          "Complaints handling.",
+          "Vulnerable customer handling.",
+          "Regulated support operations.",
+          "AI-assisted casework.",
+          "Internal support copilot workflows."
+        ]
+      },
+      {
+        "heading": "What a pilot could test",
+        "bullets": [
+          "Can policies be translated into operational controls?",
+          "Can risky AI outputs or actions be caught before action?",
+          "Can human review be routed cleanly?",
+          "Can evidence be generated automatically?",
+          "Can the organisation see a clearer go/no-go path?"
+        ]
+      },
+      {
+        "heading": "Suggested pilot phases",
+        "bullets": [
+          "Use-case selection.",
+          "Workflow boundary definition.",
+          "Policy/control mapping.",
+          "Scenario testing.",
+          "Runtime simulation.",
+          "Human review workflow.",
+          "Evidence pack generation.",
+          "Pilot review and next-step decision."
+        ]
+      },
+      {
+        "heading": "What Corentis would need",
+        "bullets": [
+          "A sample workflow.",
+          "Policy or process documents.",
+          "Risk concerns and approval points.",
+          "Example scenarios.",
+          "Feedback on usability and evidence needs."
+        ]
+      },
+      {
+        "heading": "What the design partner receives",
+        "bullets": [
+          "Sample control plan.",
+          "Scenario results.",
+          "Evidence pack.",
+          "Pilot report.",
+          "Implementation recommendations."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sample-pilot-report",
+    "title": "Sample Pilot Report PDF",
+    "pdfTitle": "Sample Pilot Report",
+    "subtitle": "Financial services complaints workflow. Demo / illustrative report.",
+    "audience": "Pilot teams",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-sample-pilot-report.pdf",
+    "shortDescription": "A report structure for evidence-led controlled AI workflow pilots.",
+    "evidenceHook": "Shows how evidence could be presented for a fictional vulnerable-customer complaints workflow.",
+    "ctaText": "Request a pilot walkthrough.",
+    "disclaimer": "This is fictional demo material. It does not describe a real customer, a real bank, a real complaint or a completed deployment. It is for discussion and pilot exploration only.",
+    "evidenceIds": [
+      "fca-complaints-volume-2025-h1",
+      "fca-vulnerable-customer-scale-2024",
+      "fca-financial-difficulty-2024",
+      "fca-consumer-duty-communications-2025",
+      "fca-volkswagen-finance-2024"
+    ],
+    "sections": [
+      {
+        "heading": "Executive summary",
+        "body": "This illustrative report shows how Corentis Shield could support a controlled pilot for a financial-services complaints assistant focused on vulnerable-customer handling. AI can assist with triage, drafting and recommendations. Sensitive customer messages and final decisions require checkpointing and human review."
+      },
+      {
+        "heading": "Why this sample workflow matters",
+        "body": "Complaints, hardship and vulnerable-customer workflows combine customer emotion, operational pressure, evidence requirements and reputational risk. They are a practical first place to test whether AI-assisted work can be made more controlled before deployment."
+      },
+      {
+        "heading": "Use-case boundary",
+        "bullets": [
+          "AI can assist with triage, drafting and recommendations.",
+          "AI cannot directly send sensitive customer messages without human review.",
+          "AI cannot make final complaint decisions without evidence checks.",
+          "Hardship, vulnerability and complaint-risk signals should trigger review or escalation."
+        ]
+      },
+      {
+        "heading": "Control objectives",
+        "bullets": [
+          "Detect vulnerability signals.",
+          "Prevent unsupported final responses.",
+          "Require human approval for sensitive communications.",
+          "Escalate hardship and complaint-risk signals.",
+          "Capture evidence for decisions and review."
+        ]
+      },
+      {
+        "heading": "Scenario tests",
+        "bullets": [
+          "Customer discloses job loss and missed mortgage payment: checkpoint escalates hardship signal and requires human review.",
+          "Complaint includes repeated contact after vulnerability disclosure: checkpoint blocks direct closure and asks for evidence review.",
+          "AI drafts overconfident compensation wording: checkpoint routes wording to approval and records version.",
+          "AI suggests closing a complaint without adequate investigation: checkpoint blocks closure until investigation evidence is attached.",
+          "Customer requests urgent support: checkpoint escalates to a specialist queue and records the reason."
+        ]
+      },
+      {
+        "heading": "Control matrix summary",
+        "bullets": [
+          "Risk: vulnerability signal. Control: pause direct response. Evidence: disclosure and review note.",
+          "Risk: unsupported closure. Control: block closure. Evidence: investigation history required.",
+          "Risk: sensitive compensation wording. Control: review required. Evidence: approved wording/version recorded."
+        ]
+      },
+      {
+        "heading": "Residual risks",
+        "bullets": [
+          "Policy quality matters.",
+          "Human reviewers still need judgement.",
+          "Model outputs require monitoring.",
+          "Integration boundaries need clear ownership."
+        ]
+      },
+      {
+        "heading": "Go/no-go recommendation",
+        "body": "Proceed to a controlled design-partner pilot. Do not treat this illustrative report as approval for enterprise rollout."
+      }
+    ]
+  },
+  {
+    "slug": "control-matrix-example",
+    "title": "Control Matrix Example PDF",
+    "pdfTitle": "Example Control Matrix",
+    "subtitle": "Illustrative example only.",
+    "audience": "Governance teams",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-control-matrix-example.pdf",
+    "shortDescription": "Example control mapping for policy, risk, review and evidence.",
+    "evidenceHook": "Maps vulnerable-customer and financial-difficulty pressure into reviewable controls.",
+    "ctaText": "Discuss how this matrix could map to your workflow.",
+    "disclaimer": "Illustrative example only. This document does not constitute legal, regulatory or compliance advice.",
+    "evidenceIds": [
+      "fca-vulnerable-customer-scale-2024",
+      "fca-financial-difficulty-2024",
+      "fca-consumer-duty-communications-2025",
+      "fca-tsb-financial-difficulty-2024",
+      "fca-volkswagen-finance-2024"
+    ],
+    "matrixRows": [
+      {
+        "riskArea": "Vulnerable customer disclosure",
+        "policyIntent": "Handle vulnerability signals carefully and avoid inappropriate pressure.",
+        "runtimeCheckpoint": "Pause direct response when vulnerability is detected.",
+        "humanReviewTrigger": "Human review required before customer communication.",
+        "evidenceCaptured": "Disclosure, proposed response, policy version and review decision.",
+        "owner": "Customer operations reviewer"
+      },
+      {
+        "riskArea": "Financial difficulty",
+        "policyIntent": "Escalate hardship signals and consider tailored support.",
+        "runtimeCheckpoint": "Route hardship cases to specialist review.",
+        "humanReviewTrigger": "Specialist approval before collections or closure action.",
+        "evidenceCaptured": "Hardship signal, missed-payment context and support review note.",
+        "owner": "Specialist support team"
+      },
+      {
+        "riskArea": "Unsupported complaint closure",
+        "policyIntent": "Do not close complaints without adequate investigation evidence.",
+        "runtimeCheckpoint": "Block closure if investigation evidence is missing.",
+        "humanReviewTrigger": "Complaint handler review required.",
+        "evidenceCaptured": "Complaint history, missing evidence flag and closure decision.",
+        "owner": "Complaints lead"
+      },
+      {
+        "riskArea": "Sensitive compensation wording",
+        "policyIntent": "Ensure compensation or refund wording is accurate and approved.",
+        "runtimeCheckpoint": "Review required before sensitive wording is sent.",
+        "humanReviewTrigger": "Supervisor approval for final wording.",
+        "evidenceCaptured": "Draft, approved wording/version and reviewer timestamp.",
+        "owner": "Supervisor"
+      },
+      {
+        "riskArea": "Unclear customer communication",
+        "policyIntent": "Present information in a way customers can understand.",
+        "runtimeCheckpoint": "Plain-language review for complex or sensitive messages.",
+        "humanReviewTrigger": "Review required if communication is unclear or too technical.",
+        "evidenceCaptured": "Original draft, revised wording and review decision.",
+        "owner": "Customer communications reviewer"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Example control areas grounded in real regulatory pressure",
+        "body": "The example matrix shows how policy intent can become operational checks, approval points and evidence logs. It is not a template for legal compliance; it is a practical way to make review points visible in a pilot."
+      },
+      {
+        "heading": "How this helps",
+        "bullets": [
+          "Turns policy into operational checks.",
+          "Makes approval points visible.",
+          "Gives assurance teams something reviewable.",
+          "Creates reusable pilot evidence."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "runtime-checkpoint-explainer",
+    "title": "Runtime Checkpoint Explainer PDF",
+    "pdfTitle": "Runtime Checkpoint Explainer",
+    "subtitle": "A plain-English guide to the checkpoint before action.",
+    "audience": "Technical teams",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-runtime-checkpoint-explainer.pdf",
+    "shortDescription": "A plain-English explanation of the checkpoint before action.",
+    "evidenceHook": "Explains why checkpoints matter as AI agents move from drafting to acting.",
+    "ctaText": "Explore Corentis Shield.",
+    "disclaimer": "This document is for discussion and pilot exploration only. Corentis Shield is designed to support controlled AI workflows; it does not solve every AI governance issue.",
+    "evidenceIds": [
+      "mckinsey-ai-adoption-2025",
+      "mckinsey-agentic-ai-2025",
+      "mckinsey-ai-negative-consequences-2025",
+      "ibm-ai-governance-gap-2025",
+      "salesforce-ai-agent-trust-2026"
+    ],
+    "sections": [
+      {
+        "heading": "What a runtime checkpoint is",
+        "body": "A runtime checkpoint is the moment where Corentis checks what an AI system is about to say or do before that action moves forward."
+      },
+      {
+        "heading": "Why checkpoints matter as AI agents move from drafting to acting",
+        "body": "A checkpoint is the practical control point between an AI-generated recommendation and a sensitive real-world action."
+      },
+      {
+        "heading": "The difference between documents, outputs and checkpoints",
+        "bullets": [
+          "A policy document describes expected behaviour.",
+          "An AI model output is a draft reply, recommendation or proposed action.",
+          "A runtime checkpoint checks the output before action.",
+          "Human review adds judgement where risk, context or evidence requires it.",
+          "An evidence log records what was proposed, checked, decided and reviewed."
+        ]
+      },
+      {
+        "heading": "Simple flow",
+        "body": "AI proposes output/action -> Corentis checks it -> safe items continue -> risky items pause -> human review -> evidence logged."
+      },
+      {
+        "heading": "Examples",
+        "bullets": [
+          "AI drafts a complaint response.",
+          "AI recommends a next action.",
+          "AI detects a vulnerable customer signal.",
+          "AI tries to close a case without enough evidence."
+        ]
+      },
+      {
+        "heading": "Why this matters",
+        "bullets": [
+          "Control before action.",
+          "Safer adoption through reviewable workflows.",
+          "Less blind trust in AI outputs.",
+          "Better evidence for oversight."
+        ]
+      }
+    ]
+  }
+]

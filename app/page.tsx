@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { BeforeAfterControlPanel } from "@/components/BeforeAfterControlPanel";
 import { ButtonLink } from "@/components/ButtonLink";
+import { EvidenceStatCards } from "@/components/EvidenceStatCards";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { PhotoPanel } from "@/components/PhotoPanel";
 import { ProductCard } from "@/components/ProductCard";
@@ -7,34 +9,24 @@ import { RuntimeDecisionCard } from "@/components/RuntimeDecisionCard";
 import { RuntimeDecisionDemo } from "@/components/RuntimeDecisionDemo";
 import { Section } from "@/components/Section";
 
-const badgeClassName = [
-  "mt-5 inline-flex rounded-full border border-amber-200/25",
-  "bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100",
-].join(" ");
-
-const heroTitleClassName = [
-  "mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white",
-  "text-balance sm:text-6xl lg:text-7xl",
-].join(" ");
-
-const sourceCardClassName = [
-  "card-base card-warning card-lift block p-4",
-  "text-xs font-medium leading-5 text-amber-50",
-].join(" ");
-
-const outputRiskIntro = [
-  "A risky AI reply is not just a bad answer if it reaches a customer.",
-  "It can create rework, complaints, conduct risk and avoidable operational cost.",
-  "Once AI outputs move into action, every mistake becomes more expensive to fix.",
-].join(" ");
-
-const workflowIntro = [
-  "You do not need to redesign every AI process on day one.",
-  "Start with one sensitive workflow.",
-  "Test the outputs.",
-  "Find the review points.",
-  "See where a checkpoint is needed before live use.",
-].join(" ");
+const sources = [
+  {
+    label: "Source: McKinsey, The State of AI 2025",
+    href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+  },
+  {
+    label: "Source: Deloitte, State of AI in the Enterprise 2026",
+    href: "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
+  },
+  {
+    label: "Source: BCG, When AI Acts Alone, 2025",
+    href: "https://www.bcg.com/press/17december2025-when-ai-acts-alone-next-era-risk",
+  },
+  {
+    label: "Source: EY, Responsible AI survey 2025",
+    href: "https://www.ey.com/en_gl/insights/ai/how-can-responsible-ai-bridge-the-gap-between-investment-and-impact",
+  },
+];
 
 const riskItems = [
   "a payment-pressure message sent to a vulnerable customer",
@@ -141,27 +133,93 @@ const nextBuildPhase = [
   "design partner pilots",
 ];
 
-const sources = [
+const regulatedWorkflowCards = [
+  "Complaints handling",
+  "Vulnerable customer support",
+  "AI-assisted casework",
+  "Internal copilots",
+  "Customer-facing agents",
+  "Regulated operations",
+];
+
+const sprintPathways = [
   {
-    label: "Source: McKinsey, The State of AI 2025",
-    href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    title: "Why Corentis?",
+    description: "The strategic case for a checkpoint before AI action.",
+    href: "/why-corentis",
   },
   {
-    label: "Source: Deloitte, State of AI in the Enterprise 2026",
-    href: [
-      "https://www.deloitte.com/us/en/what-we-do/capabilities/",
-      "applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
-    ].join(""),
+    title: "Methodology",
+    description: "How policy becomes controls, review and evidence.",
+    href: "/methodology",
   },
   {
-    label: "Source: BCG, When AI Acts Alone, 2025",
-    href: "https://www.bcg.com/press/17december2025-when-ai-acts-alone-next-era-risk",
+    title: "Pilot report",
+    description: "What a controlled AI workflow pilot can produce.",
+    href: "/pilot-report",
   },
   {
-    label: "Source: EY, Responsible AI survey 2025",
-    href: "https://www.ey.com/en_gl/insights/ai/how-can-responsible-ai-bridge-the-gap-between-investment-and-impact",
+    title: "Resources",
+    description: "Placeholder packs for investors, buyers and design partners.",
+    href: "/resources",
+  },
+  {
+    title: "Partners & Funders",
+    description: "A public-facing path for partnership and funding conversations.",
+    href: "/partners-and-funders",
+  },
+  {
+    title: "Founder",
+    description: "Why this problem, why now and what Corentis is aiming to prove.",
+    href: "/founder",
   },
 ];
+
+const homepageEvidenceIds = [
+  "fca-complaints-volume-2025-h1",
+  "mckinsey-ai-adoption-2025",
+  "ibm-ai-governance-gap-2025",
+];
+
+const aiAgentAlone = [
+  "output may move straight to action",
+  "context may be missed",
+  "evidence may be incomplete",
+  "human review may be unclear",
+  "issues may be found too late",
+];
+
+const aiAgentWithShield = [
+  "output is checked first",
+  "policy and risk are reviewed",
+  "missing evidence is surfaced",
+  "human review is routed",
+  "the decision is recorded",
+];
+
+const sourceCardClassName = [
+  "card-base card-warning card-lift block p-4",
+  "text-xs font-medium leading-5 text-amber-50",
+].join(" ");
+
+const heroTitleClassName = [
+  "mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white",
+  "text-balance sm:text-6xl lg:text-7xl",
+].join(" ");
+
+const outputRiskIntro = [
+  "A risky AI reply is not just a bad answer if it reaches a customer.",
+  "It can create rework, complaints, conduct risk and avoidable operational cost.",
+  "Once AI outputs move into action, every mistake becomes more expensive to fix.",
+].join(" ");
+
+const workflowIntro = [
+  "You do not need to redesign every AI process on day one.",
+  "Start with one sensitive workflow.",
+  "Test the outputs.",
+  "Find the review points.",
+  "See where a checkpoint is needed before live use.",
+].join(" ");
 
 export default function Home() {
   return (
@@ -172,8 +230,10 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyanx">
               Corentis Shield - AI checkpoint for regulated workflows
             </p>
-            <div className={badgeClassName}>If it can act, it needs a checkpoint.</div>
-            <h1 className={heroTitleClassName}>AI is here.</h1>
+            <div className="mt-5 inline-flex rounded-full border border-amber-200/25 bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100">
+              If it can act, it needs a checkpoint.
+            </div>
+            <h1 className={heroTitleClassName}>AI and AI agents are here.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               McKinsey says 62% of surveyed organisations are at least experimenting with AI agents.
               Deloitte says worker access to AI rose by 50% in 2025, and companies expect more AI
@@ -267,42 +327,7 @@ export default function Home() {
         className="bg-white/[0.02]"
         title="AI agent on its own vs AI agent with Corentis Shield"
       >
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card-base card-warning p-7">
-            <h3 className="text-2xl font-semibold text-white">AI agent on its own</h3>
-            <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-200">
-              {[
-                "output may move straight to action",
-                "context may be missed",
-                "evidence may be incomplete",
-                "human review may be unclear",
-                "issues may be found too late",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-amber-200" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="card-base card-success p-7">
-            <h3 className="text-2xl font-semibold text-white">AI agent with Corentis Shield</h3>
-            <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-200">
-              {[
-                "output is checked first",
-                "policy and risk are reviewed",
-                "missing evidence is surfaced",
-                "human review is routed",
-                "the decision is recorded",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-teal-200" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <BeforeAfterControlPanel />
       </Section>
 
       <Section
@@ -311,9 +336,20 @@ export default function Home() {
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {shieldReasons.map((item) => (
-            <div key={item.title} className="card-base card-info card-lift p-6">
-              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+            <InfoCard key={item.title} title={item.title} description={item.description} />
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Built for regulated workflows"
+        intro="Corentis starts where AI outputs can affect customers, records, decisions or regulated operations."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {regulatedWorkflowCards.map((item) => (
+            <div key={item} className="card-base card-info card-lift p-5 text-cyan-50">
+              {item}
             </div>
           ))}
         </div>
@@ -326,10 +362,7 @@ export default function Home() {
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {checks.map((item) => (
-            <div key={item.title} className="card-base card-info card-lift p-6">
-              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
-            </div>
+            <InfoCard key={item.title} title={item.title} description={item.description} />
           ))}
         </div>
       </Section>
@@ -350,7 +383,52 @@ export default function Home() {
       </Section>
 
       <Section
+        title="From policy to proof"
+        intro="A simple journey from governance intent to evidence people can inspect."
+      >
+        <FlowDiagram steps={["Policy", "Checkpoint", "Review", "Evidence", "Pilot Report"]} />
+      </Section>
+
+      <Section
         className="bg-white/[0.02]"
+        title="Explore the funding-ready structure"
+        intro="These pages create the route from product explanation to proof, methodology, partner conversations and future resource packs."
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {sprintPathways.map((item) => (
+            <div key={item.title} className="card-base card-premium card-lift p-6">
+              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+              <div className="mt-5">
+                <ButtonLink href={item.href} variant="secondary">
+                  Open
+                </ButtonLink>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Why a checkpoint layer matters now"
+        intro="The problem is not simply whether organisations can use AI. It is whether they can control what AI is about to do before that action affects a customer, case or regulated workflow."
+      >
+        <EvidenceStatCards ids={homepageEvidenceIds} tone="premium" />
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/packs/corentis-investor-overview.pdf">
+            Download Investor Overview
+          </ButtonLink>
+          <ButtonLink href="/methodology" variant="secondary">
+            Explore Methodology
+          </ButtonLink>
+          <ButtonLink href="/pilot-report" variant="secondary">
+            View Sample Pilot Report
+          </ButtonLink>
+        </div>
+      </Section>
+
+      <Section
         title="More than a product: a route to trusted AI adoption"
         intro="Corentis Shield starts as a checkpoint for AI outputs. The same mechanism can support pilots, assurance reports, benchmark datasets and live deployment across regulated workflows."
       >
@@ -412,7 +490,7 @@ export default function Home() {
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/why-corentis">Why Corentis?</ButtonLink>
-          <ButtonLink href="/contact" variant="secondary">
+          <ButtonLink href="/contact#design-partner" variant="secondary">
             Discuss a design partnership
           </ButtonLink>
         </div>
@@ -430,14 +508,42 @@ export default function Home() {
               review is needed and see what evidence should be recorded before live use.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact">Book a conversation</ButtonLink>
-              <ButtonLink href="/contact" variant="secondary">
+              <ButtonLink href="/contact#walkthrough">Book a conversation</ButtonLink>
+              <ButtonLink href="/contact#design-partner" variant="secondary">
                 Discuss a design partnership
               </ButtonLink>
             </div>
           </div>
         </div>
       </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Building with design partners"
+        intro="Corentis is seeking early conversations with regulated teams, AI assurance stakeholders and strategic partners who want to test controlled AI workflows."
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/contact#design-partner">Request a pilot conversation</ButtonLink>
+          <ButtonLink href="/pilot-report" variant="secondary">
+            View pilot report
+          </ButtonLink>
+          <ButtonLink href="/methodology" variant="secondary">
+            Read the methodology
+          </ButtonLink>
+          <ButtonLink href="/resources" variant="secondary">
+            Explore the evidence packs
+          </ButtonLink>
+        </div>
+      </Section>
     </>
+  );
+}
+
+function InfoCard({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="card-base card-info card-lift p-6">
+      <h3 className="text-lg font-semibold text-white">{title}</h3>
+      <p className="mt-3 text-sm leading-6 text-slate-300">{description}</p>
+    </div>
   );
 }

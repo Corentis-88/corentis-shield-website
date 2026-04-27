@@ -1,0 +1,301 @@
+[
+  {
+    "id": "fca-complaints-volume-2025-h1",
+    "theme": "complaints",
+    "headlineStat": "UK financial services firms received 1.85m complaints in 2025 H1.",
+    "supportingDetail": "This was a 3.6% increase from 2024 H2. Since 2021 H1, complaints have stayed relatively constant between 1.7m and 2.0m.",
+    "shortLabel": "FCA complaints data",
+    "sourceName": "Aggregate complaints data: 2025 H1",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "23 October 2025",
+    "sourceUrl": "https://www.fca.org.uk/data/complaints-data/aggregate-complaints-data-2025-h1",
+    "sourceNote": "UK financial services complaints volume context.",
+    "suggestedUse": [
+      "Investor Overview: market/problem scale",
+      "Design Partner Pack: why complaints are a strong wedge",
+      "Sample Pilot Report: context for complaints pilot"
+    ],
+    "caution": "Do not claim Corentis reduces complaint volume. Frame this as evidence that complaints handling is a large operational problem."
+  },
+  {
+    "id": "fca-complaints-redress-2025-h1",
+    "theme": "redress",
+    "headlineStat": "Total redress in FCA complaints data was £283m in 2025 H1.",
+    "supportingDetail": "This was a 20.0% increase on the 2024 H2 figure of £236m.",
+    "shortLabel": "FCA complaints redress",
+    "sourceName": "Aggregate complaints data: 2025 H1",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "23 October 2025",
+    "sourceUrl": "https://www.fca.org.uk/data/complaints-data/aggregate-complaints-data-2025-h1",
+    "sourceNote": "UK financial services complaints redress context.",
+    "suggestedUse": [
+      "Investor Overview: commercial cost of poor outcomes",
+      "Assurance & Governance Summary: why evidence and controls matter"
+    ],
+    "caution": "Do not claim Corentis reduces redress by a specific percentage."
+  },
+  {
+    "id": "fos-complaint-escalation-2024-25",
+    "theme": "complaints",
+    "headlineStat": "The Financial Ombudsman Service received 305,726 new complaints in 2024/25.",
+    "supportingDetail": "This was the highest level for six years and 54% higher than 2023/24.",
+    "shortLabel": "FOS complaints data",
+    "sourceName": "Annual complaints data and insight 2024/25",
+    "sourcePublisher": "Financial Ombudsman Service",
+    "sourceDate": "2 July 2025",
+    "sourceUrl": "https://www.financial-ombudsman.org.uk/data-insight/our-insight/annual-complaints-data-insight-2024-25",
+    "sourceNote": "UK complaints escalation pressure context.",
+    "suggestedUse": [
+      "Investor Overview: escalation pressure",
+      "Design Partner Pack: why a controlled complaints workflow is commercially relevant"
+    ],
+    "caution": "Do not imply Corentis replaces firms’ complaint handling obligations or ombudsman processes."
+  },
+  {
+    "id": "fca-vulnerable-customer-scale-2024",
+    "theme": "vulnerability",
+    "headlineStat": "26.4m UK adults had characteristics of vulnerability in May 2024.",
+    "supportingDetail": "This represented 49% of all UK adults.",
+    "shortLabel": "FCA Financial Lives",
+    "sourceName": "Financial Lives 2024: Key findings from the FCA’s Financial Lives May 2024 survey",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "16 May 2025",
+    "sourceUrl": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-key-findings.pdf",
+    "sourceNote": "UK vulnerability characteristics context.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: why vulnerable-customer handling matters",
+      "Design Partner Pack: why the first pilot should include vulnerable-customer signals",
+      "Control Matrix Example: vulnerable disclosure control row",
+      "Sample Pilot Report: sample scenario context"
+    ],
+    "caution": "Do not imply all vulnerable customers are complainants. Use this as evidence of the scale of the regulated duty-of-care context."
+  },
+  {
+    "id": "fca-financial-difficulty-2024",
+    "theme": "financial difficulty",
+    "headlineStat": "7.3m UK adults were heavily burdened by domestic bills and/or credit commitments in May 2024.",
+    "supportingDetail": "4.5m adults were in financial difficulty because they had missed domestic bills and/or credit commitments in three or more of the previous six months.",
+    "shortLabel": "FCA Financial Lives",
+    "sourceName": "Financial Lives 2024: Key findings from the FCA’s Financial Lives May 2024 survey",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "16 May 2025",
+    "sourceUrl": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-key-findings.pdf",
+    "sourceNote": "UK financial difficulty and hardship context.",
+    "suggestedUse": [
+      "Sample Pilot Report: hardship scenario",
+      "Control Matrix Example: financial difficulty / escalation row",
+      "Assurance & Governance Summary: why human review matters in sensitive cases"
+    ],
+    "caution": "Use in the context of hardship/vulnerability detection, not as a general market-size claim."
+  },
+  {
+    "id": "fca-contact-difficulty-2024",
+    "theme": "customer contact",
+    "headlineStat": "In around 1 in 5 recent contact cases, consumers found it difficult or were not able to get through to someone at their financial services provider.",
+    "supportingDetail": "",
+    "shortLabel": "FCA Financial Lives",
+    "sourceName": "Financial Lives 2024: Key findings from the FCA’s Financial Lives May 2024 survey",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "16 May 2025",
+    "sourceUrl": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-key-findings.pdf",
+    "sourceNote": "UK financial services contact difficulty context.",
+    "suggestedUse": [
+      "Design Partner Pack: customer experience problem",
+      "Assurance & Governance Summary: support and accessibility context",
+      "Investor Overview: operational pressure"
+    ],
+    "caution": "Do not claim Corentis is a contact-centre routing product. Frame this as part of the broader service-pressure environment."
+  },
+  {
+    "id": "fca-trust-financial-services-2024",
+    "theme": "trust",
+    "headlineStat": "Only 39% of adults had confidence in the UK financial services industry.",
+    "supportingDetail": "36% thought most financial firms are honest and transparent in the way they treat them.",
+    "shortLabel": "FCA Financial Lives",
+    "sourceName": "Financial Lives 2024: Key findings from the FCA’s Financial Lives May 2024 survey",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "16 May 2025",
+    "sourceUrl": "https://www.fca.org.uk/publication/financial-lives/financial-lives-survey-2024-key-findings.pdf",
+    "sourceNote": "UK financial services trust context.",
+    "suggestedUse": [
+      "Investor Overview: trust gap",
+      "Why Corentis page/resource introduction if needed",
+      "Design Partner Pack: why explainability and evidence matter"
+    ],
+    "caution": "Do not claim Corentis directly increases consumer trust. Say evidence-led workflows can help firms demonstrate more controlled handling."
+  },
+  {
+    "id": "fca-consumer-duty-communications-2025",
+    "theme": "regulatory expectation",
+    "headlineStat": "Firms must give consumers information they need, at the right time, presented in a way they can understand.",
+    "supportingDetail": "FCA vulnerable-customer good practice also says firms should ensure communications are likely to be understood by the intended customers and consider the needs of consumers in vulnerable circumstances.",
+    "shortLabel": "FCA communications expectation",
+    "sourceName": "Delivering good outcomes for customers in vulnerable circumstances",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "7 March 2025",
+    "sourceUrl": "https://www.fca.org.uk/publications/good-and-poor-practice/delivering-vulnerable-customers",
+    "sourceNote": "FCA vulnerable-customer and communications good-practice context.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: regulatory expectation",
+      "Control Matrix Example: communication control rows",
+      "Sample Pilot Report: control objectives"
+    ],
+    "caution": "Do not present this as legal advice. Include the standard disclaimer."
+  },
+  {
+    "id": "mckinsey-ai-adoption-2025",
+    "theme": "AI adoption",
+    "headlineStat": "88% of respondents in McKinsey’s 2025 global survey reported regular AI use in at least one business function.",
+    "supportingDetail": "Only approximately one-third reported that their companies had begun scaling AI programmes.",
+    "shortLabel": "McKinsey global AI survey",
+    "sourceName": "The State of AI: Global Survey 2025",
+    "sourcePublisher": "McKinsey & Company",
+    "sourceDate": "5 November 2025",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    "sourceNote": "Global cross-industry AI adoption context.",
+    "suggestedUse": [
+      "Investor Overview: market timing",
+      "Runtime Checkpoint Explainer: why runtime control is becoming urgent"
+    ],
+    "caution": "This is global cross-industry survey data, not UK financial-services-only data."
+  },
+  {
+    "id": "mckinsey-agentic-ai-2025",
+    "theme": "agentic AI",
+    "headlineStat": "23% of respondents said their organisations are scaling an agentic AI system somewhere in the enterprise.",
+    "supportingDetail": "A further 39% said they had begun experimenting with AI agents.",
+    "shortLabel": "McKinsey global AI survey",
+    "sourceName": "The State of AI: Global Survey 2025",
+    "sourcePublisher": "McKinsey & Company",
+    "sourceDate": "5 November 2025",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    "sourceNote": "Global agentic AI momentum context.",
+    "suggestedUse": [
+      "Investor Overview: why Corentis is timed around AI agents",
+      "Runtime Checkpoint Explainer: why a checkpoint-before-action layer matters"
+    ],
+    "caution": "Use as evidence of agentic AI momentum, not proof of Corentis demand."
+  },
+  {
+    "id": "mckinsey-ai-negative-consequences-2025",
+    "theme": "AI risk",
+    "headlineStat": "51% of respondents from organisations using AI said their organisations had seen at least one negative consequence.",
+    "supportingDetail": "Nearly one-third of all respondents reported consequences stemming from AI inaccuracy.",
+    "shortLabel": "McKinsey global AI survey",
+    "sourceName": "The State of AI: Global Survey 2025",
+    "sourcePublisher": "McKinsey & Company",
+    "sourceDate": "5 November 2025",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    "sourceNote": "Global AI risk and consequence context.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: need for validation, review and controls",
+      "Investor Overview: risk side of AI adoption"
+    ],
+    "caution": "Do not say Corentis prevents all negative consequences. Say it is designed to add checkpoints, review and evidence around sensitive workflow actions."
+  },
+  {
+    "id": "ibm-ai-governance-gap-2025",
+    "theme": "AI governance",
+    "headlineStat": "63% of breached organisations lacked AI governance policies to manage AI or prevent shadow AI.",
+    "supportingDetail": "IBM also reported that 97% of organisations with an AI-related security incident lacked proper AI access controls.",
+    "shortLabel": "IBM / Ponemon",
+    "sourceName": "Cost of a Data Breach Report 2025",
+    "sourcePublisher": "IBM / Ponemon Institute",
+    "sourceDate": "2025",
+    "sourceUrl": "https://www.ibm.com/reports/data-breach",
+    "sourceNote": "Security and AI governance-gap context.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: governance gap",
+      "Runtime Checkpoint Explainer: why oversight must be operational",
+      "Investor Overview: AI control layer opportunity"
+    ],
+    "caution": "This is security/breach research. Use it to support the broader governance-gap argument, not to claim Corentis is a cybersecurity breach-prevention product."
+  },
+  {
+    "id": "fca-enforcement-redress-2024-25",
+    "theme": "enforcement",
+    "headlineStat": "FCA financial penalties totalled £186.4m in 2024/25.",
+    "supportingDetail": "The FCA also secured an estimated £442.3m for consumers and investors through redress schemes or settlements agreed as part of enforcement outcomes or civil proceedings.",
+    "shortLabel": "FCA enforcement data",
+    "sourceName": "FCA Enforcement data 2024/25",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "10 July 2025",
+    "sourceUrl": "https://www.fca.org.uk/data/fca-operating-service-metrics-2024-25/enforcement-data",
+    "sourceNote": "General regulated-sector enforcement and redress context.",
+    "suggestedUse": [
+      "Investor Overview: commercial/regulatory cost context",
+      "Assurance & Governance Summary: why evidence and control matter"
+    ],
+    "caution": "Do not imply all penalties relate to AI or complaints. Use as general regulated-sector enforcement context."
+  },
+  {
+    "id": "fca-tsb-financial-difficulty-2024",
+    "theme": "customer treatment",
+    "headlineStat": "FCA fined TSB £10.9m for failing to ensure customers in arrears were treated fairly.",
+    "supportingDetail": "TSB paid £99.9m in redress to 232,849 affected customers.",
+    "shortLabel": "FCA enforcement example",
+    "sourceName": "FCA fines TSB £10.9m over treatment of customers in financial difficulty",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "10 October 2024",
+    "sourceUrl": "https://www.fca.org.uk/news/press-releases/fca-fines-tsb-over-treatment-customers-financial-difficulty",
+    "sourceNote": "Financial difficulty treatment and control-failure example.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: real-world systems/control failure example",
+      "Control Matrix Example: why fair-treatment checkpoints matter"
+    ],
+    "caution": "Do not imply TSB used AI or that Corentis would have prevented this. Use as evidence that poor treatment, weak systems and poor controls can have major financial consequences."
+  },
+  {
+    "id": "fca-volkswagen-finance-2024",
+    "theme": "customer treatment",
+    "headlineStat": "FCA fined Volkswagen Finance £5.4m for failing to treat customers in financial difficulty fairly.",
+    "supportingDetail": "Volkswagen Finance agreed to pay over £21.5m in redress to around 110,000 customers.",
+    "shortLabel": "FCA enforcement example",
+    "sourceName": "FCA fines Volkswagen Finance £5.4m over treatment of customers in financial difficulty",
+    "sourcePublisher": "Financial Conduct Authority",
+    "sourceDate": "21 October 2024",
+    "sourceUrl": "https://www.fca.org.uk/news/press-releases/fca-fines-volkswagen-finance-over-treatment-customers-financial-difficulty",
+    "sourceNote": "Financial difficulty treatment and control-failure example.",
+    "suggestedUse": [
+      "Assurance & Governance Summary: systems/control failure example",
+      "Sample Pilot Report: hardship-control context",
+      "Control Matrix Example: financial difficulty treatment row"
+    ],
+    "caution": "Do not imply Volkswagen Finance used AI or that Corentis would have prevented this. Use as evidence of the commercial consequences of poor customer-treatment controls."
+  },
+  {
+    "id": "qualtrics-cx-spending-2025",
+    "theme": "customer experience",
+    "headlineStat": "53% of bad experiences result in customers cutting spending.",
+    "supportingDetail": "Qualtrics also reports that first-call resolution makes customers 2.1x more likely to recommend.",
+    "shortLabel": "Qualtrics customer experience research",
+    "sourceName": "Contact Centre Trends 2025",
+    "sourcePublisher": "Qualtrics",
+    "sourceDate": "2 December 2024",
+    "sourceUrl": "https://www.qualtrics.com/en-gb/articles/customer-experience/contact-center-trends/",
+    "sourceNote": "Vendor customer-experience and contact-centre context.",
+    "suggestedUse": [
+      "Design Partner Pack: customer-experience commercial impact",
+      "Investor Overview: CX-to-commercial-impact bridge"
+    ],
+    "caution": "Vendor research. Use lightly and clearly as customer-experience context, not primary regulatory evidence."
+  },
+  {
+    "id": "salesforce-ai-agent-trust-2026",
+    "theme": "AI trust",
+    "headlineStat": "72% of customers say it is important to know if they are communicating with an AI agent.",
+    "supportingDetail": "Only 17% are comfortable with an AI agent making financial decisions for them.",
+    "shortLabel": "Salesforce AI customer research",
+    "sourceName": "State of the AI Connected Customer",
+    "sourcePublisher": "Salesforce",
+    "sourceDate": "2026 page accessed / report current at access",
+    "sourceUrl": "https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/",
+    "sourceNote": "Vendor AI trust and customer expectations context.",
+    "suggestedUse": [
+      "Runtime Checkpoint Explainer: why AI transparency and action boundaries matter",
+      "Design Partner Pack: why sensitive financial workflows need human review",
+      "Investor Overview: AI trust gap"
+    ],
+    "caution": "Vendor research and global consumer/business-buyer sample. Use as trust context, not UK-regulatory evidence."
+  }
+]

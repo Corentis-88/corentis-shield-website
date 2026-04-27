@@ -16,16 +16,41 @@ const geistMono = Geist_Mono({
 });
 
 const description = [
-  "Corentis Shield checks AI outputs before they reach customers, teams or live systems,",
-  "helping regulated organisations route review, stop risky outputs and record evidence before action.",
+  "Corentis Shield helps teams explore policy-bound checkpoints, human review and evidence capture",
+  "around AI-assisted regulated workflows.",
 ].join(" ");
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.corentis.co.uk"),
   title: {
     default: "Corentis Shield | AI checkpoint for regulated workflows",
     template: "%s | Corentis Technologies",
   },
   description,
+  icons: {
+    icon: "/icon.svg",
+  },
+  openGraph: {
+    title: "Corentis Shield | AI checkpoint for regulated workflows",
+    description,
+    url: "https://www.corentis.co.uk",
+    siteName: "Corentis Technologies",
+    images: [
+      {
+        url: "/og-corentis-shield.svg",
+        width: 1200,
+        height: 630,
+        alt: "Corentis Shield - AI checkpoint for regulated workflows",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Corentis Shield | AI checkpoint for regulated workflows",
+    description,
+    images: ["/og-corentis-shield.svg"],
+  },
 };
 
 export default function RootLayout({

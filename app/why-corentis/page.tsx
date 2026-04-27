@@ -1,8 +1,12 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { CheckpointFlowGraphic } from "@/components/CheckpointFlowGraphic";
 import { CTABanner } from "@/components/CTABanner";
+import { EvidenceStatCards } from "@/components/EvidenceStatCards";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { PhotoPanel } from "@/components/PhotoPanel";
+import { ResourceCard } from "@/components/ResourceCard";
 import { Section } from "@/components/Section";
+import resourcePacks from "@/content/resource-packs.json";
 
 const stats = [
   {
@@ -40,7 +44,7 @@ const assuranceFit = [
   "pilot-ready",
   "helps identify risks from AI systems",
   "creates reviewable evidence",
-  "supports safe adoption",
+  "supports safer adoption",
 ];
 
 const comparisons = [
@@ -100,6 +104,16 @@ const commercialPath = [
   "Sector-specific assurance packs",
 ];
 
+const selectedEvidenceIds = [
+  "fca-complaints-volume-2025-h1",
+  "mckinsey-ai-adoption-2025",
+  "ibm-ai-governance-gap-2025",
+];
+
+const whyCorentisResources = resourcePacks.filter((pack) =>
+  ["investor-overview", "runtime-checkpoint-explainer"].includes(pack.slug)
+);
+
 export default function WhyCorentisPage() {
   return (
     <>
@@ -110,7 +124,7 @@ export default function WhyCorentisPage() {
         intro="Corentis Shield is built for the moment AI moves from suggestion to action."
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/contact">Discuss a design partnership</ButtonLink>
+          <ButtonLink href="/contact#design-partner">Discuss a design partnership</ButtonLink>
           <ButtonLink href="/runtime-guard" variant="secondary">
             See the checkpoint in action
           </ButtonLink>
@@ -156,6 +170,13 @@ export default function WhyCorentisPage() {
       </Section>
 
       <Section
+        title="Selected evidence signals"
+        intro="The case for Corentis sits across regulated-service pressure, accelerating AI adoption and the need for operational AI governance."
+      >
+        <EvidenceStatCards ids={selectedEvidenceIds} tone="premium" />
+      </Section>
+
+      <Section
         title="The checkpoint before the real world."
         intro="Corentis Shield checks the AI output, reviews the context, routes human review and records evidence before action. It gives teams a simple decision point: proceed, review, escalate or block."
       >
@@ -171,6 +192,22 @@ export default function WhyCorentisPage() {
 
       <Section
         className="bg-white/[0.02]"
+        title="Why the action boundary matters"
+        intro="A lot of AI governance focuses on policies, model selection and post-event monitoring. Corentis focuses on the point where AI output is about to become operational action. That boundary is where review, escalation and evidence need to happen."
+      >
+        <CheckpointFlowGraphic />
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/design-partners">For pilots</ButtonLink>
+          <ButtonLink href="/investors" variant="secondary">
+            For investors/funders
+          </ButtonLink>
+          <ButtonLink href="/assurance" variant="secondary">
+            For assurance teams
+          </ButtonLink>
+        </div>
+      </Section>
+
+      <Section
         title="Assurance before action, not paperwork after the fact."
         intro="Corentis Shield is designed as a practical AI assurance mechanism. It does not just document AI risk after a system is live. It helps turn AI outputs into reviewable, evidence-backed decisions before they reach customers, teams or systems."
       >
@@ -264,6 +301,22 @@ export default function WhyCorentisPage() {
             secondaryLabel="Book a conversation"
             secondaryHref="/contact"
           />
+        </div>
+      </Section>
+
+      <Section className="bg-white/[0.02]" title="Read the evidence packs">
+        <div className="grid gap-5 md:grid-cols-2">
+          {whyCorentisResources.map((resource) => (
+            <ResourceCard
+              key={resource.slug}
+              title={resource.title}
+              audience={resource.audience}
+              description={resource.shortDescription}
+              evidenceHook={resource.evidenceHook}
+              href={resource.publicPdfPath}
+              status={resource.status as "Available" | "Coming soon"}
+            />
+          ))}
         </div>
       </Section>
     </>

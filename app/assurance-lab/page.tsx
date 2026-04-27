@@ -115,9 +115,9 @@ export default function AssuranceLabPage() {
         <CTABanner
           title="Start with one workflow. Learn where the checkpoint is needed."
           primaryLabel="Book an AI assurance review"
-          primaryHref="/contact"
+          primaryHref="/contact#assurance"
           secondaryLabel="Discuss a design partnership"
-          secondaryHref="/funding"
+          secondaryHref="/design-partners"
         />
       </Section>
     </>

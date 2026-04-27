@@ -1,0 +1,110 @@
+import type { Metadata } from "next";
+import { ButtonLink } from "@/components/ButtonLink";
+import { EvidenceStatCards } from "@/components/EvidenceStatCards";
+import { Section } from "@/components/Section";
+
+export const metadata: Metadata = {
+  title: "Investors & Funders | Corentis Shield",
+  description:
+    "Explore Corentis Shield, an early-stage AI checkpoint layer for regulated workflows, starting with financial services complaints and vulnerable-customer use cases.",
+};
+
+const evidenceIds = [
+  "fca-complaints-redress-2025-h1",
+  "mckinsey-agentic-ai-2025",
+  "ibm-ai-governance-gap-2025",
+];
+
+const platformLogic = [
+  "policy controls",
+  "runtime checkpoints",
+  "scenario testing",
+  "review queues",
+  "evidence vault",
+  "pilot reports",
+  "reusable control patterns",
+];
+
+const seeking = [
+  "design partners",
+  "pilot conversations",
+  "strategic investment/funding conversations",
+  "regulated workflow collaborators",
+  "AI assurance research/commercial partners",
+];
+
+export default function InvestorsPage() {
+  return (
+    <>
+      <Section
+        className="grid-bg pt-20"
+        eyebrow="Investors & Funders"
+        title="AI agents need control infrastructure"
+        intro="Corentis Shield is an AI checkpoint for regulated workflows: policy-bound, reviewable and evidence-generating before sensitive actions move forward."
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/packs/corentis-investor-overview.pdf">
+            Download Investor Overview
+          </ButtonLink>
+          <ButtonLink href="/contact#investor" variant="secondary">
+            Start an investor/funder conversation
+          </ButtonLink>
+        </div>
+      </Section>
+
+      <Section
+        title="Why now"
+        intro="Corentis sits across regulated-service pressure, AI/agentic AI adoption momentum and a growing need for operational AI control."
+      >
+        <EvidenceStatCards ids={evidenceIds} tone="premium" />
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="The wedge"
+        intro="Corentis starts with financial-services complaints and vulnerable-customer workflows: narrow enough to pilot, concrete enough to evidence, and sensitive enough to prove why checkpointing matters."
+      >
+        <div className="card-base card-premium p-7">
+          <p className="max-w-4xl text-lg leading-8 text-slate-300">
+            The aim is to prove the checkpoint/control pattern in a high-consequence workflow, then
+            expand into adjacent regulated workflows where AI outputs affect customers, records,
+            decisions or operational actions.
+          </p>
+        </div>
+      </Section>
+
+      <Section title="The platform logic">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {platformLogic.map((item) => (
+            <div key={item} className="card-base card-info card-lift p-5 text-cyan-50">
+              {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Why this is not just another AI tool"
+        intro="Corentis is not a chatbot, model wrapper or dashboard after the event. The product sits at the action boundary where AI output becomes operational behaviour."
+      >
+        <div className="card-base card-success p-7">
+          <p className="max-w-4xl text-lg leading-8 text-teal-50">
+            The company is early-stage and developing pilot-ready prototypes. The current aim is to
+            prove focused design partner workflows before broader commercial rollout.
+          </p>
+        </div>
+      </Section>
+
+      <Section title="What Corentis is seeking">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {seeking.map((item) => (
+            <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
+              {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+    </>
+  );
+}

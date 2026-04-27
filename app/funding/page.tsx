@@ -5,7 +5,7 @@ import { Section } from "@/components/Section";
 
 const builtItems = [
   "Corentis Shield website",
-  "Corentis Shield prototype",
+  "Shield product prototype",
   "deterministic decision engine",
   "regulated scenario library",
   "evidence vault",
@@ -58,6 +58,15 @@ const valueCards = [
   },
 ];
 
+const designPartners = [
+  "fintechs preparing AI workflow pilots",
+  "financial-services customer operations teams",
+  "complaints teams",
+  "AI vendors serving regulated firms",
+  "compliance and conduct-risk teams",
+  "outsourced customer-service providers",
+];
+
 const audiences = [
   {
     title: "Assurance and responsible AI teams",
@@ -82,15 +91,6 @@ const audiences = [
   },
 ];
 
-const designPartners = [
-  "fintechs preparing AI workflow pilots",
-  "financial-services customer operations teams",
-  "complaints teams",
-  "AI vendors serving regulated firms",
-  "compliance/conduct-risk teams",
-  "outsourced customer-service providers",
-];
-
 export default function FundingPage() {
   return (
     <>
@@ -102,7 +102,7 @@ export default function FundingPage() {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/why-corentis">Why Corentis?</ButtonLink>
-          <ButtonLink href="/contact" variant="secondary">
+          <ButtonLink href="/contact#design-partner" variant="secondary">
             Discuss a design partnership
           </ButtonLink>
         </div>
@@ -173,17 +173,6 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section title="Who this speaks to">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {audiences.map((item) => (
-            <div key={item.title} className="card-base card-info card-lift p-5">
-              <h3 className="text-base font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       <Section title="Design partner profile">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {designPartners.map((item) => (
@@ -194,7 +183,18 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section className="bg-white/[0.02]" title="Partner brief">
+      <Section className="bg-white/[0.02]" title="Who this speaks to">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {audiences.map((item) => (
+            <div key={item.title} className="card-base card-info card-lift p-5">
+              <h3 className="text-base font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Partner brief">
         <div className="card-base card-info p-7">
           <h2 className="text-2xl font-semibold text-white">Request the Corentis partner brief</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-cyan-50">
@@ -202,20 +202,20 @@ export default function FundingPage() {
             and strategic asset pathway.
           </p>
           <div className="mt-6">
-            <ButtonLink href="/contact" variant="secondary">
+            <ButtonLink href="/contact#investor" variant="secondary">
               Request partner brief
             </ButtonLink>
           </div>
         </div>
       </Section>
 
-      <Section>
+      <Section className="bg-white/[0.02]">
         <CTABanner
           title="Support the checkpoint layer for AI agents."
           primaryLabel="Discuss a design partnership"
-          primaryHref="/contact"
+          primaryHref="/design-partners"
           secondaryLabel="Book a conversation"
-          secondaryHref="/contact"
+          secondaryHref="/contact#investor"
         />
       </Section>
     </>

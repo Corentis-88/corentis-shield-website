@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#06111f"/>
+  <circle cx="980" cy="110" r="190" fill="#075985" opacity="0.45"/>
+  <circle cx="900" cy="190" r="150" fill="#0891b2" opacity="0.35"/>
+  <rect x="70" y="70" width="1060" height="490" rx="34" fill="#0b1b2e" stroke="#164e63" stroke-width="2"/>
+  <path d="M126 142L180 112L234 142V202L180 232L126 202V142Z" fill="#0ea5e9"/>
+  <path d="M180 112L234 142L180 172L126 142L180 112Z" fill="#22d3ee"/>
+  <path d="M126 142L180 172V232L126 202V142Z" fill="#0369a1"/>
+  <text x="280" y="168" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700">Corentis Shield</text>
+  <text x="280" y="214" fill="#67e8f9" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="2">AI CHECKPOINT FOR REGULATED WORKFLOWS</text>
+  <text x="126" y="360" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">AI needs a checkpoint</text>
+  <text x="126" y="430" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">before it acts.</text>
+  <text x="126" y="498" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="28">Corentis provides it.</text>
+</svg>

@@ -156,7 +156,7 @@ evidence_needed: hardship disclosure, complaint history, proposed resolution`}</
           <CTABanner
             title="See where Corentis Shield could fit into your AI workflow."
             primaryLabel="Book a conversation"
-            primaryHref="/contact"
+            primaryHref="/contact#walkthrough"
             secondaryLabel="Why Corentis?"
             secondaryHref="/why-corentis"
           />

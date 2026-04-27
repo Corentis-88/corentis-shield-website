@@ -2,12 +2,21 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
 const footerLinks = [
+  { label: "Shield Products", href: "/offerings" },
   { label: "Why Corentis", href: "/why-corentis" },
+  { label: "Methodology", href: "/methodology" },
+  { label: "Pilot Report", href: "/pilot-report" },
+  { label: "Resources", href: "/resources" },
+  { label: "Partners & Funders", href: "/partners-and-funders" },
+  { label: "Design Partners", href: "/design-partners" },
+  { label: "Investors/Funders", href: "/investors" },
+  { label: "Assurance", href: "/assurance" },
+  { label: "Walkthrough", href: "/walkthrough" },
+  { label: "Founder", href: "/founder" },
   { label: "Corentis Shield", href: "/runtime-guard" },
   { label: "Assurance Lab", href: "/assurance-lab" },
   { label: "Financial Services", href: "/financial-services" },
-  { label: "Shield Products", href: "/offerings" },
-  { label: "Partners and funders", href: "/funding" },
+  { label: "Partners and funders legacy", href: "/funding" },
   { label: "Contact", href: "/contact" },
   { label: "Cookies", href: "/cookies" },
   { label: "Privacy", href: "/privacy" },
@@ -21,7 +30,7 @@ export function Footer() {
         <div className="max-w-md">
           <Logo />
           <p className="mt-3 text-sm leading-6 text-slate-400">
-            AI checkpoint for regulated workflows.
+            Corentis Shield is an AI checkpoint for regulated workflows.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm sm:grid-cols-3">
