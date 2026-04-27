@@ -6,45 +6,41 @@ const offerings = [
   {
     name: "Starter",
     title: "AI Output Check Review",
-    forText: "teams with one AI workflow they want to understand before piloting.",
+    forText: "teams that want to understand one AI workflow before piloting.",
     includes: [
-      "one AI workflow review",
-      "draft reply and action checks",
-      "risk and evidence notes",
-      "human review recommendations",
-      "suggested controls",
-      "findings call",
+      "workflow risk map",
+      "example outputs checked",
+      "evidence gaps",
+      "recommended controls",
+      "next-step pilot plan",
     ],
-    positioning: "Start with one workflow and find where control is needed.",
+    positioning: "Find where one workflow needs a checkpoint.",
   },
   {
     name: "Growth",
-    title: "Corentis Assurance Lab",
+    title: "Assurance Lab",
     forText: "teams preparing AI replies and actions for sensitive workflows.",
     includes: [
-      "scenario testing",
-      "AI output review",
-      "risk signals surfaced",
-      "evidence gaps identified",
-      "pilot-ready report",
+      "scenario test results",
+      "blocked, escalated and reviewed outputs",
+      "evidence gap report",
+      "pilot readiness report",
       "recommended next controls",
     ],
-    positioning: "Test AI replies and actions before deployment.",
+    positioning: "Test AI replies and actions before live use.",
   },
   {
     name: "Enterprise",
     title: "Corentis Shield",
     forText: "regulated organisations moving AI into live customer or business workflows.",
     includes: [
-      "AI output checkpoint",
-      "policy and approval checks",
-      "human review routing",
-      "evidence records",
-      "custom controls",
-      "workflow integrations",
-      "governance reporting support",
+      "API, SDK, webhook or private gateway options",
+      "review queue",
+      "evidence vault",
+      "policy-control versioning",
+      "sector-specific assurance packs",
     ],
-    positioning: "Check and control AI outputs in live workflows.",
+    positioning: "Check and control outputs in live workflows.",
   },
 ];
 
@@ -53,26 +49,35 @@ const comparison = [
     offer: "Starter",
     bestFor: "One workflow",
     proves: "Where risk, review and evidence questions appear",
-    output: "Findings and suggested controls",
+    output: "Risk map and pilot plan",
     buyer: "Founder, product lead, compliance lead",
-    next: "Test before live use",
+    next: "Run scenario tests",
   },
   {
     offer: "Growth",
     bestFor: "Pre-deployment testing",
     proves: "How AI replies and actions behave in realistic scenarios",
-    output: "Scenario results and pilot-ready report",
+    output: "Pilot readiness report",
     buyer: "AI programme or operations team",
     next: "Add live checkpoint controls",
   },
   {
     offer: "Enterprise",
     bestFor: "Live workflows",
-    proves: "AI outputs can be checked before they act",
-    output: "Checkpoint, review routes and evidence records",
+    proves: "AI outputs can be checked before action",
+    output: "Checkpoint, review queue and evidence vault",
     buyer: "Regulated organisation or enterprise AI owner",
-    next: "Pilot Corentis Shield",
+    next: "Scale through software/API/private gateway",
   },
+];
+
+const businessPath = [
+  "focused reviews",
+  "design-partner pilots",
+  "recurring software",
+  "API usage",
+  "private gateway deployments",
+  "sector-specific assurance packs",
 ];
 
 const comparisonGridClassName = [
@@ -91,19 +96,14 @@ const comparisonRowClassName = [
   "border-b border-white/10 text-sm text-slate-300 last:border-b-0",
 ].join(" ");
 
-const adoptionPathIntro = [
-  "Begin with a focused output review. Move into scenario testing.",
-  "Adopt Corentis Shield when you are ready to check AI outputs in live workflows.",
-].join(" ");
-
 export default function OfferingsPage() {
   return (
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Offerings"
-        title="Start small. Add control as confidence grows."
-        intro="Start small. Test one workflow. Learn where risk appears. Add the checkpoint when ready."
+        eyebrow="Shield Products"
+        title="Start with assurance. Grow into live checkpoint control."
+        intro="Start with one workflow. Test before live use. Add Corentis Shield when you are ready to check AI outputs in real workflows."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {offerings.map((offering) => (
@@ -138,13 +138,26 @@ export default function OfferingsPage() {
         </div>
       </Section>
 
-      <Section title="Start small. Learn fast. Add control." intro={adoptionPathIntro}>
+      <Section
+        title="How this becomes a business"
+        intro="Corentis can begin with focused reviews, grow through design-partner pilots, and scale through recurring software, API usage, private gateway deployments and sector-specific assurance packs."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {businessPath.map((item) => (
+            <div key={item} className="card-base card-info card-lift p-5 text-cyan-50">
+              {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="bg-white/[0.02]" title="Start small. Learn fast. Add control.">
         <CTABanner
           title="Start with the AI workflow that matters most."
-          primaryLabel="Book an AI assurance review"
+          primaryLabel="Book a conversation"
           primaryHref="/contact"
-          secondaryLabel="See the checkpoint in action"
-          secondaryHref="/runtime-guard"
+          secondaryLabel="Why Corentis?"
+          secondaryHref="/why-corentis"
         />
       </Section>
     </>

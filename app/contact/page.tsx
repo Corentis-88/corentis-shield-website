@@ -1,4 +1,5 @@
-import { Mail } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
+import { PhotoPanel } from "@/components/PhotoPanel";
 import { Section } from "@/components/Section";
 
 const enquiryOptions = [
@@ -19,22 +20,6 @@ const contactIntro = [
   "and partnerships, we would be happy to talk. Start with one workflow.",
 ].join(" ");
 
-const inputClassName = [
-  "mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white",
-  "outline-none transition placeholder:text-slate-600 focus:border-cyanx",
-].join(" ");
-
-const selectClassName = [
-  "mt-2 w-full rounded-lg border border-white/10 bg-ink px-4 py-3 text-white",
-  "outline-none transition focus:border-cyanx",
-].join(" ");
-
-const submitClassName = [
-  "mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cyanx px-5 py-3",
-  "text-sm font-semibold text-ink shadow-[0_12px_34px_rgba(48,213,255,0.18)]",
-  "transition hover:bg-cyan-200",
-].join(" ");
-
 export default function ContactPage() {
   return (
     <Section
@@ -45,6 +30,14 @@ export default function ContactPage() {
     >
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="space-y-6">
+          <PhotoPanel
+            src="/images/stock/customer-support-advisor-laptop.jpg"
+            alt="Customer support advisor wearing a headset and working on a laptop."
+            label="First conversation"
+            caption="Start with one workflow. We'll help you find where the checkpoint is needed."
+            aspect="portrait"
+            objectPosition="center 36%"
+          />
           <div className="card-base card-premium p-6">
             <h2 className="text-xl font-semibold text-white">Good reasons to get in touch</h2>
             <div className="mt-5 space-y-3">
@@ -54,7 +47,6 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-sm text-slate-400">Email: hello@corentis.co.uk</p>
           </div>
           <div className="card-base card-info p-6">
             <h2 className="text-xl font-semibold text-white">
@@ -70,49 +62,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form
-          action="mailto:hello@corentis.co.uk"
-          method="post"
-          encType="text/plain"
-          className="card-base card-premium p-6"
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            <label className="text-sm font-medium text-slate-200">
-              Name
-              <input name="name" className={inputClassName} placeholder="Your name" />
-            </label>
-            <label className="text-sm font-medium text-slate-200">
-              Email
-              <input
-                type="email"
-                name="email"
-                className={inputClassName}
-                placeholder="you@example.com"
-              />
-            </label>
-          </div>
-          <label className="mt-5 block text-sm font-medium text-slate-200">
-            Enquiry type
-            <select name="enquiry" className={selectClassName} defaultValue={enquiryOptions[0]}>
-              {enquiryOptions.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </select>
-          </label>
-          <label className="mt-5 block text-sm font-medium text-slate-200">
-            Message
-            <textarea
-              name="message"
-              rows={6}
-              className={inputClassName}
-              placeholder="Tell us about the AI workflow, pilot, funding conversation or partnership opportunity."
-            />
-          </label>
-          <button type="submit" className={submitClassName}>
-            <Mail aria-hidden className="h-4 w-4" />
-            Open email draft
-          </button>
-        </form>
+        <ContactForm />
       </div>
     </Section>
   );

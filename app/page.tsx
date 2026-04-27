@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FlowDiagram } from "@/components/FlowDiagram";
+import { PhotoPanel } from "@/components/PhotoPanel";
 import { ProductCard } from "@/components/ProductCard";
 import { RuntimeDecisionCard } from "@/components/RuntimeDecisionCard";
 import { RuntimeDecisionDemo } from "@/components/RuntimeDecisionDemo";
@@ -23,8 +24,8 @@ const sourceCardClassName = [
 
 const outputRiskIntro = [
   "A risky AI reply is not just a bad answer if it reaches a customer.",
-  "A missing evidence check is not just a gap if a case is closed.",
-  "Once AI outputs move into action, teams need a clear checkpoint.",
+  "It can create rework, complaints, conduct risk and avoidable operational cost.",
+  "Once AI outputs move into action, every mistake becomes more expensive to fix.",
 ].join(" ");
 
 const workflowIntro = [
@@ -104,6 +105,42 @@ const decisions = [
   },
 ];
 
+const adoptionCards = [
+  {
+    title: "Practical assurance mechanism",
+    description: "Checks AI outputs before action and records what happened.",
+  },
+  {
+    title: "Pilot-ready path",
+    description: "Start with one workflow, test outputs and identify where human review is needed.",
+  },
+  {
+    title: "Commercial deployment route",
+    description: "Move from assurance review to API, SDK, webhook or private gateway.",
+  },
+  {
+    title: "Strategic asset potential",
+    description: "Build scenario libraries, expected decisions and benchmark reports.",
+  },
+];
+
+const adoptionStages = [
+  ["Explore", "Find where unchecked AI outputs could create risk."],
+  ["Test", "Run realistic scenarios before live use."],
+  ["Pilot", "Apply Corentis Shield to one sensitive workflow."],
+  ["Deploy", "Connect through API, SDK, webhook or private gateway."],
+  ["Scale", "Expand across workflows and build evidence over time."],
+];
+
+const nextBuildPhase = [
+  "deployable pilot version",
+  "expanded regulated scenario library",
+  "policy-to-control engine",
+  "output evaluation benchmark",
+  "private gateway and API hardening",
+  "design partner pilots",
+];
+
 const sources = [
   {
     label: "Source: McKinsey, The State of AI 2025",
@@ -136,7 +173,7 @@ export default function Home() {
               Corentis Shield - AI checkpoint for regulated workflows
             </p>
             <div className={badgeClassName}>If it can act, it needs a checkpoint.</div>
-            <h1 className={heroTitleClassName}>AI and AI agents are here.</h1>
+            <h1 className={heroTitleClassName}>AI is here.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               McKinsey says 62% of surveyed organisations are at least experimenting with AI agents.
               Deloitte says worker access to AI rose by 50% in 2025, and companies expect more AI
@@ -172,7 +209,7 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-300">
                 Corentis Shield checks AI outputs before they reach customers, teams or live systems
-                — so sensitive actions can proceed, be reviewed, be escalated or be stopped with
+                - so sensitive actions can proceed, be reviewed, be escalated or be stopped with
                 evidence recorded.
               </p>
             </div>
@@ -200,15 +237,29 @@ export default function Home() {
       </section>
 
       <Section
-        title="A bad output becomes a bigger problem when it reaches the real world."
+        title="Every unchecked AI output can carry a commercial cost."
         intro={outputRiskIntro}
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {riskItems.map((item) => (
-            <div key={item} className="card-base card-danger card-lift p-5">
-              <p className="text-sm font-medium leading-6 text-rose-50">{item}</p>
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <PhotoPanel
+            src="/images/stock/customer-support-team-headsets.jpg"
+            alt="Customer support team using laptops and headsets in a modern office."
+            label="Customer operations"
+            caption="AI outputs become real-world actions when they reach customer operations."
+            objectPosition="center 42%"
+          />
+          <div>
+            <p className="mb-5 text-base leading-7 text-slate-300">
+              Replies, case notes and workflow steps need a checkpoint before they move forward.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {riskItems.map((item) => (
+                <div key={item} className="card-base card-danger card-lift p-5">
+                  <p className="text-sm font-medium leading-6 text-rose-50">{item}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </Section>
 
@@ -300,6 +351,43 @@ export default function Home() {
 
       <Section
         className="bg-white/[0.02]"
+        title="More than a product: a route to trusted AI adoption"
+        intro="Corentis Shield starts as a checkpoint for AI outputs. The same mechanism can support pilots, assurance reports, benchmark datasets and live deployment across regulated workflows."
+      >
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="grid gap-5 md:grid-cols-2">
+            {adoptionCards.map((item) => (
+              <div key={item.title} className="card-base card-premium card-lift p-6">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <PhotoPanel
+            src="/images/stock/business-data-review-meeting.jpg"
+            alt="Business team reviewing data and charts during a meeting."
+            label="Pilot evidence"
+            caption="Pilot evidence people can review."
+            objectPosition="center 48%"
+          />
+        </div>
+      </Section>
+
+      <Section title="Built for every stage of AI adoption">
+        <div className="grid gap-4 md:grid-cols-5">
+          {adoptionStages.map(([stage, description]) => (
+            <div key={stage} className="card-base card-info card-lift p-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyanx">
+                {stage}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-200">{description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
         title="Clear outcomes before action"
         intro="Corentis Shield gives teams a simple decision before an AI output reaches the real world."
       >
@@ -307,6 +395,26 @@ export default function Home() {
           {decisions.map((decision) => (
             <RuntimeDecisionCard key={decision.title} {...decision} />
           ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="The next build phase."
+        intro="Funding and design partnerships help turn the current prototype into deployable AI assurance infrastructure."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {nextBuildPhase.map((item) => (
+            <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
+              {item}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/why-corentis">Why Corentis?</ButtonLink>
+          <ButtonLink href="/contact" variant="secondary">
+            Discuss a design partnership
+          </ButtonLink>
         </div>
       </Section>
 
@@ -323,7 +431,7 @@ export default function Home() {
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">Book a conversation</ButtonLink>
-              <ButtonLink href="/funding" variant="secondary">
+              <ButtonLink href="/contact" variant="secondary">
                 Discuss a design partnership
               </ButtonLink>
             </div>

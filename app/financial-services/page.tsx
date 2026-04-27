@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CTABanner } from "@/components/CTABanner";
+import { PhotoPanel } from "@/components/PhotoPanel";
 import { Section } from "@/components/Section";
 
 const examples = [
@@ -81,8 +82,26 @@ export default function FinancialServicesPage() {
         </div>
       </Section>
 
+      <Section className="bg-white/[0.02]" title="Built for sensitive customer moments">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <PhotoPanel
+            src="/images/stock/call-centre-team-laptops.jpg"
+            alt="Customer operations team using laptops and headsets in a call centre."
+            label="Complaints operations"
+            caption="Complaint replies, collections messages and case updates need checking before they reach customers."
+            objectPosition="center 42%"
+          />
+          <div className="card-base card-premium p-7">
+            <p className="text-lg leading-8 text-slate-300">
+              Financial-services teams already manage sensitive customer moments. Corentis Shield
+              helps them check AI outputs before those outputs become replies, records or workflow
+              actions.
+            </p>
+          </div>
+        </div>
+      </Section>
+
       <Section
-        className="bg-white/[0.02]"
         title="Financial services is the first proof point, not the limit"
         intro={expansionIntro}
       >

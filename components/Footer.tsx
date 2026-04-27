@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
 const footerLinks = [
-  { label: "Home", href: "/" },
+  { label: "Why Corentis", href: "/why-corentis" },
   { label: "Corentis Shield", href: "/runtime-guard" },
   { label: "Assurance Lab", href: "/assurance-lab" },
   { label: "Financial Services", href: "/financial-services" },
-  { label: "Offerings", href: "/offerings" },
-  { label: "Funding & Partners", href: "/funding" },
+  { label: "Shield Products", href: "/offerings" },
+  { label: "Partners and funders", href: "/funding" },
   { label: "Contact", href: "/contact" },
+  { label: "Cookies", href: "/cookies" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
 ];

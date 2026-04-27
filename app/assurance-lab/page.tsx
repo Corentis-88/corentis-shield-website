@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CTABanner } from "@/components/CTABanner";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { MetricCard } from "@/components/MetricCard";
+import { PhotoPanel } from "@/components/PhotoPanel";
 import { Section } from "@/components/Section";
 
 const tests = [
@@ -13,10 +14,19 @@ const tests = [
   "create a report before deployment",
 ];
 
+const benchmarkItems = [
+  "scenario library",
+  "output evaluation",
+  "expected decisions",
+  "risk labels",
+  "evidence requirements",
+  "benchmark reports",
+];
+
 const heroIntro = [
   "Run AI replies, actions and workflow updates through realistic scenarios",
   "before they are used in sensitive work.",
-  "Test before live use.",
+  "Create pilot-ready evidence before live use.",
 ].join(" ");
 
 export default function AssuranceLabPage() {
@@ -76,8 +86,31 @@ export default function AssuranceLabPage() {
       </Section>
 
       <Section
+        title="From pilot tests to benchmark asset"
+        intro="Each tested workflow can add to a wider regulated AI output benchmark: scenarios, risk labels, expected decisions, evidence requirements and model-output results."
+      >
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <PhotoPanel
+            src="/images/stock/business-data-review-meeting.jpg"
+            alt="Business team reviewing data and charts during a meeting."
+            label="Evidence review"
+            caption="Testing turns AI risk into evidence teams can discuss."
+            objectPosition="center 45%"
+          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {benchmarkItems.map((item) => (
+              <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
         title="Useful for funding, pilots and internal review"
-        intro="Assurance Lab turns AI risk into scenarios, outcomes and evidence people can review before live use."
+        intro="Assurance Lab turns AI risk into scenario testing, output evaluation and evidence people can review before live use."
       >
         <CTABanner
           title="Start with one workflow. Learn where the checkpoint is needed."
