@@ -17,6 +17,9 @@ const evidenceStats = JSON.parse(
 const fundingRoutes = JSON.parse(
   fs.readFileSync(path.join(rootDir, "content", "funding-routes.json"), "utf8")
 );
+const companyDetails = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "content", "company-details.json"), "utf8")
+);
 
 const page = {
   width: 595.28,
@@ -632,6 +635,18 @@ function fundingSources(doc, routes) {
   });
 }
 
+function companyDetailsNote(doc) {
+  sectionHeading(doc, "Company details", undefined, 110);
+  const body = [
+    `Corentis Shield is provided by ${companyDetails.companyName}.`,
+    `Company No. ${companyDetails.companyNumber}.`,
+    `Company type: ${companyDetails.companyType}.`,
+    `Registered office: ${companyDetails.registeredOfficeSingleLine}.`,
+    `Contact: ${companyDetails.email}.`,
+  ].join(" ");
+  paragraph(doc, body);
+}
+
 function bodyPages(doc, pack, evidence) {
   const routeRefs = fundingRoutesByIds(pack.fundingRouteIds);
   addPageAccent(doc);
@@ -689,6 +704,7 @@ function bodyPages(doc, pack, evidence) {
   evidenceCards(doc, evidence);
   selectedSources(doc, evidence);
   fundingSources(doc, routeRefs);
+  companyDetailsNote(doc);
 
   sectionHeading(doc, "Next Step", undefined, 74);
   ensureSpace(doc, 34);

@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/ContactForm";
 import { PhotoPanel } from "@/components/PhotoPanel";
 import { Section } from "@/components/Section";
+import companyDetails from "@/content/company-details.json";
 
 const enquiryOptions = [
   "Book a conversation",
@@ -114,6 +115,20 @@ export default function ContactPage() {
                   {step}
                 </p>
               ))}
+            </div>
+          </div>
+          <div className="card-base card-info p-6">
+            <h2 className="text-xl font-semibold text-white">Company contact</h2>
+            <div className="mt-4 space-y-2 text-sm leading-6 text-slate-300">
+              <p>{companyDetails.companyName}</p>
+              <p>
+                Email:{" "}
+                <a href={`mailto:${companyDetails.email}`} className="text-cyan-100 underline">
+                  {companyDetails.email}
+                </a>
+              </p>
+              <p>Company No. {companyDetails.companyNumber}</p>
+              <p>Registered office: {companyDetails.registeredOfficeSingleLine}</p>
             </div>
           </div>
         </div>

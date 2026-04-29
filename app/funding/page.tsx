@@ -3,6 +3,7 @@ import { CTABanner } from "@/components/CTABanner";
 import { EvidenceStatCards } from "@/components/EvidenceStatCards";
 import { ResourceCard } from "@/components/ResourceCard";
 import { Section } from "@/components/Section";
+import companyDetails from "@/content/company-details.json";
 import fundingRoutes from "@/content/funding-routes.json";
 import resourcePacks from "@/content/resource-packs.json";
 
@@ -81,7 +82,7 @@ const readinessStatus = [
   ["V2 website live", "Prepared"],
   ["PDFs available", "Prepared"],
   ["Application pack created", "Prepared"],
-  ["Company details confirmed", "To confirm"],
+  ["Company details confirmed", "Prepared"],
   ["Contact form tested", "To confirm"],
   ["Frontier AI Discovery draft prepared", "In progress"],
   ["Sovereign AI memo prepared", "Prepared"],
@@ -241,13 +242,46 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section title="Company details to confirm before submission">
-        <div className="card-base card-warning p-7">
-          <p className="max-w-4xl text-base leading-8 text-amber-50">
-            Before any formal funding submission, Corentis should confirm the registered company
-            name, company number, registered office/contact details, and any required applicant
-            eligibility details.
-          </p>
+      <Section title="Confirmed company details for formal applications">
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
+          <div className="card-base card-premium p-7">
+            <dl className="grid gap-4 text-sm leading-6 text-slate-300 sm:grid-cols-2">
+              <div>
+                <dt className="font-semibold text-white">Legal entity</dt>
+                <dd>{companyDetails.companyName}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-white">Company number</dt>
+                <dd>{companyDetails.companyNumber}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-white">Company type</dt>
+                <dd>{companyDetails.companyType}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-white">Contact email</dt>
+                <dd>
+                  <a href={`mailto:${companyDetails.email}`} className="text-cyan-100 underline">
+                    {companyDetails.email}
+                  </a>
+                </dd>
+              </div>
+              <div className="sm:col-span-2">
+                <dt className="font-semibold text-white">Registered office</dt>
+                <dd>{companyDetails.registeredOfficeSingleLine}</dd>
+              </div>
+            </dl>
+          </div>
+          <div className="card-base card-warning p-7">
+            <h2 className="text-xl font-semibold text-white">Still to confirm by application</h2>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-amber-50">
+              <li>Lead applicant/contact role.</li>
+              <li>Project budget.</li>
+              <li>Project start/end dates.</li>
+              <li>Match funding or in-kind contribution, if required.</li>
+              <li>Partner details, if applicable.</li>
+            </ul>
+          </div>
         </div>
       </Section>
 

@@ -673,16 +673,14 @@
         ]
       },
       {
-        "heading": "Company details to confirm before submission",
+        "heading": "Confirmed company details for formal applications",
         "bullets": [
-          "Registered company name.",
-          "Company number.",
-          "Registered office/contact details.",
-          "Applicant eligibility.",
-          "Lead applicant.",
-          "Project budget.",
-          "Project start/end dates.",
-          "Match funding or in-kind contribution if required."
+          "Legal entity: Corentis Technologies Ltd.",
+          "Company number: 17182737.",
+          "Company type: Private limited company.",
+          "Registered office: Suite A, 82 James Carter Road, Mildenhall, IP28 7DE, United Kingdom.",
+          "Contact email: hello@corentis.co.uk.",
+          "Still to confirm by application: applicant eligibility, lead applicant/contact role, project budget, project start/end dates, match funding or in-kind contribution if required, and partner details if applicable."
         ]
       }
     ]
@@ -956,7 +954,7 @@
           "Confirm eligibility when the application window opens.",
           "Prepare use-case statement.",
           "Prepare control matrix and evidence artefact examples.",
-          "Confirm company and applicant details.",
+          "Use confirmed company details and verify applicant-specific details.",
           "Submit only when the live criteria are verified."
         ]
       },
@@ -1352,7 +1350,7 @@
       {
         "heading": "Owner/action/checkpoint plan",
         "bullets": [
-          "Founder owner: confirm company/application details. Action: prepare registered details, applicant eligibility, project budget and dates. Checkpoint: details ready before any formal submission.",
+          "Founder owner: prepare application-specific details. Action: use confirmed company details, then confirm applicant eligibility, project budget and dates. Checkpoint: details ready before any formal submission.",
           "Founder owner: prepare ControlBench route. Action: refine R&D question, work packages and validation metrics. Checkpoint: Frontier AI Discovery-style pack ready for review.",
           "Founder owner: prepare sandbox route. Action: define non-production complaints/vulnerable-customer testing boundary. Checkpoint: sandbox use-case statement ready.",
           "Founder owner: prepare strategic memo route. Action: use Sovereign AI memo for careful strategic conversations. Checkpoint: feedback captured without claiming support.",
@@ -1363,7 +1361,7 @@
         "heading": "First 30 days",
         "bullets": [
           "Review all PDFs for accuracy and tone.",
-          "Confirm company/application details.",
+          "Use confirmed company details and confirm application-specific details.",
           "Prepare ControlBench application narrative.",
           "Prepare FCA sandbox use-case statement.",
           "Build the first design partner and strategic funding target list."

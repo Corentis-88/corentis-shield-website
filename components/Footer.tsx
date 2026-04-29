@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import companyDetails from "@/content/company-details.json";
 
 const footerLinks = [
   { label: "Shield Products", href: "/offerings" },
@@ -36,6 +37,24 @@ export function Footer() {
           <p className="mt-3 text-sm leading-6 text-slate-400">
             Corentis Shield is an AI checkpoint for regulated workflows.
           </p>
+          <div className="mt-5 space-y-2 text-xs leading-5 text-slate-500">
+            <p>Corentis Shield is provided by {companyDetails.companyName}.</p>
+            <p>
+              {companyDetails.companyName} is a private limited company registered in England and
+              Wales.
+            </p>
+            <p>Company No. {companyDetails.companyNumber}</p>
+            <p>Registered office: {companyDetails.registeredOfficeSingleLine}</p>
+            <p>
+              Contact:{" "}
+              <a
+                href={`mailto:${companyDetails.email}`}
+                className="text-slate-400 transition hover:text-white"
+              >
+                {companyDetails.email}
+              </a>
+            </p>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm sm:grid-cols-3">
           {footerLinks.map((link) => (

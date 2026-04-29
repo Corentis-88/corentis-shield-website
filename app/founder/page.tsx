@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { Section } from "@/components/Section";
+import companyDetails from "@/content/company-details.json";
 
 const founderSections = [
   {
@@ -91,9 +92,9 @@ export default function FounderPage() {
         </div>
         <div className="card-base card-warning mt-8 p-6">
           <p className="max-w-4xl text-sm leading-6 text-amber-50">
-            Before any formal funding submission, Corentis should confirm the registered company
-            name, company number, registered office/contact details, and any required applicant
-            eligibility details.
+            {companyDetails.companyName} is a UK private limited company registered in England and
+            Wales under company number {companyDetails.companyNumber}. Registered office:{" "}
+            {companyDetails.registeredOfficeSingleLine}.
           </p>
         </div>
       </Section>

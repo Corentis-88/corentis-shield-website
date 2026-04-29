@@ -1,6 +1,11 @@
 import { Section } from "@/components/Section";
+import companyDetails from "@/content/company-details.json";
 
 const privacyItems = [
+  {
+    title: "Data controller",
+    text: `${companyDetails.companyName} is the data controller for information submitted through this website. Contact: ${companyDetails.email}. Registered office: ${companyDetails.registeredOfficeSingleLine}.`,
+  },
   {
     title: "What data is collected",
     text: "If you use the contact form, Corentis collects the details you choose to submit, such as your name, email address, organisation, enquiry type, message and consent choice.",
@@ -48,7 +53,7 @@ export default function PrivacyPage() {
         <p className="mt-3 text-base leading-8 text-cyan-50">
           People who contact Corentis can ask about the personal information held about them,
           request correction or deletion where appropriate, or raise a privacy question through the
-          contact form.
+          contact form or by emailing {companyDetails.email}.
         </p>
         <p className="mt-3 text-sm leading-6 text-slate-300">
           This page should still be legally reviewed before replacing the live public website,

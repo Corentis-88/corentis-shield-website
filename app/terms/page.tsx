@@ -1,4 +1,5 @@
 import { Section } from "@/components/Section";
+import companyDetails from "@/content/company-details.json";
 
 export default function TermsPage() {
   return (
@@ -10,6 +11,12 @@ export default function TermsPage() {
     >
       <div className="card-base card-premium max-w-4xl p-7">
         <div className="space-y-6 text-base leading-8 text-slate-300">
+          <p>
+            This website is operated by {companyDetails.companyName}, a private limited company
+            registered in England and Wales under company number {companyDetails.companyNumber}.
+            Registered office: {companyDetails.registeredOfficeSingleLine}. Contact:{" "}
+            {companyDetails.email}.
+          </p>
           <p>
             The information on this website is provided for general business and product-positioning
             purposes. It does not constitute legal, regulatory, financial or technical assurance
