@@ -45,7 +45,7 @@ Useful links:
 
 - https://www.corentis.co.uk/design-partners
 - https://www.corentis.co.uk/packs/corentis-design-partner-pack.pdf
-- https://www.corentis.co.uk/pilot-report
+- https://www.corentis.co.uk/resources
 
 ## 3. Assurance/governance email
 

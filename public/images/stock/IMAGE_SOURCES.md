@@ -55,5 +55,5 @@ Alt text: Diverse colleagues collaborating around a laptop in a meeting.
 Original URL: https://www.pexels.com/photo/office-team-working-in-the-office-8518624/
 Source: Pexels
 Licence note: Pexels licence - free for commercial use, attribution not required.
-Use: Partners and funders collaboration visual.
+Use: Partners and funding collaboration visual.
 Alt text: Focused office team working together around a laptop.

@@ -34,7 +34,7 @@ It will also be about control: policies becoming checkpoints, human review being
 
 Corentis Shield is an early-stage attempt to build that checkpoint layer for regulated workflows.
 
-Soft CTA: I’m speaking with investors, funders and strategic partners interested in AI assurance infrastructure.
+Soft CTA: I’m speaking with investors, funding partners and strategic partners interested in AI assurance infrastructure.
 
 ## 4. Design partner angle
 

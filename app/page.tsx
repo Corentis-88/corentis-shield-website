@@ -149,24 +149,14 @@ const sprintPathways = [
     href: "/why-corentis",
   },
   {
-    title: "Methodology",
-    description: "How policy becomes controls, review and evidence.",
-    href: "/methodology",
-  },
-  {
-    title: "Pilot report",
-    description: "What a controlled AI workflow pilot can produce.",
-    href: "/pilot-report",
-  },
-  {
     title: "Resources",
     description: "Placeholder packs for investors, buyers and design partners.",
     href: "/resources",
   },
   {
-    title: "Partners & Funders",
+    title: "Partners",
     description: "A public-facing path for partnership and funding conversations.",
-    href: "/partners-and-funders",
+    href: "/partners",
   },
   {
     title: "Founder",
@@ -386,13 +376,13 @@ export default function Home() {
         title="From policy to proof"
         intro="A simple journey from governance intent to evidence people can inspect."
       >
-        <FlowDiagram steps={["Policy", "Checkpoint", "Review", "Evidence", "Pilot Report"]} />
+        <FlowDiagram steps={["Policy", "Checkpoint", "Review", "Evidence", "Decision"]} />
       </Section>
 
       <Section
         className="bg-white/[0.02]"
-        title="Explore the funding-ready structure"
-        intro="These pages create the route from product explanation to proof, methodology, partner conversations and future resource packs."
+        title="Explore the launch-ready structure"
+        intro="These pages create the route from product explanation to proof, partner conversations and resource packs."
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sprintPathways.map((item) => (
@@ -419,11 +409,11 @@ export default function Home() {
           <ButtonLink href="/packs/corentis-investor-overview.pdf">
             Download Investor Overview
           </ButtonLink>
-          <ButtonLink href="/methodology" variant="secondary">
-            Explore Methodology
+          <ButtonLink href="/walkthrough" variant="secondary">
+            See the checkpoint walkthrough
           </ButtonLink>
-          <ButtonLink href="/pilot-report" variant="secondary">
-            View Sample Pilot Report
+          <ButtonLink href="/resources" variant="secondary">
+            Explore evidence packs
           </ButtonLink>
         </div>
       </Section>
@@ -524,12 +514,6 @@ export default function Home() {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/contact#design-partner">Request a pilot conversation</ButtonLink>
-          <ButtonLink href="/pilot-report" variant="secondary">
-            View pilot report
-          </ButtonLink>
-          <ButtonLink href="/methodology" variant="secondary">
-            Read the methodology
-          </ButtonLink>
           <ButtonLink href="/resources" variant="secondary">
             Explore the evidence packs
           </ButtonLink>

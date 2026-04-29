@@ -40,7 +40,7 @@ CTA: Start a design partner conversation.
 
 1. Website homepage hero.
 2. Corentis Shield checkpoint visual.
-3. Methodology control loop.
+3. Walkthrough checkpoint flow.
 4. Pilot report preview.
 5. Control matrix preview.
 6. Contact journey cards.
@@ -51,8 +51,8 @@ CTA: Start a design partner conversation.
 
 - `/`
 - `/walkthrough`
-- `/methodology`
-- `/pilot-report`
+- `/walkthrough`
+- `/resources`
 - `/resources`
 - `/design-partners`
 - `/investors`

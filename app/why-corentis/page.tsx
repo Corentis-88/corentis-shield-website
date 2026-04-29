@@ -199,7 +199,7 @@ export default function WhyCorentisPage() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/design-partners">For pilots</ButtonLink>
           <ButtonLink href="/investors" variant="secondary">
-            For investors/funders
+            For investors/funding
           </ButtonLink>
           <ButtonLink href="/assurance" variant="secondary">
             For assurance teams

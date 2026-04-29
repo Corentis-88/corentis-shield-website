@@ -4,10 +4,8 @@ import Link from "next/link";
 const navItems = [
   { label: "Shield Products", href: "/offerings" },
   { label: "Why Corentis?", href: "/why-corentis" },
-  { label: "Methodology", href: "/methodology" },
-  { label: "Pilot Report", href: "/pilot-report" },
   { label: "Resources", href: "/resources" },
-  { label: "Partners & Funders", href: "/partners-and-funders" },
+  { label: "Partners", href: "/partners" },
   { label: "Founder", href: "/founder" },
   { label: "Contact", href: "/contact" },
 ];

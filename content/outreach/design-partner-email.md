@@ -22,7 +22,7 @@ Links:
 
 - `/design-partners`
 - `/packs/corentis-design-partner-pack.pdf`
-- `/pilot-report`
+- `/resources`
 
 ## Slightly longer email
 
@@ -46,7 +46,7 @@ Links:
 
 - `/design-partners`
 - `/packs/corentis-design-partner-pack.pdf`
-- `/pilot-report`
+- `/resources`
 
 ## Follow-up
 

@@ -6,7 +6,7 @@ import resourcePacks from "@/content/resource-packs.json";
 
 const chooser = [
   [
-    "Investors/funders",
+    "Investors/funding",
     "Investor Overview PDF",
     "Market timing, platform potential and route to deployment.",
   ],

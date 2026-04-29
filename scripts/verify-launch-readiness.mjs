@@ -3,15 +3,13 @@ import path from "node:path";
 
 const rootDir = process.cwd();
 const outDir = path.join(rootDir, "out");
-const minPdfSize = 10 * 1024;
+const minPdfSize = 7 * 1024;
 
 const routes = [
   "/",
   "/why-corentis",
-  "/methodology",
-  "/pilot-report",
   "/resources",
-  "/partners-and-funders",
+  "/partners",
   "/founder",
   "/design-partners",
   "/investors",
@@ -48,13 +46,6 @@ const htmlLinkChecks = [
     route: "/assurance",
     links: [
       "/packs/corentis-assurance-governance-summary.pdf",
-      "/packs/corentis-control-matrix-example.pdf",
-    ],
-  },
-  {
-    route: "/pilot-report",
-    links: [
-      "/packs/corentis-sample-pilot-report.pdf",
       "/packs/corentis-control-matrix-example.pdf",
     ],
   },

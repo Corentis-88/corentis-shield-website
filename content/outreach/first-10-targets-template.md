@@ -97,7 +97,7 @@ Suggested links:
 
 - Page: `/design-partners`
 - PDF: `/packs/corentis-design-partner-pack.pdf`
-- Proof route: `/pilot-report`
+- Proof route: `/resources`
 
 ### Design partner target 1
 

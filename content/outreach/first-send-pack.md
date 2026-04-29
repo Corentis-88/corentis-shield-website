@@ -40,7 +40,7 @@ Links:
 
 - `/design-partners`
 - `/packs/corentis-design-partner-pack.pdf`
-- `/pilot-report`
+- `/resources`
 
 ## 3. Assurance/governance first send
 
@@ -72,7 +72,7 @@ That is why I'm building Corentis Shield: an AI checkpoint for regulated workflo
 
 The goal is simple: check before action, route human review where it matters, and record evidence as the workflow runs.
 
-I'm speaking with design partners, AI assurance stakeholders and investors/funders who are thinking about controlled AI adoption in regulated workflows.
+I'm speaking with design partners, AI assurance stakeholders and investors/funding partners who are thinking about controlled AI adoption in regulated workflows.
 
 ## Shorter LinkedIn alternate
 

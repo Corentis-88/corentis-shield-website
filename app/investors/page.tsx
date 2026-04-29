@@ -4,7 +4,7 @@ import { EvidenceStatCards } from "@/components/EvidenceStatCards";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "Investors & Funders | Corentis Shield",
+  title: "Investors & Funding | Corentis Shield",
   description:
     "Explore Corentis Shield, an early-stage AI checkpoint layer for regulated workflows, starting with financial services complaints and vulnerable-customer use cases.",
 };
@@ -38,7 +38,7 @@ export default function InvestorsPage() {
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Investors & Funders"
+        eyebrow="Investors & Funding"
         title="AI agents need control infrastructure"
         intro="Corentis Shield is an AI checkpoint for regulated workflows: policy-bound, reviewable and evidence-generating before sensitive actions move forward."
       >
@@ -47,7 +47,7 @@ export default function InvestorsPage() {
             Download Investor Overview
           </ButtonLink>
           <ButtonLink href="/contact#investor" variant="secondary">
-            Start an investor/funder conversation
+            Start an investor/funding conversation
           </ButtonLink>
         </div>
       </Section>

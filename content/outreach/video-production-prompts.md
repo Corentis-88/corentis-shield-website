@@ -30,7 +30,7 @@ On-screen text: “If it can act, it needs a checkpoint.” “Proceed. Review. 
 
 Key scenes: AI adoption; regulated workflow; risky output; Corentis check; review queue; evidence pack; pilot report.
 
-Reference assets: /walkthrough, /methodology, Sample Pilot Report PDF.
+Reference assets: /walkthrough, /resources, Sample Pilot Report PDF.
 
 CTA: “Explore the design partner pilot.”
 
@@ -46,7 +46,7 @@ On-screen text: “AI agents need control infrastructure.” “Financial servic
 
 Key scenes: AI adoption trend; complaints/vulnerability wedge; checkpoint layer; scenario library; evidence packs; investor CTA.
 
-Reference assets: Investor Overview PDF, /investors, /partners-and-funders.
+Reference assets: Investor Overview PDF, /investors, /partners.
 
 CTA: “Start an investor/funder conversation.”
 
@@ -62,7 +62,7 @@ On-screen text: “Start with one workflow.” “Test before live use.” “Re
 
 Key scenes: workflow selected; policy controls mapped; scenarios run; checkpoint simulation; review queue; evidence pack.
 
-Reference assets: Design Partner Pack PDF, /design-partners, /pilot-report.
+Reference assets: Design Partner Pack PDF, /design-partners, /resources.
 
 CTA: “Start a design partner conversation.”
 

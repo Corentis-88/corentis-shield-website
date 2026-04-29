@@ -132,7 +132,7 @@ evidence_needed: hardship disclosure, complaint history, proposed resolution`}</
       </Section>
 
       <Section
-        title="Why this matters for funders and partners"
+        title="Why this matters for funding and partners"
         intro="The same mechanism can support assurance pilots, commercial deployments and benchmark generation. It is a product path and an evidence path."
       >
         <div className="grid gap-4 md:grid-cols-3">

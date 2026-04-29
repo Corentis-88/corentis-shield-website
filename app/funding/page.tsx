@@ -96,7 +96,7 @@ export default function FundingPage() {
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Partners and funders"
+        eyebrow="Partners and funding"
         title="Corentis is building practical AI assurance infrastructure for the next phase of AI adoption."
         intro="As AI agents move from chat to action, regulated workflows need a checkpoint before outputs reach customers, teams or live systems."
       >

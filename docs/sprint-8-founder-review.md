@@ -83,8 +83,8 @@ App routes:
 
 - Existing routes updated: `/`, `/why-corentis`, `/contact`, `/funding`, `/runtime-guard`,
   `/assurance-lab`, `/financial-services`, `/offerings`
-- New routes added: `/assurance`, `/design-partners`, `/founder`, `/investors`, `/methodology`,
-  `/partners-and-funders`, `/pilot-report`, `/resources`, `/video-brief`, `/walkthrough`
+- New routes added: `/assurance`, `/design-partners`, `/founder`, `/investors`, `/partners`,
+  `/resources`, `/video-brief`, `/walkthrough`
 
 Components:
 

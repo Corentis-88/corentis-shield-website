@@ -6,10 +6,8 @@ Use this after Cloudflare deployment and custom-domain connection.
 
 - [ ] `/`
 - [ ] `/why-corentis`
-- [ ] `/methodology`
-- [ ] `/pilot-report`
 - [ ] `/resources`
-- [ ] `/partners-and-funders`
+- [ ] `/partners`
 - [ ] `/founder`
 - [ ] `/design-partners`
 - [ ] `/investors`

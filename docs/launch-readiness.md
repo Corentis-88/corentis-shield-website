@@ -11,17 +11,15 @@ This checklist is for the founder before public launch, Cloudflare deployment an
 - [ ] `out/packs` contains all six PDFs after build.
 - [ ] Contact route is available at `/contact`.
 - [ ] Contact form uses Formspree via `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT`.
-- [ ] Audience journeys exist for design partners, investors/funders, assurance teams and walkthrough requests.
+- [ ] Audience journeys exist for design partners, investors/funding partners, assurance teams and walkthrough requests.
 - [ ] Known limitation: `next lint` currently uses the deprecated interactive `next lint` setup and has not been reconfigured.
 
 ## 2. Core pages to manually inspect
 
 - [ ] `/`
 - [ ] `/why-corentis`
-- [ ] `/methodology`
-- [ ] `/pilot-report`
 - [ ] `/resources`
-- [ ] `/partners-and-funders`
+- [ ] `/partners`
 - [ ] `/founder`
 - [ ] `/design-partners`
 - [ ] `/investors`

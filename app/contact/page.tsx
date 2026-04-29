@@ -29,7 +29,7 @@ const contactPaths = [
     id: "investor",
     title: "Investor or funder conversation",
     description:
-      "For investors, funders or strategic partners interested in AI control infrastructure for regulated workflows.",
+      "For investors, funding partners or strategic partners interested in AI control infrastructure for regulated workflows.",
     prompt:
       "Tell us whether you are interested in investment, funding, partnership, or strategic collaboration.",
     cta: "Start investor/funder conversation",
