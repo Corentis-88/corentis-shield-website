@@ -165,20 +165,23 @@ function ensureSpace(doc, needed = 90) {
 
 function addPageAccent(doc) {
   doc.rect(0, 0, page.width, 8).fill(brand.cyan);
+  addFooter(doc);
   doc.x = page.marginLeft;
   doc.y = page.marginTop;
 }
 
-function addFooter(doc, pageNumber) {
-  const y = page.height - 62;
-  doc
-    .font("Helvetica")
-    .fontSize(8)
-    .fillColor(brand.muted)
-    .text("Corentis Shield", page.margin, y, { width: 120, lineBreak: false })
-    .fillColor(brand.muted)
-    .text("AI checkpoint for regulated workflows", 176, y, { width: 260, lineBreak: false })
-    .text(String(pageNumber), 520, y, { width: 38, align: "right", lineBreak: false });
+function addFooter(doc, color = brand.muted) {
+  const oldX = doc.x;
+  const oldY = doc.y;
+  const y = page.height - 34;
+  const footerText = `${companyDetails.companyName} | Company No. ${companyDetails.companyNumber} | ${companyDetails.email}`;
+  doc.font("Helvetica").fontSize(6.7).fillColor(color).text(footerText, page.marginLeft, y, {
+    width: contentWidth(),
+    align: "center",
+    lineBreak: false,
+  });
+  doc.x = oldX;
+  doc.y = oldY;
 }
 
 function coverPage(doc, pack) {
@@ -237,6 +240,7 @@ function coverPage(doc, pack) {
     .fillColor("#94a3b8")
     .text("Generated April 2026", page.marginLeft, 728)
     .text("For discussion and pilot exploration only", page.marginLeft, 744);
+  addFooter(doc, "#94a3b8");
 }
 
 function sectionHeading(doc, heading, eyebrow, needed = 82) {

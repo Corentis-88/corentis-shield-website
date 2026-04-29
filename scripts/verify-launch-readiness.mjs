@@ -8,6 +8,9 @@ const fundingMinPdfSize = 10 * 1024;
 const resourcePacks = JSON.parse(
   fs.readFileSync(path.join(rootDir, "content", "resource-packs.json"), "utf8")
 );
+const companyDetails = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "content", "company-details.json"), "utf8")
+);
 
 const routes = [
   "/",
@@ -84,6 +87,39 @@ const htmlLinkChecks = [
 
 const contactAnchors = ["design-partner", "investor", "assurance", "walkthrough"];
 
+const companyHtmlChecks = [
+  {
+    label: "footer company details",
+    route: "/",
+    values: [
+      companyDetails.companyName,
+      companyDetails.companyNumber,
+      companyDetails.registeredOfficeSingleLine,
+      companyDetails.email,
+    ],
+  },
+  {
+    label: "contact page company details",
+    route: "/contact",
+    values: [
+      companyDetails.companyName,
+      companyDetails.companyNumber,
+      companyDetails.registeredOfficeSingleLine,
+      companyDetails.email,
+    ],
+  },
+  {
+    label: "funding page company details",
+    route: "/funding",
+    values: [
+      companyDetails.companyName,
+      companyDetails.companyNumber,
+      companyDetails.registeredOfficeSingleLine,
+      companyDetails.email,
+    ],
+  },
+];
+
 const failures = [];
 
 function routeCandidates(route) {
@@ -148,6 +184,23 @@ if (contactHtmlPath) {
       pass(`/contact includes #${anchor}`);
     } else {
       fail(`/contact missing #${anchor}`);
+    }
+  }
+}
+
+for (const check of companyHtmlChecks) {
+  const filePath = htmlPath(check.route);
+  if (!filePath) {
+    fail(`cannot inspect missing route HTML for company details: ${check.route}`);
+    continue;
+  }
+
+  const html = fs.readFileSync(filePath, "utf8");
+  for (const value of check.values) {
+    if (html.includes(value)) {
+      pass(`${check.label} includes ${value}`);
+    } else {
+      fail(`${check.label} missing ${value}`);
     }
   }
 }

@@ -673,6 +673,26 @@
         ]
       },
       {
+        "heading": "Deliverables expected from funding",
+        "bullets": [
+          "ControlBench scenario library and control schema.",
+          "Baseline-versus-checkpoint test results.",
+          "Evidence completeness scoring method.",
+          "Sandbox/design-partner use-case statement.",
+          "Sample pilot report and control matrix artefacts.",
+          "Clear go/no-go recommendation for the next validation step."
+        ]
+      },
+      {
+        "heading": "90-day and 12-month validation pathway",
+        "bullets": [
+          "First 30 days: confirm application materials, route timing and supporting evidence packs.",
+          "Days 31-60: prepare or submit the strongest eligible route and start strategic conversations.",
+          "Days 61-90: narrow the pilot boundary, scenario library and baseline-versus-checkpoint test plan.",
+          "12-month objective: move from prepared materials to non-production validation, evidence scoring and a controlled pilot route if the evidence supports it."
+        ]
+      },
+      {
         "heading": "Confirmed company details for formal applications",
         "bullets": [
           "Legal entity: Corentis Technologies Ltd.",
