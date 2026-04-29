@@ -5,41 +5,51 @@ import { Section } from "@/components/Section";
 import resourcePacks from "@/content/resource-packs.json";
 
 const chooser = [
-  [
-    "Investors/funding",
-    "Investor Overview PDF",
-    "Market timing, platform potential and route to deployment.",
-  ],
-  [
-    "Regulated operations/governance",
-    "Assurance & Governance Summary PDF",
-    "Control loop, evidence outputs and governance usefulness.",
-  ],
-  [
-    "Potential pilot teams",
-    "Design Partner Pack PDF",
-    "A low-friction path for one sensitive workflow.",
-  ],
-  [
-    "Product/technical readers",
-    "Runtime Checkpoint Explainer PDF",
-    "A simple explanation of checkpoint before action.",
-  ],
-  [
-    "Assurance reviewers",
-    "Control Matrix Example PDF",
-    "How risk areas map to controls, review and evidence.",
-  ],
-  [
-    "Buyers wanting proof shape",
-    "Sample Pilot Report PDF",
-    "What a controlled workflow pilot can produce.",
-  ],
-  [
-    "Funding reviewers",
-    "Funding Readiness PDFs",
-    "Route-specific preparation packs for grants, sandbox and strategic funding conversations.",
-  ],
+  {
+    audience: "Investors/funding",
+    pack: "Investor Overview PDF",
+    description: "Market timing, platform potential and route to deployment.",
+    href: "/packs/corentis-investor-overview.pdf",
+  },
+  {
+    audience: "Regulated operations/governance",
+    pack: "Assurance & Governance Summary PDF",
+    description: "Control loop, evidence outputs and governance usefulness.",
+    href: "/packs/corentis-assurance-governance-summary.pdf",
+  },
+  {
+    audience: "Potential pilot teams",
+    pack: "Design Partner Pack PDF",
+    description: "A low-friction path for one sensitive workflow.",
+    href: "/packs/corentis-design-partner-pack.pdf",
+  },
+  {
+    audience: "Product/technical readers",
+    pack: "Runtime Checkpoint Explainer PDF",
+    description: "A simple explanation of checkpoint before action.",
+    href: "/packs/corentis-runtime-checkpoint-explainer.pdf",
+  },
+  {
+    audience: "Assurance reviewers",
+    pack: "Control Matrix Example PDF",
+    description: "How risk areas map to controls, review and evidence.",
+    href: "/packs/corentis-control-matrix-example.pdf",
+  },
+  {
+    audience: "Buyers wanting proof shape",
+    pack: "Sample Pilot Report PDF",
+    description: "What a controlled workflow pilot can produce.",
+    href: "/packs/corentis-sample-pilot-report.pdf",
+  },
+  {
+    audience: "Funding reviewers",
+    pack: "Funding Readiness Overview PDF",
+    description:
+      "Start here for route-specific funding preparation, grant readiness and strategic funding conversations.",
+    helperText:
+      "Start with the Funding Readiness Overview, then use the route-specific packs below.",
+    href: "/packs/corentis-funding-readiness-overview.pdf",
+  },
 ];
 
 const audiencePathways = [
@@ -68,14 +78,23 @@ export default function ResourcesPage() {
 
       <Section title="Choose the right pack">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {chooser.map(([audience, pack, description]) => (
-            <div key={audience} className="card-base card-info card-lift p-6">
+          {chooser.map(({ audience, pack, description, helperText, href }) => (
+            <a
+              key={audience}
+              href={href}
+              aria-label={`Download ${pack}`}
+              className="card-base card-info card-lift group block cursor-pointer p-6 transition hover:border-cyanx/45 hover:bg-cyanx/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyanx"
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyanx">
                 {audience}
               </p>
               <h3 className="mt-3 text-xl font-semibold text-white">{pack}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-300">{description}</p>
-            </div>
+              {helperText && <p className="mt-3 text-xs leading-5 text-slate-400">{helperText}</p>}
+              <p className="mt-5 text-sm font-semibold text-cyan-50 transition group-hover:text-white">
+                Download PDF <span aria-hidden="true">→</span>
+              </p>
+            </a>
           ))}
         </div>
       </Section>

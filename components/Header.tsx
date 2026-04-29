@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Shield Products", href: "/offerings" },
+  { label: "Corentis Shield", href: "/offerings" },
   { label: "Why Corentis?", href: "/why-corentis" },
   { label: "Resources", href: "/resources" },
   { label: "Partners", href: "/partners" },

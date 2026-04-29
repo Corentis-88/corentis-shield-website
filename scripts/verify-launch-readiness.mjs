@@ -39,16 +39,41 @@ const pdfs = resourcePacks
     minSize: fundingPdfSlugs.has(resource.slug) ? fundingMinPdfSize : defaultMinPdfSize,
   }));
 
+const resourceChooserLinks = [
+  "/packs/corentis-investor-overview.pdf",
+  "/packs/corentis-assurance-governance-summary.pdf",
+  "/packs/corentis-design-partner-pack.pdf",
+  "/packs/corentis-runtime-checkpoint-explainer.pdf",
+  "/packs/corentis-control-matrix-example.pdf",
+  "/packs/corentis-sample-pilot-report.pdf",
+  "/packs/corentis-funding-readiness-overview.pdf",
+];
+
 const htmlLinkChecks = [
   {
+    label: "top resource chooser",
+    route: "/resources",
+    links: resourceChooserLinks,
+  },
+  {
+    label: "resource download grid",
     route: "/resources",
     links: resourcePacks
       .filter((resource) => resource.status === "Available" && resource.publicPdfPath)
       .map((resource) => resource.publicPdfPath),
   },
-  { route: "/investors", links: ["/packs/corentis-investor-overview.pdf"] },
-  { route: "/design-partners", links: ["/packs/corentis-design-partner-pack.pdf"] },
   {
+    label: "investors page",
+    route: "/investors",
+    links: ["/packs/corentis-investor-overview.pdf"],
+  },
+  {
+    label: "design partners page",
+    route: "/design-partners",
+    links: ["/packs/corentis-design-partner-pack.pdf"],
+  },
+  {
+    label: "assurance page",
     route: "/assurance",
     links: [
       "/packs/corentis-assurance-governance-summary.pdf",
@@ -108,9 +133,9 @@ for (const check of htmlLinkChecks) {
   const html = fs.readFileSync(filePath, "utf8");
   for (const link of check.links) {
     if (html.includes(link)) {
-      pass(`${check.route} links to ${link}`);
+      pass(`${check.label} links to ${link}`);
     } else {
-      fail(`${check.route} missing link to ${link}`);
+      fail(`${check.label} missing link to ${link}`);
     }
   }
 }
