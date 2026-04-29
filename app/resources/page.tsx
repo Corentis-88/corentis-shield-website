@@ -92,7 +92,7 @@ export default function ResourcesPage() {
               <p className="mt-3 text-sm leading-6 text-slate-300">{description}</p>
               {helperText && <p className="mt-3 text-xs leading-5 text-slate-400">{helperText}</p>}
               <p className="mt-5 text-sm font-semibold text-cyan-50 transition group-hover:text-white">
-                Download PDF <span aria-hidden="true">→</span>
+                Download PDF <span aria-hidden="true">-&gt;</span>
               </p>
             </a>
           ))}

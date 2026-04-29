@@ -325,43 +325,75 @@ function evidenceCards(doc, evidence) {
 
 function matrixRows(doc, rows = []) {
   if (!rows.length) return;
-  sectionHeading(doc, "Control matrix", "Illustrative mapping", 130);
+  sectionHeading(doc, "Control matrix", "Illustrative operational mapping", 160);
   rows.forEach((row) => {
-    ensureSpace(doc, 82);
+    const fields = [
+      ["Policy intent", row.policyIntent],
+      ["Runtime checkpoint", row.runtimeCheckpoint],
+      ["Human review trigger", row.humanReviewTrigger],
+      ["Evidence captured", row.evidenceCaptured],
+      ["Owner / reviewer", row.owner],
+      ["Success measure", row.successMeasure],
+    ].filter(([, value]) => value);
+    const fieldHeights = fields.map(([, value]) => {
+      const valueHeight = doc
+        .font("Helvetica")
+        .fontSize(7.6)
+        .heightOfString(value, { width: contentWidth() - 170, lineGap: 1.3 });
+      return Math.max(18, valueHeight + 5);
+    });
+    const boxHeight = 40 + fieldHeights.reduce((sum, height) => sum + height, 0);
+    ensureSpace(doc, boxHeight + 16);
     const y = doc.y;
-    doc.roundedRect(page.margin, y, contentWidth(), 66, 10).fillAndStroke("#f0fdfa", "#99f6e4");
+    doc
+      .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+      .fillAndStroke("#f0fdfa", "#99f6e4");
     doc
       .font("Helvetica-Bold")
-      .fontSize(8.8)
+      .fontSize(9)
       .fillColor(brand.ink)
-      .text(row.riskArea, page.margin + 14, y + 13, {
-        width: 150,
-      });
-    const labels = [
-      ["Checkpoint", row.runtimeCheckpoint],
-      ["Review", row.humanReviewTrigger],
-      ["Evidence", row.evidenceCaptured],
-    ];
-    let x = page.margin + 170;
-    labels.forEach(([label, value]) => {
+      .text(row.riskArea, page.margin + 14, y + 14, { width: contentWidth() - 28 });
+    let fieldY = y + 36;
+    fields.forEach(([label, value], index) => {
       doc
         .font("Helvetica-Bold")
-        .fontSize(6.8)
+        .fontSize(7.1)
         .fillColor("#0f766e")
-        .text(label, x, y + 13, {
-          width: 92,
-        });
+        .text(label, page.margin + 14, fieldY, { width: 128 });
       doc
         .font("Helvetica")
-        .fontSize(6.8)
+        .fontSize(7.6)
         .fillColor(brand.body)
-        .text(value, x, y + 25, {
-          width: 92,
-          lineGap: 1.2,
+        .text(value, page.margin + 160, fieldY, {
+          width: contentWidth() - 174,
+          lineGap: 1.3,
         });
-      x += 100;
+      fieldY += fieldHeights[index];
     });
-    doc.y = y + 78;
+    doc.y = y + boxHeight + 16;
+  });
+}
+
+function verticalBulletCards(doc, heading, bullets = [], eyebrow = "Structured detail") {
+  if (!bullets.length) return;
+  sectionHeading(doc, heading, eyebrow, 130);
+  bullets.forEach((item) => {
+    const textHeight = doc
+      .font("Helvetica")
+      .fontSize(8)
+      .heightOfString(item, { width: contentWidth() - 28, lineGap: 1.5 });
+    const boxHeight = Math.max(48, textHeight + 26);
+    ensureSpace(doc, boxHeight + 14);
+    const y = doc.y;
+    doc
+      .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+      .fillAndStroke("#f8fafc", "#cbd5e1");
+    doc
+      .font("Helvetica")
+      .fontSize(8)
+      .fillColor(brand.body)
+      .text(item, page.margin + 14, y + 14, { width: contentWidth() - 28, lineGap: 1.5 });
+    doc.y = y + boxHeight + 14;
   });
 }
 
@@ -369,7 +401,7 @@ function selectedSources(doc, evidence) {
   if (!evidence.length) return;
   sectionHeading(doc, "Selected sources", undefined, 132);
   evidence.forEach((item) => {
-    ensureSpace(doc, 34);
+    ensureSpace(doc, 48);
     const sourceReference = item.sourceUrl
       ? new URL(item.sourceUrl).hostname.replace(/^www\./, "")
       : "Source reference available";
@@ -382,10 +414,17 @@ function selectedSources(doc, evidence) {
       .font("Helvetica")
       .fontSize(6.8)
       .fillColor(brand.muted)
-      .text(`${item.sourceDate}. Source reference: ${sourceReference}`, {
+      .text(`Date/status: ${item.sourceDate}. Source domain: ${sourceReference}.`, {
         width: contentWidth(),
         lineGap: 2,
       });
+    if (item.sourceNote || item.caution) {
+      doc
+        .font("Helvetica")
+        .fontSize(6.6)
+        .fillColor(brand.muted)
+        .text(item.sourceNote || item.caution, { width: contentWidth(), lineGap: 1.8 });
+    }
     doc.moveDown(0.22);
   });
 }
@@ -474,7 +513,7 @@ function fundingSources(doc, routes) {
   if (!routes.length) return;
   sectionHeading(doc, "Funding source references", undefined, 120);
   routes.forEach((route) => {
-    ensureSpace(doc, 30);
+    ensureSpace(doc, 44);
     const sourceReference = route.officialSourceUrl
       ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
       : "Source reference available";
@@ -488,7 +527,7 @@ function fundingSources(doc, routes) {
       .fontSize(6.8)
       .fillColor(brand.muted)
       .text(
-        `Source reference: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
+        `Type/status: ${route.fundingType}. Source domain: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
         {
           width: contentWidth(),
           lineGap: 1.8,
@@ -531,6 +570,19 @@ function bodyPages(doc, pack, evidence) {
   }
 
   for (const section of pack.sections || []) {
+    if (
+      [
+        "Work packages",
+        "Sample scenario table",
+        "Scenario outcome table",
+        "Owner/action/checkpoint plan",
+        "Decision gates",
+      ].includes(section.heading)
+    ) {
+      paragraph(doc, section.body);
+      verticalBulletCards(doc, section.heading, section.bullets);
+      continue;
+    }
     const expectedSectionHeight = section.bullets?.length ? 104 : 76;
     sectionHeading(doc, section.heading, undefined, expectedSectionHeight);
     paragraph(doc, section.body);
@@ -556,8 +608,8 @@ function bodyPages(doc, pack, evidence) {
 
 function addFooters(doc) {
   // PDFKit can create overflow pages when footer text is added after the document is buffered.
-  // The cover page already carries the Corentis Shield brand line, so keep generated packs
-  // compact and avoid footer-induced blank pages.
+  // Keep generated packs compact and avoid footer-induced blank pages; the cover and page accent
+  // carry the Corentis Shield brand line.
   void doc;
 }
 
