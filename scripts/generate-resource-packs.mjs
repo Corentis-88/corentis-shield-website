@@ -609,10 +609,10 @@ function bodyPages(doc, pack, evidence) {
   for (const section of pack.sections || []) {
     if (
       [
-        "Work packages",
         "Sample scenario table",
         "Scenario outcome table",
         "Owner/action/checkpoint plan",
+        "Workstreams",
         "Decision gates",
       ].includes(section.heading)
     ) {

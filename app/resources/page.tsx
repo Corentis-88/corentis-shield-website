@@ -6,25 +6,25 @@ import resourcePacks from "@/content/resource-packs.json";
 
 const chooser = [
   {
-    audience: "Investors/funding",
+    audience: "For investors and strategic funders",
     pack: "Investor Overview PDF",
     description: "Market timing, platform potential and the path to validation.",
     href: "/packs/corentis-investor-overview.pdf",
   },
   {
-    audience: "Regulated operations/governance",
+    audience: "For assurance and governance teams",
     pack: "Assurance & Evidence Brief PDF",
     description: "Control loop, evidence outputs and assurance usefulness.",
     href: "/packs/corentis-assurance-governance-summary.pdf",
   },
   {
-    audience: "Potential pilot teams",
+    audience: "For regulated-sector pilots",
     pack: "Design Partner Pack PDF",
     description: "A low-friction path for one sensitive workflow.",
     href: "/packs/corentis-design-partner-pack.pdf",
   },
   {
-    audience: "Product/technical readers",
+    audience: "For technical/product readers",
     pack: "Runtime Checkpoint Explainer PDF",
     description: "A simple explanation of checkpoint before action.",
     href: "/packs/corentis-runtime-checkpoint-explainer.pdf",
@@ -42,7 +42,7 @@ const chooser = [
     href: "/packs/corentis-sample-pilot-report.pdf",
   },
   {
-    audience: "Funding reviewers",
+    audience: "Start here",
     pack: "Vision & Funding Readiness Overview PDF",
     description: "Start here for the vision, timing and strategic funding conversation.",
     helperText: "Use this when a funder, investor or strategic partner needs the big picture.",
@@ -58,7 +58,7 @@ const audiencePathways = [
 ];
 
 const audienceNeeds = [
-  ["Investors", "Market, defensibility, traction and expansion logic."],
+  ["Investors", "Market, defensibility, validation and expansion logic."],
   ["Buyers", "Workflow fit, implementation safety and productivity value."],
   ["Assurance reviewers", "Control mapping, evidence and governance traceability."],
   ["Design partners", "A concrete pilot path using one sensitive workflow."],
@@ -71,7 +71,7 @@ export default function ResourcesPage() {
         className="grid-bg pt-20"
         eyebrow="Resources"
         title="Resources"
-        intro="Practical material for investors, buyers, assurance reviewers and design partners."
+        intro="Choose the right pack for the conversation you want to have."
       />
 
       <Section title="Choose the right pack">
@@ -90,7 +90,7 @@ export default function ResourcesPage() {
               <p className="mt-3 text-sm leading-6 text-slate-300">{description}</p>
               {helperText && <p className="mt-3 text-xs leading-5 text-slate-400">{helperText}</p>}
               <p className="mt-5 text-sm font-semibold text-cyan-50 transition group-hover:text-white">
-                Download PDF <span aria-hidden="true">-&gt;</span>
+                Open PDF <span aria-hidden="true">-&gt;</span>
               </p>
             </a>
           ))}
