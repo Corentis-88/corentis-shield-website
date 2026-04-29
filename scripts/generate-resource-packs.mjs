@@ -27,7 +27,7 @@ const page = {
   marginLeft: 54,
   marginRight: 54,
   marginTop: 54,
-  marginBottom: 54,
+  marginBottom: 84,
 };
 page.margin = page.marginLeft;
 page.bottom = page.marginBottom;
@@ -173,7 +173,7 @@ function addPageAccent(doc) {
 function addFooter(doc, color = brand.muted) {
   const oldX = doc.x;
   const oldY = doc.y;
-  const y = page.height - 34;
+  const y = page.height - 68;
   const footerText = `${companyDetails.companyName} | Company No. ${companyDetails.companyNumber} | ${companyDetails.email}`;
   doc.font("Helvetica").fontSize(6.7).fillColor(color).text(footerText, page.marginLeft, y, {
     width: contentWidth(),
@@ -640,7 +640,7 @@ function fundingSources(doc, routes) {
 }
 
 function companyDetailsNote(doc) {
-  sectionHeading(doc, "Company details", undefined, 110);
+  sectionHeading(doc, "Company details and next step", undefined, 130);
   const body = [
     `Corentis Shield is provided by ${companyDetails.companyName}.`,
     `Company No. ${companyDetails.companyNumber}.`,
@@ -649,6 +649,13 @@ function companyDetailsNote(doc) {
     `Contact: ${companyDetails.email}.`,
   ].join(" ");
   paragraph(doc, body);
+  ensureSpace(doc, 30);
+  doc.font("Helvetica-Bold").fontSize(10).fillColor("#075985");
+  safeText(doc, "Start a Conversation", page.marginLeft, doc.y, contentWidth(), {
+    link: "https://www.corentis.co.uk/contact",
+    underline: true,
+  });
+  doc.x = page.marginLeft;
 }
 
 function bodyPages(doc, pack, evidence) {
@@ -709,15 +716,6 @@ function bodyPages(doc, pack, evidence) {
   selectedSources(doc, evidence);
   fundingSources(doc, routeRefs);
   companyDetailsNote(doc);
-
-  sectionHeading(doc, "Next Step", undefined, 74);
-  ensureSpace(doc, 34);
-  doc.font("Helvetica-Bold").fontSize(10).fillColor("#075985");
-  safeText(doc, "Start a Conversation", page.marginLeft, doc.y, contentWidth(), {
-    link: "https://www.corentis.co.uk/contact",
-    underline: true,
-  });
-  doc.x = page.marginLeft;
 }
 
 function addFooters(doc) {
