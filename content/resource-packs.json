@@ -610,7 +610,7 @@
         ]
       },
       {
-        "heading": "Funding and support ask",
+        "heading": "Partner with us",
         "body": "We are seeking funding, sandbox support and strategic conversations to validate whether runtime checkpointing, policy-to-control mapping, scenario testing and evidence capture can improve the reviewability, control and assurance of AI-assisted regulated workflows."
       },
       {
@@ -714,13 +714,13 @@
     "status": "Available",
     "publicPdfPath": "/packs/corentis-controlbench-rd-brief.pdf",
     "shortDescription": "A Frontier AI Discovery-style technical R&D brief.",
-    "evidenceHook": "Frames Corentis around R&D uncertainty, baseline comparison, benchmark testing and evidence completeness.",
+    "evidenceHook": "Frames Corentis around R&D validation, baseline comparison, benchmark testing and evidence completeness.",
     "ctaText": "Use this brief to prepare the Corentis ControlBench application narrative.",
     "disclaimer": "This is a feasibility concept, not a guarantee of technical success or funding outcome. Eligibility and scope should be confirmed against the live competition rules.",
     "fundingRouteIds": ["frontier-ai-discovery", "frontier-ai-benchmarking-datasets"],
     "sections": [
       {
-        "heading": "Project title",
+        "heading": "Corentis",
         "body": "Corentis ControlBench: runtime assurance and benchmark testing for agentic AI in regulated workflows."
       },
       {
@@ -728,7 +728,7 @@
         "body": "Agentic AI needs measurable runtime assurance before regulated actions. The practical research question is how to evaluate whether a checkpoint improves reviewability, evidence completeness and action safety compared with an unchecked AI-assisted workflow."
       },
       {
-        "heading": "Funding and support ask",
+        "heading": "Partner with us",
         "body": "We are seeking funding, sandbox support and strategic conversations to validate whether runtime checkpointing, policy-to-control mapping, scenario testing and evidence capture can improve the reviewability, control and assurance of AI-assisted regulated workflows."
       },
       {
@@ -838,10 +838,6 @@
         "body": "A successful feasibility study could support a larger R&D route around reusable evaluation assets, scenario libraries and runtime assurance infrastructure."
       },
       {
-        "heading": "R&D uncertainty to evidence",
-        "body": "The core uncertainty is whether policy-to-control mapping and runtime checkpointing can produce materially clearer review routes and evidence artefacts than an uncheckpointed AI-assisted workflow. The feasibility study should be designed to generate evidence for that question, not to claim a finished production system."
-      },
-      {
         "heading": "What would count as useful progress",
         "bullets": [
           "A repeatable test harness for regulated workflow scenarios.",
@@ -889,7 +885,7 @@
         "body": "Corentis fits as a financial-services testing concept for complaints, vulnerable-customer handling, AI-assisted casework and customer interaction/service agent controls."
       },
       {
-        "heading": "Funding and support ask",
+        "heading": "Partner with us",
         "body": "We are seeking funding, sandbox support and strategic conversations to validate whether runtime checkpointing, policy-to-control mapping, scenario testing and evidence capture can improve the reviewability, control and assurance of AI-assisted regulated workflows."
       },
       {
@@ -1063,7 +1059,7 @@
         "body": "Corentis aligns with AI assurance, runtime evidence, human review, policy-to-control mapping and checkpointing before regulated action."
       },
       {
-        "heading": "Funding and support ask",
+        "heading": "Partner with us",
         "body": "We are seeking funding, sandbox support and strategic conversations to validate whether runtime checkpointing, policy-to-control mapping, scenario testing and evidence capture can improve the reviewability, control and assurance of AI-assisted regulated workflows."
       },
       {
@@ -1226,7 +1222,7 @@
         "body": "If the pattern works, Corentis can become infrastructure for repeated regulated AI deployment decisions: define the boundary, translate policy into controls, test scenarios, checkpoint proposed actions, route human review and produce evidence for assurance."
       },
       {
-        "heading": "Funding and support ask",
+        "heading": "Partner with us",
         "body": "We are seeking funding, sandbox support and strategic conversations to validate whether runtime checkpointing, policy-to-control mapping, scenario testing and evidence capture can improve the reviewability, control and assurance of AI-assisted regulated workflows."
       },
       {
@@ -1419,7 +1415,7 @@
         "heading": "Phase 2 outputs",
         "bullets": [
           "ControlBench one-page summary.",
-          "R&D uncertainty and feasibility question.",
+          "R&D validation and feasibility question.",
           "Three-month workplan.",
           "Baseline-versus-checkpoint evaluation plan.",
           "Budget and eligibility details to confirm manually."

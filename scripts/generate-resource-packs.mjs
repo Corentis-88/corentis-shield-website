@@ -737,10 +737,8 @@ function bodyPages(doc, pack, evidence) {
   }
 
   matrixRows(doc, pack.matrixRows);
-  fundingRouteCards(doc, routeRefs);
   evidenceCards(doc, evidence);
   selectedSources(doc, evidence);
-  fundingSources(doc, routeRefs);
   companyDetailsNote(doc);
 }
 
