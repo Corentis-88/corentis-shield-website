@@ -21,9 +21,13 @@ const fundingRoutes = JSON.parse(
 const page = {
   width: 595.28,
   height: 841.89,
-  margin: 54,
-  bottom: 54,
+  marginLeft: 54,
+  marginRight: 54,
+  marginTop: 54,
+  marginBottom: 54,
 };
+page.margin = page.marginLeft;
+page.bottom = page.marginBottom;
 
 const brand = {
   ink: "#06111f",
@@ -50,11 +54,107 @@ function fundingRoutesByIds(ids = []) {
 }
 
 function contentWidth() {
-  return page.width - page.margin * 2;
+  return page.width - page.marginLeft - page.marginRight;
+}
+
+function maxX() {
+  return page.width - page.marginRight;
+}
+
+function measureTextHeight(doc, text, width, fontSize, options = {}) {
+  const font = options.bold
+    ? "Helvetica-Bold"
+    : options.oblique
+      ? "Helvetica-Oblique"
+      : "Helvetica";
+  return doc
+    .font(font)
+    .fontSize(fontSize)
+    .heightOfString(String(text || ""), {
+      width: Math.min(width, contentWidth()),
+      lineGap: options.lineGap ?? 0,
+      align: options.align,
+    });
+}
+
+function safeText(doc, text, x = page.marginLeft, y = doc.y, width = contentWidth(), options = {}) {
+  const safeX = Math.max(x, page.marginLeft);
+  const safeWidth = Math.max(1, Math.min(width, maxX() - safeX));
+  doc.text(String(text || ""), safeX, y, { width: safeWidth, ...options });
+  return doc.y;
+}
+
+function drawWrappedText(doc, text, x, y, width, options = {}) {
+  const font = options.bold
+    ? "Helvetica-Bold"
+    : options.oblique
+      ? "Helvetica-Oblique"
+      : "Helvetica";
+  doc
+    .font(font)
+    .fontSize(options.fontSize ?? 9)
+    .fillColor(options.color ?? brand.body);
+  return safeText(doc, text, x, y, width, {
+    lineGap: options.lineGap ?? 1.6,
+    align: options.align,
+  });
+}
+
+function drawVerticalCard(doc, { title, body, meta, tone = "neutral", minHeight = 56 }) {
+  const padding = 14;
+  const gap = 7;
+  const x = page.marginLeft;
+  const width = contentWidth();
+  const innerWidth = width - padding * 2;
+  const titleHeight = title ? measureTextHeight(doc, title, innerWidth, 8.8, { bold: true }) : 0;
+  const bodyHeight = body ? measureTextHeight(doc, body, innerWidth, 8.2, { lineGap: 1.5 }) : 0;
+  const metaHeight = meta ? measureTextHeight(doc, meta, innerWidth, 6.9, { lineGap: 1.2 }) : 0;
+  const boxHeight = Math.max(
+    minHeight,
+    padding * 2 +
+      titleHeight +
+      (title && body ? gap : 0) +
+      bodyHeight +
+      (meta ? gap : 0) +
+      metaHeight
+  );
+  ensureSpace(doc, boxHeight + 14);
+  const y = doc.y;
+  const fill = tone === "teal" ? brand.tealSoft : tone === "amber" ? brand.amberSoft : "#f8fafc";
+  const stroke = tone === "teal" ? "#99f6e4" : tone === "amber" ? "#fed7aa" : "#cbd5e1";
+  doc.roundedRect(x, y, width, boxHeight, 10).fillAndStroke(fill, stroke);
+  let textY = y + padding;
+  if (title) {
+    textY = drawWrappedText(doc, title, x + padding, textY, innerWidth, {
+      bold: true,
+      fontSize: 8.8,
+      color: brand.ink,
+      lineGap: 1.2,
+    });
+    textY += gap;
+  }
+  if (body) {
+    textY = drawWrappedText(doc, body, x + padding, textY, innerWidth, {
+      fontSize: 8.2,
+      color: brand.body,
+      lineGap: 1.5,
+    });
+    textY += gap;
+  }
+  if (meta) {
+    drawWrappedText(doc, meta, x + padding, textY, innerWidth, {
+      fontSize: 6.9,
+      color: brand.muted,
+      lineGap: 1.2,
+    });
+  }
+  doc.y = y + boxHeight + 14;
+  doc.x = page.marginLeft;
+  return doc.y;
 }
 
 function ensureSpace(doc, needed = 90) {
-  if (doc.y + needed > page.height - page.bottom) {
+  if (doc.y + needed > page.height - page.marginBottom) {
     doc.addPage();
     addPageAccent(doc);
   }
@@ -62,7 +162,8 @@ function ensureSpace(doc, needed = 90) {
 
 function addPageAccent(doc) {
   doc.rect(0, 0, page.width, 8).fill(brand.cyan);
-  doc.y = page.margin;
+  doc.x = page.marginLeft;
+  doc.y = page.marginTop;
 }
 
 function addFooter(doc, pageNumber) {
@@ -131,98 +232,106 @@ function coverPage(doc, pack) {
     .font("Helvetica")
     .fontSize(9)
     .fillColor("#94a3b8")
-    .text("Generated April 2026", page.margin, 728)
-    .text("For discussion and pilot exploration only", page.margin, 744);
+    .text("Generated April 2026", page.marginLeft, 728)
+    .text("For discussion and pilot exploration only", page.marginLeft, 744);
 }
 
 function sectionHeading(doc, heading, eyebrow, needed = 82) {
   ensureSpace(doc, needed);
+  doc.x = page.marginLeft;
   if (eyebrow) {
     doc
       .font("Helvetica-Bold")
       .fontSize(7.8)
       .fillColor("#0891b2")
-      .text(eyebrow.toUpperCase(), page.margin, doc.y, { characterSpacing: 0.6 });
+      .text(eyebrow.toUpperCase(), page.marginLeft, doc.y, {
+        width: contentWidth(),
+        characterSpacing: 0.6,
+      });
     doc.moveDown(0.35);
   }
-  doc.font("Helvetica-Bold").fontSize(15).fillColor(brand.ink).text(heading, {
+  doc.font("Helvetica-Bold").fontSize(15).fillColor(brand.ink);
+  safeText(doc, heading, page.marginLeft, doc.y, contentWidth(), {
     width: contentWidth(),
     lineGap: 2,
   });
   doc.moveDown(0.35);
-  doc
-    .moveTo(page.margin, doc.y)
-    .lineTo(page.width - page.margin, doc.y)
-    .strokeColor("#bae6fd")
-    .stroke();
+  doc.moveTo(page.marginLeft, doc.y).lineTo(maxX(), doc.y).strokeColor("#bae6fd").stroke();
   doc.moveDown(0.8);
+  doc.x = page.marginLeft;
 }
 
 function paragraph(doc, text) {
   if (!text) return;
   ensureSpace(doc, 42);
-  doc.font("Helvetica").fontSize(9.4).fillColor(brand.body).text(text, {
+  doc.font("Helvetica").fontSize(9.4).fillColor(brand.body);
+  safeText(doc, text, page.marginLeft, doc.y, contentWidth(), {
     width: contentWidth(),
     lineGap: 2.2,
   });
   doc.moveDown(0.5);
+  doc.x = page.marginLeft;
 }
 
 function bulletList(doc, items = []) {
   if (!items?.length) return;
   items.forEach((item) => {
-    ensureSpace(doc, 22);
+    const textHeight = measureTextHeight(doc, item, contentWidth() - 20, 9, { lineGap: 2 });
+    ensureSpace(doc, Math.max(24, textHeight + 10));
     const y = doc.y + 5;
-    doc.circle(page.margin + 4, y, 2.2).fill(brand.cyan);
-    doc
-      .font("Helvetica")
-      .fontSize(9)
-      .fillColor(brand.body)
-      .text(item, page.margin + 16, doc.y, {
-        width: contentWidth() - 16,
-        lineGap: 2,
-      });
+    doc.circle(page.marginLeft + 4, y, 2.2).fill(brand.cyan);
+    drawWrappedText(doc, item, page.marginLeft + 16, doc.y, contentWidth() - 20, {
+      fontSize: 9,
+      color: brand.body,
+      lineGap: 2,
+    });
     doc.moveDown(0.18);
   });
   doc.moveDown(0.3);
+  doc.x = page.marginLeft;
 }
 
 function flowDiagram(doc, title, steps = []) {
   if (!steps.length) return;
   sectionHeading(doc, title, "Visual summary", 132);
-  const gap = 8;
-  const cardWidth = (contentWidth() - gap * (steps.length - 1)) / steps.length;
-  ensureSpace(doc, 76);
-  const y = doc.y;
+  const cardGap = 18;
+  const cardWidth = contentWidth();
+  const innerWidth = cardWidth - 28;
+  const heights = steps.map((step) =>
+    Math.max(44, measureTextHeight(doc, step, innerWidth, 8.4, { bold: true, lineGap: 1.2 }) + 26)
+  );
+  const totalHeight =
+    heights.reduce((sum, height) => sum + height, 0) + cardGap * (steps.length - 1);
+  ensureSpace(doc, totalHeight + 14);
+  let y = doc.y;
   steps.forEach((step, index) => {
-    const x = page.margin + index * (cardWidth + gap);
-    doc.roundedRect(x, y, cardWidth, 48, 8).fillAndStroke("#ecfeff", "#67e8f9");
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(6.8)
-      .fillColor("#075985")
-      .text(step, x + 8, y + 13, {
-        width: cardWidth - 16,
-        align: "center",
-        lineGap: 1.1,
-      });
+    const x = page.marginLeft;
+    const cardHeight = heights[index];
+    doc.roundedRect(x, y, cardWidth, cardHeight, 8).fillAndStroke("#ecfeff", "#67e8f9");
+    drawWrappedText(doc, step, x + 14, y + 13, innerWidth, {
+      bold: true,
+      fontSize: 8.4,
+      color: "#075985",
+      align: "center",
+      lineGap: 1.2,
+    });
     if (index < steps.length - 1) {
+      const lineX = x + cardWidth / 2;
       doc
-        .font("Helvetica-Bold")
-        .fontSize(10)
-        .fillColor("#0891b2")
-        .text("→", x + cardWidth + 1.5, y + 18, { width: gap - 3, align: "center" });
+        .moveTo(lineX, y + cardHeight + 2)
+        .lineTo(lineX, y + cardHeight + cardGap - 2)
+        .strokeColor("#0891b2")
+        .lineWidth(1)
+        .stroke();
     }
+    y += cardHeight + cardGap;
   });
-  doc.y = y + 66;
+  doc.y = y - cardGap + 14;
+  doc.x = page.marginLeft;
 }
 
 function baselineCheckpointDiagram(doc) {
   sectionHeading(doc, "Baseline vs checkpoint", "Evaluation shape", 140);
-  ensureSpace(doc, 116);
-  const y = doc.y;
-  const gap = 14;
-  const colWidth = (contentWidth() - gap) / 2;
   const columns = [
     {
       title: "Baseline",
@@ -237,90 +346,68 @@ function baselineCheckpointDiagram(doc) {
       stroke: "#99f6e4",
     },
   ];
-  columns.forEach((column, index) => {
-    const x = page.margin + index * (colWidth + gap);
-    doc.roundedRect(x, y, colWidth, 86, 10).fillAndStroke(column.fill, column.stroke);
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(9)
-      .fillColor(brand.ink)
-      .text(column.title, x + 14, y + 14, { width: colWidth - 28 });
-    doc
-      .font("Helvetica")
-      .fontSize(8.1)
-      .fillColor(brand.body)
-      .text(column.body, x + 14, y + 33, { width: colWidth - 28, lineGap: 1.5 });
+  columns.forEach((column) => {
+    drawVerticalCard(doc, {
+      title: column.title,
+      body: column.body,
+      tone: column.title === "Baseline" ? "amber" : "teal",
+      minHeight: 72,
+    });
   });
-  doc.y = y + 104;
+  doc.x = page.marginLeft;
 }
 
 function callout(doc, title, body, tone = "cyan") {
-  const innerWidth = contentWidth() - 32;
-  const bodyHeight = doc
-    .font("Helvetica")
-    .fontSize(8.7)
-    .heightOfString(body, { width: innerWidth, lineGap: 1.8 });
-  const boxHeight = Math.max(62, 34 + bodyHeight + 16);
-  ensureSpace(doc, boxHeight + 14);
-  const y = doc.y;
-  const fill = tone === "amber" ? brand.amberSoft : tone === "teal" ? brand.tealSoft : "#eff6ff";
-  const stroke = tone === "amber" ? "#fed7aa" : tone === "teal" ? "#99f6e4" : "#bae6fd";
-  doc.roundedRect(page.margin, y, contentWidth(), boxHeight, 10).fillAndStroke(fill, stroke);
-  doc
-    .font("Helvetica-Bold")
-    .fontSize(8.6)
-    .fillColor(tone === "amber" ? "#9a3412" : "#075985")
-    .text(title, page.margin + 16, y + 14, { width: innerWidth });
-  doc
-    .font("Helvetica")
-    .fontSize(8.7)
-    .fillColor(brand.body)
-    .text(body, page.margin + 16, y + 30, { width: innerWidth, lineGap: 1.8 });
-  doc.y = y + boxHeight + 14;
+  drawVerticalCard(doc, { title, body, tone, minHeight: 62 });
 }
 
 function evidenceCards(doc, evidence) {
   if (!evidence.length) return;
   sectionHeading(doc, "Evidence context", "Selected signals", 150);
-  const gap = 12;
-  const cardWidth = (contentWidth() - gap) / 2;
-  let x = page.margin;
-  let y = doc.y;
   evidence.slice(0, 6).forEach((item, index) => {
-    if (index % 2 === 0) {
-      ensureSpace(doc, 86);
-      y = doc.y;
-      x = page.margin;
-    } else {
-      x = page.margin + cardWidth + gap;
-    }
-    doc.roundedRect(x, y, cardWidth, 72, 10).fillAndStroke("#f8fafc", "#cbd5e1");
-    doc
+    const x = page.marginLeft;
+    const title = item.shortLabel.toUpperCase();
+    const source = `${item.sourcePublisher}, ${item.sourceDate}`;
+    const titleHeight = doc
       .font("Helvetica-Bold")
+      .fontSize(7.4)
+      .heightOfString(title, { width: contentWidth() - 28 });
+    const statHeight = doc
+      .font("Helvetica-Bold")
+      .fontSize(9.2)
+      .heightOfString(item.headlineStat, { width: contentWidth() - 28, lineGap: 1.4 });
+    const sourceHeight = doc
+      .font("Helvetica")
       .fontSize(7)
-      .fillColor("#0891b2")
-      .text(item.shortLabel.toUpperCase(), x + 12, y + 11, { width: cardWidth - 24 });
+      .heightOfString(source, { width: contentWidth() - 28, lineGap: 1.2 });
+    const boxHeight = Math.max(72, titleHeight + statHeight + sourceHeight + 42);
+    ensureSpace(doc, boxHeight + 12);
+    const y = doc.y;
+    doc.roundedRect(x, y, contentWidth(), boxHeight, 10).fillAndStroke("#f8fafc", "#cbd5e1");
     doc
       .font("Helvetica-Bold")
-      .fontSize(9)
+      .fontSize(7.4)
+      .fillColor("#0891b2")
+      .text(title, x + 14, y + 12, { width: contentWidth() - 28 });
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(9.2)
       .fillColor(brand.ink)
-      .text(item.headlineStat, x + 12, y + 27, {
-        width: cardWidth - 24,
+      .text(item.headlineStat, x + 14, y + 12 + titleHeight + 7, {
+        width: contentWidth() - 28,
         lineGap: 1.4,
       });
-    const source = `${item.sourcePublisher}, ${item.sourceDate}`;
     doc
       .font("Helvetica")
-      .fontSize(6.8)
+      .fontSize(7)
       .fillColor(brand.muted)
-      .text(source, x + 12, y + 58, { width: cardWidth - 24 });
-    if (index % 2 === 1) {
-      doc.y = y + 86;
-    }
+      .text(source, x + 14, y + 12 + titleHeight + 7 + statHeight + 8, {
+        width: contentWidth() - 28,
+        lineGap: 1.2,
+      });
+    doc.y = y + boxHeight + (index === evidence.length - 1 ? 0 : 12);
+    doc.x = page.marginLeft;
   });
-  if (evidence.length % 2 === 1) {
-    doc.y = y + 86;
-  }
 }
 
 function matrixRows(doc, rows = []) {
@@ -335,42 +422,42 @@ function matrixRows(doc, rows = []) {
       ["Owner / reviewer", row.owner],
       ["Success measure", row.successMeasure],
     ].filter(([, value]) => value);
-    const fieldHeights = fields.map(([, value]) => {
-      const valueHeight = doc
-        .font("Helvetica")
-        .fontSize(7.6)
-        .heightOfString(value, { width: contentWidth() - 170, lineGap: 1.3 });
-      return Math.max(18, valueHeight + 5);
+    const innerWidth = contentWidth() - 28;
+    const fieldHeights = fields.map(([label, value]) => {
+      const labelHeight = measureTextHeight(doc, label, innerWidth, 7.1, { bold: true });
+      const valueHeight = measureTextHeight(doc, value, innerWidth, 7.6, { lineGap: 1.3 });
+      return labelHeight + valueHeight + 9;
     });
-    const boxHeight = 40 + fieldHeights.reduce((sum, height) => sum + height, 0);
+    const titleHeight = measureTextHeight(doc, row.riskArea, innerWidth, 9, { bold: true });
+    const boxHeight = 34 + titleHeight + fieldHeights.reduce((sum, height) => sum + height, 0);
     ensureSpace(doc, boxHeight + 16);
     const y = doc.y;
     doc
-      .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+      .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
       .fillAndStroke("#f0fdfa", "#99f6e4");
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(9)
-      .fillColor(brand.ink)
-      .text(row.riskArea, page.margin + 14, y + 14, { width: contentWidth() - 28 });
-    let fieldY = y + 36;
+    let fieldY = drawWrappedText(doc, row.riskArea, page.marginLeft + 14, y + 14, innerWidth, {
+      bold: true,
+      fontSize: 9,
+      color: brand.ink,
+      lineGap: 1.2,
+    });
+    fieldY += 9;
     fields.forEach(([label, value], index) => {
-      doc
-        .font("Helvetica-Bold")
-        .fontSize(7.1)
-        .fillColor("#0f766e")
-        .text(label, page.margin + 14, fieldY, { width: 128 });
-      doc
-        .font("Helvetica")
-        .fontSize(7.6)
-        .fillColor(brand.body)
-        .text(value, page.margin + 160, fieldY, {
-          width: contentWidth() - 174,
-          lineGap: 1.3,
-        });
-      fieldY += fieldHeights[index];
+      const rowStart = fieldY;
+      let textY = drawWrappedText(doc, label, page.marginLeft + 14, rowStart, innerWidth, {
+        bold: true,
+        fontSize: 7.1,
+        color: "#0f766e",
+      });
+      drawWrappedText(doc, value, page.marginLeft + 14, textY + 2, innerWidth, {
+        fontSize: 7.6,
+        color: brand.body,
+        lineGap: 1.3,
+      });
+      fieldY = rowStart + fieldHeights[index];
     });
     doc.y = y + boxHeight + 16;
+    doc.x = page.marginLeft;
   });
 }
 
@@ -386,14 +473,15 @@ function verticalBulletCards(doc, heading, bullets = [], eyebrow = "Structured d
     ensureSpace(doc, boxHeight + 14);
     const y = doc.y;
     doc
-      .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+      .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
       .fillAndStroke("#f8fafc", "#cbd5e1");
-    doc
-      .font("Helvetica")
-      .fontSize(8)
-      .fillColor(brand.body)
-      .text(item, page.margin + 14, y + 14, { width: contentWidth() - 28, lineGap: 1.5 });
+    drawWrappedText(doc, item, page.marginLeft + 14, y + 14, contentWidth() - 28, {
+      fontSize: 8,
+      color: brand.body,
+      lineGap: 1.5,
+    });
     doc.y = y + boxHeight + 14;
+    doc.x = page.marginLeft;
   });
 }
 
@@ -401,31 +489,46 @@ function selectedSources(doc, evidence) {
   if (!evidence.length) return;
   sectionHeading(doc, "Selected sources", undefined, 132);
   evidence.forEach((item) => {
-    ensureSpace(doc, 48);
     const sourceReference = item.sourceUrl
       ? new URL(item.sourceUrl).hostname.replace(/^www\./, "")
       : "Source reference available";
+    const heading = `${item.sourcePublisher}: ${item.sourceName}`;
+    const detail = `Date/status: ${item.sourceDate}. Source domain: ${sourceReference}.`;
+    const note = item.sourceNote || item.caution;
+    const needed =
+      measureTextHeight(doc, heading, contentWidth(), 7.6, { bold: true, lineGap: 2 }) +
+      measureTextHeight(doc, detail, contentWidth(), 6.8, { lineGap: 2 }) +
+      (note ? measureTextHeight(doc, note, contentWidth(), 6.6, { lineGap: 1.8 }) : 0) +
+      16;
+    ensureSpace(doc, needed);
     doc
       .font("Helvetica-Bold")
       .fontSize(7.6)
       .fillColor(brand.ink)
-      .text(`${item.sourcePublisher}: ${item.sourceName}`, { width: contentWidth(), lineGap: 2 });
+      .text(heading, page.marginLeft, doc.y, {
+        width: contentWidth(),
+        lineGap: 2,
+      });
     doc
       .font("Helvetica")
       .fontSize(6.8)
       .fillColor(brand.muted)
-      .text(`Date/status: ${item.sourceDate}. Source domain: ${sourceReference}.`, {
+      .text(detail, page.marginLeft, doc.y, {
         width: contentWidth(),
         lineGap: 2,
       });
-    if (item.sourceNote || item.caution) {
+    if (note) {
       doc
         .font("Helvetica")
         .fontSize(6.6)
         .fillColor(brand.muted)
-        .text(item.sourceNote || item.caution, { width: contentWidth(), lineGap: 1.8 });
+        .text(note, page.marginLeft, doc.y, {
+          width: contentWidth(),
+          lineGap: 1.8,
+        });
     }
     doc.moveDown(0.22);
+    doc.x = page.marginLeft;
   });
 }
 
@@ -435,8 +538,6 @@ function fundingRouteCards(doc, routes) {
   routes
     .sort((a, b) => a.priorityOrder - b.priorityOrder)
     .forEach((route) => {
-      ensureSpace(doc, 190);
-      const y = doc.y;
       const sourceReference = route.officialSourceUrl
         ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
         : "Source reference available";
@@ -448,64 +549,51 @@ function fundingRouteCards(doc, routes) {
         ["Status", route.status],
         ["Important dates", importantDates],
         ["Corentis fit", route.corentisFit],
+        ["Application framing", route.recommendedCorentisFraming],
         ["Recommended next action", route.immediateAction],
         [
           "Source reference",
           `${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
         ],
       ];
+      const innerWidth = contentWidth() - 28;
       const rowHeights = rows.map(([label, value]) => {
-        const valueHeight = doc
-          .font("Helvetica")
-          .fontSize(7.7)
-          .heightOfString(value, { width: contentWidth() - 172, lineGap: 1.4 });
-        return Math.max(18, valueHeight + 5);
+        const labelHeight = measureTextHeight(doc, label, innerWidth, 7.2, { bold: true });
+        const valueHeight = measureTextHeight(doc, value, innerWidth, 7.8, { lineGap: 1.4 });
+        return labelHeight + valueHeight + 11;
       });
-      const framingHeight = doc
-        .font("Helvetica")
-        .fontSize(7.8)
-        .heightOfString(route.recommendedCorentisFraming, {
-          width: contentWidth() - 28,
-          lineGap: 1.5,
-        });
-      const boxHeight = 48 + framingHeight + rowHeights.reduce((sum, height) => sum + height, 0);
+      const titleHeight = measureTextHeight(doc, route.name, innerWidth, 9.4, { bold: true });
+      const boxHeight = 34 + titleHeight + rowHeights.reduce((sum, height) => sum + height, 0);
 
       ensureSpace(doc, boxHeight + 18);
+      const y = doc.y;
       doc
-        .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+        .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
         .fillAndStroke("#f8fafc", "#cbd5e1");
-      doc
-        .font("Helvetica-Bold")
-        .fontSize(9.4)
-        .fillColor(brand.ink)
-        .text(route.name, page.margin + 14, y + 14, { width: contentWidth() - 28 });
-      doc
-        .font("Helvetica")
-        .fontSize(7.8)
-        .fillColor(brand.body)
-        .text(route.recommendedCorentisFraming, page.margin + 14, y + 31, {
-          width: contentWidth() - 28,
-          lineGap: 1.5,
-        });
-      let rowY = doc.y + 7;
+      let rowY = drawWrappedText(doc, route.name, page.marginLeft + 14, y + 14, innerWidth, {
+        bold: true,
+        fontSize: 9.4,
+        color: brand.ink,
+        lineGap: 1.2,
+      });
+      rowY += 9;
       rows.forEach(([label, value], index) => {
-        const rowHeight = rowHeights[index];
-        doc
-          .font("Helvetica-Bold")
-          .fontSize(7.2)
-          .fillColor("#075985")
-          .text(label, page.margin + 14, rowY, { width: 130 });
-        doc
-          .font("Helvetica")
-          .fontSize(7.7)
-          .fillColor(brand.body)
-          .text(value, page.margin + 160, rowY, {
-            width: contentWidth() - 174,
-            lineGap: 1.4,
-          });
-        rowY += rowHeight;
+        const rowStart = rowY;
+        const valueLabel = label === "Recommended next action" ? "Next action" : label;
+        let textY = drawWrappedText(doc, valueLabel, page.marginLeft + 14, rowStart, innerWidth, {
+          bold: true,
+          fontSize: 7.2,
+          color: "#075985",
+        });
+        drawWrappedText(doc, value, page.marginLeft + 14, textY + 2, innerWidth, {
+          fontSize: 7.8,
+          color: brand.body,
+          lineGap: 1.4,
+        });
+        rowY = rowStart + rowHeights[index];
       });
       doc.y = y + boxHeight + 18;
+      doc.x = page.marginLeft;
     });
 }
 
@@ -513,27 +601,34 @@ function fundingSources(doc, routes) {
   if (!routes.length) return;
   sectionHeading(doc, "Funding source references", undefined, 120);
   routes.forEach((route) => {
-    ensureSpace(doc, 44);
     const sourceReference = route.officialSourceUrl
       ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
       : "Source reference available";
+    const heading = `${route.name}: ${route.status}`;
+    const detail = `Type/status: ${route.fundingType}. Source domain: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`;
+    const needed =
+      measureTextHeight(doc, heading, contentWidth(), 7.6, { bold: true, lineGap: 1.8 }) +
+      measureTextHeight(doc, detail, contentWidth(), 6.8, { lineGap: 1.8 }) +
+      14;
+    ensureSpace(doc, needed);
     doc
       .font("Helvetica-Bold")
       .fontSize(7.6)
       .fillColor(brand.ink)
-      .text(`${route.name}: ${route.status}`, { width: contentWidth(), lineGap: 1.8 });
+      .text(heading, page.marginLeft, doc.y, {
+        width: contentWidth(),
+        lineGap: 1.8,
+      });
     doc
       .font("Helvetica")
       .fontSize(6.8)
       .fillColor(brand.muted)
-      .text(
-        `Type/status: ${route.fundingType}. Source domain: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
-        {
-          width: contentWidth(),
-          lineGap: 1.8,
-        }
-      );
+      .text(detail, page.marginLeft, doc.y, {
+        width: contentWidth(),
+        lineGap: 1.8,
+      });
     doc.moveDown(0.2);
+    doc.x = page.marginLeft;
   });
 }
 
@@ -595,15 +690,14 @@ function bodyPages(doc, pack, evidence) {
   selectedSources(doc, evidence);
   fundingSources(doc, routeRefs);
 
-  sectionHeading(doc, "Next step", undefined, 190);
-  callout(doc, "Call to action", pack.ctaText, "teal");
-  callout(
-    doc,
-    "Important note",
-    pack.disclaimer ||
-      "This document is for discussion and pilot exploration only. It does not constitute legal, regulatory or compliance advice.",
-    "amber"
-  );
+  sectionHeading(doc, "Next Step", undefined, 74);
+  ensureSpace(doc, 34);
+  doc.font("Helvetica-Bold").fontSize(10).fillColor("#075985");
+  safeText(doc, "Start a Conversation", page.marginLeft, doc.y, contentWidth(), {
+    link: "https://www.corentis.co.uk/contact",
+    underline: true,
+  });
+  doc.x = page.marginLeft;
 }
 
 function addFooters(doc) {
