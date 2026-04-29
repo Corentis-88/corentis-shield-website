@@ -83,6 +83,24 @@ export default function InvestorsPage() {
         title="Why now"
         intro="Corentis sits across regulated-service pressure, AI/agentic AI adoption momentum and a growing need for operational AI control."
       >
+        <div className="mb-6 grid gap-5 lg:grid-cols-2">
+          <div className="card-base card-premium p-6">
+            <p className="text-base leading-7 text-slate-300">
+              AI assurance is becoming a major growth market. The UK government estimates the UK AI
+              assurance market was already worth approximately £1.01bn GVA in 2024 and could reach
+              £18.8bn by 2035 if adoption barriers are addressed. Corentis is focused on one of the
+              sharpest emerging needs inside that market: runtime assurance for AI agents before
+              they take regulated actions.
+            </p>
+          </div>
+          <div className="card-base card-info p-6">
+            <p className="text-base leading-7 text-slate-300">
+              Within financial services, the adjacent AI-in-RegTech market is forecast to grow from
+              $3.51bn in 2026 to $12.33bn by 2030, creating a strong commercial opening for tools
+              that help regulated firms deploy AI safely, visibly and with evidence.
+            </p>
+          </div>
+        </div>
         <EvidenceStatCards ids={evidenceIds} tone="premium" />
       </Section>
 

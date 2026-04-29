@@ -21,6 +21,10 @@
     ],
     "sections": [
       {
+        "heading": "A fast-growing market moment",
+        "body": "Corentis sits at the intersection of three fast-growing markets: AI assurance, AI governance, and AI-enabled RegTech. The UK AI assurance market alone was valued at approximately £1.01bn GVA in 2024 and could reach £18.8bn by 2035 if adoption barriers are addressed. On that trajectory, the UK market would grow from roughly £1.7bn in 2026 to around £5.0bn by 2030 - nearly tripling in four years."
+      },
+      {
         "heading": "AI needs a checkpoint before it acts",
         "body": "AI is moving from drafting text to proposing actions, decisions and workflow steps. That shift creates a new infrastructure need: regulated organisations need a control point before AI-generated actions reach customers, case files or live operations."
       },

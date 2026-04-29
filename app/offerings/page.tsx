@@ -139,7 +139,7 @@ export default function OfferingsPage() {
       </Section>
 
       <Section
-        title="How this becomes a business"
+        title="Corentis Growth Plan"
         intro="Corentis can begin with focused reviews, grow through design-partner pilots, and scale through recurring software, API usage, private gateway deployments and sector-specific assurance packs."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
