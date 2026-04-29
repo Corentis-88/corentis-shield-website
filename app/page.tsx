@@ -480,6 +480,9 @@ export default function Home() {
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/why-corentis">Why Corentis?</ButtonLink>
+          <ButtonLink href="/funding" variant="secondary">
+            Explore funding readiness
+          </ButtonLink>
           <ButtonLink href="/contact#design-partner" variant="secondary">
             Discuss a design partnership
           </ButtonLink>

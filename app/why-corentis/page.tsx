@@ -111,7 +111,9 @@ const selectedEvidenceIds = [
 ];
 
 const whyCorentisResources = resourcePacks.filter((pack) =>
-  ["investor-overview", "runtime-checkpoint-explainer"].includes(pack.slug)
+  ["investor-overview", "runtime-checkpoint-explainer", "funding-readiness-overview"].includes(
+    pack.slug
+  )
 );
 
 export default function WhyCorentisPage() {
@@ -271,6 +273,21 @@ export default function WhyCorentisPage() {
               {item}
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Why fund this now?"
+        intro="AI agents are moving toward action. Regulated workflows need control before action, and evidence cannot be an afterthought."
+      >
+        <div className="card-base card-premium p-7">
+          <p className="max-w-4xl text-base leading-8 text-slate-300">
+            Corentis starts with a concrete financial-services wedge: complaints and
+            vulnerable-customer workflows. Funding would help validate the control pattern, build
+            reusable evaluation assets, strengthen evidence generation and prepare design partner
+            pilots without claiming the pattern is fully proven today.
+          </p>
         </div>
       </Section>
 

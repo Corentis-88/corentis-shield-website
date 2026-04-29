@@ -24,6 +24,15 @@ const founderSections = [
   },
 ];
 
+const fundingProofItems = [
+  "validate the control pattern",
+  "run scenario tests",
+  "build benchmark and evaluation assets",
+  "prepare design partner pilots",
+  "strengthen evidence generation",
+  "move from prototype to tested pilot",
+];
+
 export default function FounderPage() {
   return (
     <>
@@ -68,6 +77,23 @@ export default function FounderPage() {
             Corentis remains early-stage and pilot-focused. The credibility comes from narrowing the
             problem to the action boundary: what should happen before an AI output becomes a
             customer message, case update, recommendation or workflow action?
+          </p>
+        </div>
+      </Section>
+
+      <Section title="What funding would help prove">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {fundingProofItems.map((item) => (
+            <div key={item} className="card-base card-success card-lift p-5 text-teal-50">
+              {item}
+            </div>
+          ))}
+        </div>
+        <div className="card-base card-warning mt-8 p-6">
+          <p className="max-w-4xl text-sm leading-6 text-amber-50">
+            Before any formal funding submission, Corentis should confirm the registered company
+            name, company number, registered office/contact details, and any required applicant
+            eligibility details.
           </p>
         </div>
       </Section>

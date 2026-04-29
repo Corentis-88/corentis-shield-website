@@ -66,7 +66,7 @@
         "bullets": [
           "Design partners with sensitive regulated workflows.",
           "Pilot conversations around complaints, vulnerability and regulated support.",
-          "Strategic investors and funders who understand AI assurance infrastructure.",
+          "Strategic investors and funding partners who understand AI assurance infrastructure.",
           "Regulated workflow collaborators who want a practical path from review to deployment."
         ]
       }
@@ -436,6 +436,540 @@
           "Safer adoption through reviewable workflows.",
           "Less blind trust in AI outputs.",
           "Better evidence for oversight."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "funding-readiness-overview",
+    "title": "Funding Readiness Overview PDF",
+    "pdfTitle": "Corentis Funding Readiness Overview",
+    "subtitle": "Funding, sandbox and strategic investment readiness for Corentis Shield.",
+    "audience": "Funding reviewers",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-funding-readiness-overview.pdf",
+    "shortDescription": "A high-level overview for funding partners, investors and grant reviewers.",
+    "evidenceHook": "Frames Corentis as early-stage UK AI assurance/control infrastructure with careful route priorities.",
+    "ctaText": "Discuss funding readiness or a design partner route.",
+    "disclaimer": "This document is for discussion and preparation only. No funding award, regulatory approval, certification or completed enterprise deployment is claimed.",
+    "fundingRouteIds": [
+      "frontier-ai-discovery",
+      "sovereign-ai-fund",
+      "fca-supercharged-sandbox",
+      "ai-assurance-innovation-fund",
+      "frontier-ai-benchmarking-datasets",
+      "northern-powerhouse-investment-fund-ii"
+    ],
+    "sections": [
+      {
+        "heading": "What Corentis is",
+        "body": "Corentis Shield is an AI checkpoint for regulated workflows. It sits between AI agents and regulated actions, checking proposed outputs against policy, risk rules, human-review requirements and evidence requirements before anything sensitive moves forward."
+      },
+      {
+        "heading": "Why the problem matters now",
+        "body": "AI is moving from drafting to acting. Regulated teams need evidence-led controls at the action boundary, not only policy documents or post-event monitoring."
+      },
+      {
+        "heading": "First wedge",
+        "body": "The first wedge is financial services complaints and vulnerable-customer workflows because they combine sensitive customer context, operational pressure, escalation rules and evidence needs."
+      },
+      {
+        "heading": "Broader opportunity",
+        "body": "The wider opportunity is reusable control infrastructure for regulated AI-agent workflows: scenario libraries, evidence artefacts, human-review routing and repeatable checkpoint logic."
+      },
+      {
+        "heading": "Current route priorities",
+        "bullets": [
+          "Frontier AI Discovery: near-term R&D feasibility route for Corentis ControlBench.",
+          "Sovereign AI: strategic investor-style conversation around UK AI control infrastructure.",
+          "FCA Supercharged Sandbox: sector-specific support route for financial-services AI workflow testing.",
+          "AI Assurance Innovation Fund: expected assurance route to monitor and prepare for.",
+          "Frontier AI Benchmarking Datasets: potential partner-heavy route if a credible consortium emerges.",
+          "Northern Powerhouse Investment Fund II: later finance/equity route after stronger external signal."
+        ]
+      },
+      {
+        "heading": "Funding story in one line",
+        "body": "Corentis is not seeking funding for another generic AI interface. The funding story is the validation of a reusable runtime control pattern: policy intent becomes operational checkpoints, sensitive AI actions pause, human review is routed and evidence is captured as the workflow runs."
+      },
+      {
+        "heading": "What funding would help prove",
+        "bullets": [
+          "Validate the control pattern on realistic regulated workflow scenarios.",
+          "Measure baseline AI-assisted workflow performance against checkpointed workflows.",
+          "Create benchmark and evaluation assets for runtime assurance.",
+          "Prepare design partner pilots and evidence artefacts.",
+          "Move from prototype to tested pilot while keeping claims careful."
+        ]
+      },
+      {
+        "heading": "Company details to confirm before submission",
+        "body": "Before any formal funding submission, Corentis should confirm the registered company name, company number, registered office/contact details, and any required applicant eligibility details."
+      }
+    ]
+  },
+  {
+    "slug": "controlbench-rd-brief",
+    "title": "ControlBench R&D Brief PDF",
+    "pdfTitle": "Corentis ControlBench R&D Brief",
+    "subtitle": "A feasibility-study framing for runtime assurance and benchmark testing.",
+    "audience": "R&D funding reviewers",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-controlbench-rd-brief.pdf",
+    "shortDescription": "A Frontier AI Discovery-style technical R&D brief.",
+    "evidenceHook": "Frames Corentis around R&D uncertainty, baseline comparison, benchmark testing and evidence completeness.",
+    "ctaText": "Use this brief to prepare the Corentis ControlBench application narrative.",
+    "disclaimer": "This is a feasibility concept, not a guarantee of technical success or funding outcome. Eligibility and scope should be confirmed against the live competition rules.",
+    "fundingRouteIds": ["frontier-ai-discovery", "frontier-ai-benchmarking-datasets"],
+    "sections": [
+      {
+        "heading": "Project title",
+        "body": "Corentis ControlBench: runtime assurance and benchmark testing for agentic AI in regulated workflows."
+      },
+      {
+        "heading": "Problem",
+        "body": "Agentic AI needs measurable runtime assurance before regulated actions. The practical research question is how to evaluate whether a checkpoint improves reviewability, evidence completeness and action safety compared with an unchecked AI-assisted workflow."
+      },
+      {
+        "heading": "R&D question",
+        "body": "Can policy-to-control mapping, runtime checkpoints and scenario-based evaluation improve the safety, reviewability and evidence completeness of agentic AI workflows in regulated contexts?"
+      },
+      {
+        "heading": "Baseline",
+        "body": "The baseline is an AI-assisted workflow without the Corentis checkpoint: AI proposes replies, case updates or next actions without a structured runtime control layer."
+      },
+      {
+        "heading": "Evaluation dimensions",
+        "bullets": [
+          "Unsafe direct-action attempts caught.",
+          "Vulnerable-customer escalation accuracy.",
+          "Evidence completeness.",
+          "Human-review routing accuracy.",
+          "False positives and false negatives.",
+          "Reviewer confidence."
+        ]
+      },
+      {
+        "heading": "ControlBench test assets",
+        "bullets": [
+          "A scenario library covering complaints, hardship, repeated contact and vulnerable-customer disclosures.",
+          "A control schema that maps policy intent to runtime checkpoint conditions.",
+          "A baseline run where AI-assisted outputs are assessed without the Corentis checkpoint.",
+          "A checkpointed run where proposed outputs are paused, routed or evidenced before action.",
+          "A scoring sheet for evidence completeness, reviewer clarity and escalation quality."
+        ]
+      },
+      {
+        "heading": "Three-month feasibility structure",
+        "bullets": [
+          "Define benchmark scenarios.",
+          "Build control schema.",
+          "Run baseline vs checkpoint tests.",
+          "Score evidence completeness.",
+          "Produce feasibility report."
+        ]
+      },
+      {
+        "heading": "Future Phase 2 potential",
+        "body": "A successful feasibility study could support a larger R&D route around reusable evaluation assets, scenario libraries and runtime assurance infrastructure."
+      },
+      {
+        "heading": "R&D uncertainty to evidence",
+        "body": "The core uncertainty is whether policy-to-control mapping and runtime checkpointing can produce materially clearer review routes and evidence artefacts than an uncheckpointed AI-assisted workflow. The feasibility study should be designed to generate evidence for that question, not to claim a finished production system."
+      },
+      {
+        "heading": "What would count as useful progress",
+        "bullets": [
+          "A repeatable test harness for regulated workflow scenarios.",
+          "A clear baseline-versus-checkpoint comparison method.",
+          "Defined failure modes for missed escalation, over-escalation and incomplete evidence.",
+          "A technical feasibility report showing what to build next and what remains unresolved."
+        ]
+      },
+      {
+        "heading": "Example scenario families",
+        "bullets": [
+          "A vulnerable-customer disclosure where the AI drafts a standard complaint response without recognising the need for escalation.",
+          "A financial difficulty signal where the AI suggests a next action before support options have been reviewed.",
+          "A complaint closure attempt where investigation evidence is incomplete or unsupported.",
+          "A sensitive compensation wording case where the proposed language requires human approval and version tracking.",
+          "An unclear communication case where plain-language review is needed before customer-facing action."
+        ]
+      },
+      {
+        "heading": "Technical outputs",
+        "body": "The feasibility study should produce a small but credible technical asset set: a control schema, a scenario test set, baseline and checkpoint comparison results, an evidence completeness scoring method and a clear list of unresolved technical questions for a future Phase 2 build."
+      }
+    ]
+  },
+  {
+    "slug": "fca-supercharged-sandbox-brief",
+    "title": "FCA Supercharged Sandbox Preparation Brief PDF",
+    "pdfTitle": "FCA Supercharged Sandbox Preparation Brief",
+    "subtitle": "A preparation brief for financial-services AI checkpoint testing.",
+    "audience": "Sandbox reviewers",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-fca-supercharged-sandbox-brief.pdf",
+    "shortDescription": "A sandbox preparation brief for AI-assisted complaints and vulnerable-customer workflows.",
+    "evidenceHook": "Positions Corentis around financial-services workflow testing without implying FCA approval.",
+    "ctaText": "Prepare the sandbox use-case statement and supporting pack.",
+    "disclaimer": "This brief does not imply FCA approval, acceptance or endorsement. It is a preparation document for a sandbox/support route.",
+    "fundingRouteIds": ["fca-supercharged-sandbox"],
+    "sections": [
+      {
+        "heading": "Route status",
+        "body": "The FCA Supercharged Sandbox is scheduled to open on 5 May 2026 and close on 1 June 2026, with outcomes expected on 26 June 2026."
+      },
+      {
+        "heading": "Corentis fit",
+        "body": "Corentis fits as a financial-services testing concept for complaints, vulnerable-customer handling, AI-assisted casework and customer interaction/service agent controls."
+      },
+      {
+        "heading": "Proposed test use case",
+        "body": "AI-assisted complaints and vulnerable-customer workflow: proposed replies, case updates and next actions are checked before sensitive action."
+      },
+      {
+        "heading": "What would be tested",
+        "bullets": [
+          "Risky AI outputs paused.",
+          "Vulnerable signals escalated.",
+          "Human approval routed.",
+          "Evidence captured.",
+          "Pilot report generated."
+        ]
+      },
+      {
+        "heading": "Example sandbox scenario",
+        "body": "A customer complaint includes a hardship disclosure, repeated contact history and a request for urgent support. The AI can assist with triage and drafting, but Corentis would test whether sensitive wording, closure recommendations and escalation decisions are paused for human review before action."
+      },
+      {
+        "heading": "Evidence produced by the test",
+        "bullets": [
+          "Scenario test log showing what was proposed and how controls responded.",
+          "Blocked-action log for unsupported closure or sensitive wording.",
+          "Review queue summary showing which cases required human judgement.",
+          "Policy version trail connecting controls to the policy basis used during the test.",
+          "Pilot report summarising outcomes, residual risks and next-step recommendations."
+        ]
+      },
+      {
+        "heading": "Why sandbox support matters",
+        "body": "Sandbox support could provide sector context, testing environment access and relevant tooling support where applicable. Corentis should avoid treating this as cash funding or regulatory approval."
+      },
+      {
+        "heading": "Next action checklist",
+        "bullets": [
+          "Confirm eligibility when the application window opens.",
+          "Prepare use-case statement.",
+          "Prepare control matrix and evidence artefact examples.",
+          "Confirm company and applicant details.",
+          "Submit only when the live criteria are verified."
+        ]
+      },
+      {
+        "heading": "Boundary statement",
+        "body": "The proposed sandbox preparation is for a controlled test of workflow assurance, not a claim that Corentis has been approved by the FCA or deployed in a live regulated environment."
+      },
+      {
+        "heading": "Why this use case is practical",
+        "body": "Complaints and vulnerable-customer workflows are a practical first test because they combine customer-impacting communications, policy expectations, escalation needs and evidence requirements. A non-production sandbox-style exercise can test the control pattern without claiming live customer deployment."
+      },
+      {
+        "heading": "Submission evidence to assemble",
+        "bullets": [
+          "A concise use-case description explaining the workflow boundary and why human review is required.",
+          "A sample control matrix showing how vulnerable-customer, hardship and unsupported closure signals are handled.",
+          "A sample pilot report showing what evidence the checkpoint can produce.",
+          "A clear statement that Corentis supports assurance and review workflows rather than replacing compliance judgement.",
+          "A list of technical assumptions, integration boundaries and residual risks to validate during testing."
+        ]
+      },
+      {
+        "heading": "What success would look like",
+        "body": "A useful sandbox outcome would be a clearer view of which proposed AI actions should continue, pause or escalate; what evidence is needed for oversight; and what technical work is required before any controlled design partner pilot."
+      },
+      {
+        "heading": "Materials to bring into the window",
+        "bullets": [
+          "Funding Readiness Overview.",
+          "Design Partner Pack.",
+          "Sample Pilot Report.",
+          "Control Matrix Example.",
+          "Runtime Checkpoint Explainer.",
+          "A short note confirming that the exercise is preparation for testing and does not imply regulatory approval."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ai-assurance-innovation-fund-readiness-brief",
+    "title": "AI Assurance Innovation Fund Readiness Brief PDF",
+    "pdfTitle": "AI Assurance Innovation Fund Readiness Brief",
+    "subtitle": "A preparation pack for an expected AI assurance funding route.",
+    "audience": "AI assurance stakeholders",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-ai-assurance-innovation-fund-readiness-brief.pdf",
+    "shortDescription": "A readiness brief for the expected AI Assurance Innovation Fund.",
+    "evidenceHook": "Frames Corentis Shield as a practical runtime assurance mechanism with evidence artefacts.",
+    "ctaText": "Use this to prepare while monitoring for the official live application page.",
+    "disclaimer": "The AI Assurance Innovation Fund is described here as expected/monitoring. This document does not state that a live application page is open.",
+    "fundingRouteIds": ["ai-assurance-innovation-fund"],
+    "sections": [
+      {
+        "heading": "Route status",
+        "body": "The first round is expected in Spring 2026. No verified live application page or closing date is stated in this pack."
+      },
+      {
+        "heading": "Why Corentis fits",
+        "body": "Corentis aligns with AI assurance, runtime evidence, human review, policy-to-control mapping and checkpointing before regulated action."
+      },
+      {
+        "heading": "Proposed assurance mechanism",
+        "body": "Corentis Shield as a runtime assurance layer for regulated AI workflows: proposed outputs are checked against controls and evidence needs before action."
+      },
+      {
+        "heading": "Evidence artefacts",
+        "bullets": [
+          "Control matrix.",
+          "Scenario test log.",
+          "Blocked-action log.",
+          "Review history.",
+          "Policy version trail.",
+          "Pilot report."
+        ]
+      },
+      {
+        "heading": "Assurance questions to test",
+        "bullets": [
+          "Can a policy expectation be translated into a visible runtime control?",
+          "Can the system explain why a proposed AI action was allowed, paused or escalated?",
+          "Can evidence be captured while the workflow runs rather than reconstructed afterwards?",
+          "Can human reviewers see the policy basis, scenario context and recommended next step?",
+          "Can a pilot report make residual risks clear enough for a controlled go/no-go decision?"
+        ]
+      },
+      {
+        "heading": "Pilot concept",
+        "body": "A regulated complaints/vulnerable-customer workflow where sensitive outputs are paused, reviewed, escalated or recorded before live use."
+      },
+      {
+        "heading": "What funding would enable",
+        "bullets": [
+          "Expand scenario libraries.",
+          "Harden policy-to-control mapping.",
+          "Test human-review routing.",
+          "Improve evidence completeness scoring.",
+          "Generate stronger pilot artefacts."
+        ]
+      },
+      {
+        "heading": "Monitoring note",
+        "body": "This pack is intended to keep the assurance narrative ready while the live application route is monitored. Corentis should update deadlines, eligibility and evidence requirements when an official application page is published."
+      },
+      {
+        "heading": "Why runtime assurance matters",
+        "body": "Governance frameworks and policy documents are important, but they do not automatically show what happened when an AI-assisted workflow generated a customer-impacting recommendation. Corentis is designed to help create that operational evidence at the checkpoint where action is about to happen."
+      },
+      {
+        "heading": "Example validation path",
+        "bullets": [
+          "Select a bounded regulated workflow where AI assists with drafting, triage or recommendations.",
+          "Translate a small number of policy expectations into control conditions that can be tested.",
+          "Run scenario tests that include vulnerability, hardship, missing evidence and unclear communication.",
+          "Compare unchecked AI-assisted outputs against checkpointed outputs and review routes.",
+          "Assess whether the resulting evidence artefacts are useful to assurance, risk and operational teams."
+        ]
+      },
+      {
+        "heading": "Assurance limits",
+        "body": "The aim is not to replace legal, compliance, risk or regulatory judgement. The aim is to create a clearer operational evidence layer that helps those teams see what controls operated and where human review was required."
+      },
+      {
+        "heading": "Readiness work before launch",
+        "bullets": [
+          "Confirm the live fund scope, eligibility and application deadline when published.",
+          "Prepare the assurance summary, control matrix and sample pilot report as supporting materials.",
+          "Define a realistic non-production pilot boundary.",
+          "Prepare a technical explanation of the runtime checkpoint and evidence capture mechanism.",
+          "Keep all claims careful until formal testing produces stronger evidence."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sovereign-ai-strategic-memo",
+    "title": "Sovereign AI Strategic Memo PDF",
+    "pdfTitle": "Corentis Sovereign AI Strategic Memo",
+    "subtitle": "UK control infrastructure for regulated AI-agent deployment.",
+    "audience": "Strategic investors",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-sovereign-ai-strategic-memo.pdf",
+    "shortDescription": "A strategic memo for Sovereign AI-style investor/funding outreach.",
+    "evidenceHook": "Positions Corentis as reusable UK AI control infrastructure rather than a single workflow tool.",
+    "ctaText": "Use this memo for strategic investor/funding conversations.",
+    "disclaimer": "This is an investor-style strategic memo. It does not claim Sovereign AI funding, acceptance or endorsement.",
+    "fundingRouteIds": ["sovereign-ai-fund"],
+    "sections": [
+      {
+        "heading": "Strategic framing",
+        "body": "Corentis is building UK control infrastructure for regulated AI agents: a runtime checkpoint layer that helps teams control proposed AI outputs before sensitive actions move forward."
+      },
+      {
+        "heading": "Why this is bigger than one workflow",
+        "body": "The first workflow proves the pattern, but the reusable assets are control logic, scenario libraries, evidence artefacts and checkpoint methods."
+      },
+      {
+        "heading": "Strategic asset logic",
+        "body": "If the pattern works, Corentis can become infrastructure for repeated regulated AI deployment decisions: define the boundary, translate policy into controls, test scenarios, checkpoint proposed actions, route human review and produce evidence for assurance."
+      },
+      {
+        "heading": "Why now",
+        "body": "AI is moving from drafting to acting. Regulated teams need infrastructure at the action boundary, where review, escalation and evidence can happen before real-world impact."
+      },
+      {
+        "heading": "Narrow wedge",
+        "body": "Financial services complaints and vulnerable-customer workflows provide a concrete first test because they are sensitive, evidence-heavy and operationally relevant."
+      },
+      {
+        "heading": "Broader expansion",
+        "bullets": [
+          "Regulated customer operations.",
+          "Internal copilots.",
+          "Casework workflows.",
+          "Life sciences administration where appropriate.",
+          "Public services where review and evidence matter."
+        ]
+      },
+      {
+        "heading": "What Corentis is seeking",
+        "bullets": [
+          "Strategic conversation.",
+          "Investment/funding route.",
+          "Design partner validation.",
+          "Compute/R&D support where relevant."
+        ]
+      },
+      {
+        "heading": "What early support would unlock",
+        "bullets": [
+          "A sharper technical evaluation route for runtime control and evidence completeness.",
+          "A stronger design partner pilot package for regulated workflow testing.",
+          "More robust scenario libraries and control patterns.",
+          "Better investor and procurement evidence without claiming live deployment.",
+          "A clearer path from early prototype to tested pilot-ready infrastructure."
+        ]
+      },
+      {
+        "heading": "Careful stage statement",
+        "body": "Corentis is early-stage. The immediate objective is to validate the control pattern, not to claim market adoption, regulatory approval or completed enterprise deployment."
+      },
+      {
+        "heading": "Why Sovereign AI-style support could matter",
+        "body": "Strategic support could help Corentis build technical depth around runtime assurance, scenario testing, evidence artefacts and reusable checkpoint patterns. That support would be most useful if connected to real validation work, not a broad marketing push."
+      },
+      {
+        "heading": "Signals to build before a deeper conversation",
+        "bullets": [
+          "A live V2 website with clear audience journeys and downloadable evidence packs.",
+          "A ControlBench R&D brief showing the technical validation route.",
+          "A sandbox preparation brief for financial-services workflow testing.",
+          "A design partner narrative that starts with a narrow non-production pilot.",
+          "A concise explanation of how the runtime checkpoint differs from a chatbot, dashboard or policy document."
+        ]
+      },
+      {
+        "heading": "Strategic diligence questions",
+        "bullets": [
+          "Can the control pattern transfer beyond the first complaints workflow?",
+          "Can evidence artefacts be standardised enough to support repeatable assurance?",
+          "Can scenario libraries become a defensible technical asset?",
+          "Can Corentis integrate at the action boundary without owning the whole workflow system?",
+          "Can the company show careful progress without overclaiming regulatory status or customer traction?"
+        ]
+      },
+      {
+        "heading": "Near-term ask",
+        "body": "The immediate ask is a strategic conversation about whether Corentis should be developed as UK AI control infrastructure, which validation work matters most and which funding, compute or design partner route would create the strongest evidence without premature commercial claims."
+      }
+    ]
+  },
+  {
+    "slug": "90-day-funding-execution-plan",
+    "title": "90-Day Funding Execution Plan PDF",
+    "pdfTitle": "Corentis 90-Day Funding Execution Plan",
+    "subtitle": "A practical public-facing roadmap for funding and sandbox readiness.",
+    "audience": "Founder / reviewers",
+    "status": "Available",
+    "publicPdfPath": "/packs/corentis-90-day-funding-execution-plan.pdf",
+    "shortDescription": "A practical route from V2 launch to applications, strategic outreach and design partner preparation.",
+    "evidenceHook": "Shows the execution order without claiming any application has been submitted or awarded.",
+    "ctaText": "Use this plan to sequence the next funding and partnership actions.",
+    "disclaimer": "This roadmap is preparatory. It does not state that any application has been submitted, accepted or awarded.",
+    "fundingRouteIds": [
+      "frontier-ai-discovery",
+      "sovereign-ai-fund",
+      "fca-supercharged-sandbox",
+      "ai-assurance-innovation-fund",
+      "frontier-ai-benchmarking-datasets",
+      "northern-powerhouse-investment-fund-ii"
+    ],
+    "sections": [
+      {
+        "heading": "Phase 1: make V2 live and test",
+        "body": "Confirm the website, PDFs, contact flow, sitemap, robots and social preview work before outreach."
+      },
+      {
+        "heading": "Phase 2: prepare Frontier AI Discovery",
+        "body": "Frame Corentis ControlBench as a feasibility study around runtime assurance, benchmark testing and evidence completeness."
+      },
+      {
+        "heading": "Phase 2 outputs",
+        "bullets": [
+          "ControlBench one-page summary.",
+          "R&D uncertainty and feasibility question.",
+          "Three-month workplan.",
+          "Baseline-versus-checkpoint evaluation plan.",
+          "Budget and eligibility details to confirm manually."
+        ]
+      },
+      {
+        "heading": "Phase 3: send Sovereign AI strategic approach",
+        "body": "Use the strategic memo to approach this as investor-style infrastructure funding, not a standard grant."
+      },
+      {
+        "heading": "Phase 4: prepare FCA Supercharged Sandbox",
+        "body": "Prepare the sandbox application pack for the 5 May 2026 opening window and avoid implying FCA approval."
+      },
+      {
+        "heading": "Phase 4 outputs",
+        "bullets": [
+          "Use-case statement for AI-assisted complaints and vulnerable-customer workflows.",
+          "Control matrix example.",
+          "Sample pilot report.",
+          "Assurance summary and runtime checkpoint explainer.",
+          "Company details and eligibility information confirmed before submission."
+        ]
+      },
+      {
+        "heading": "Phase 5: monitor AI Assurance Innovation Fund",
+        "body": "Keep the readiness brief prepared and monitor for a verified live application page."
+      },
+      {
+        "heading": "Phase 6: partner-check benchmarking dataset route",
+        "body": "Only pursue the Frontier AI Benchmarking Datasets route if a realistic consortium or partner route emerges."
+      },
+      {
+        "heading": "Phase 7: consider NPIF II later",
+        "body": "Consider regional finance after first external signals, application progress or design partner conversations."
+      },
+      {
+        "heading": "Expected outputs",
+        "bullets": [
+          "Application drafts.",
+          "Technical brief.",
+          "Design partner list.",
+          "Pilot plan.",
+          "Investor/funding memo."
         ]
       }
     ]

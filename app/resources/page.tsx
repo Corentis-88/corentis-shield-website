@@ -35,6 +35,11 @@ const chooser = [
     "Sample Pilot Report PDF",
     "What a controlled workflow pilot can produce.",
   ],
+  [
+    "Funding reviewers",
+    "Funding Readiness PDFs",
+    "Route-specific preparation packs for grants, sandbox and strategic funding conversations.",
+  ],
 ];
 
 const audiencePathways = [

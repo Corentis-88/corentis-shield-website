@@ -84,6 +84,29 @@ const readyConversations = [
   },
 ];
 
+const fundingConversations = [
+  {
+    title: "Strategic AI infrastructure",
+    description: "Position Corentis as UK runtime control infrastructure for regulated AI agents.",
+  },
+  {
+    title: "Financial-services sandbox testing",
+    description: "Prepare a complaints and vulnerable-customer workflow test route.",
+  },
+  {
+    title: "AI assurance innovation",
+    description: "Frame Corentis Shield as a runtime assurance mechanism with evidence artefacts.",
+  },
+  {
+    title: "R&D feasibility and benchmarking",
+    description: "Develop ControlBench as a feasibility route for benchmarked runtime assurance.",
+  },
+  {
+    title: "Regional growth capital later",
+    description: "Keep regional finance routes warm after first external signals.",
+  },
+];
+
 export default function PartnersPage() {
   return (
     <>
@@ -176,6 +199,21 @@ export default function PartnersPage() {
           {lookingFor.map((item) => (
             <div key={item} className="card-base card-success card-lift p-5 text-teal-50">
               {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Current partner and funding conversations we are preparing for"
+        intro="Corentis is preparing these conversations carefully. This does not claim funding, acceptance, regulatory approval or live customer deployment."
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+          {fundingConversations.map((item) => (
+            <div key={item.title} className="card-base card-premium card-lift p-5">
+              <h2 className="text-base font-semibold text-white">{item.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
             </div>
           ))}
         </div>

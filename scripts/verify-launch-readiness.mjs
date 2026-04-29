@@ -3,7 +3,11 @@ import path from "node:path";
 
 const rootDir = process.cwd();
 const outDir = path.join(rootDir, "out");
-const minPdfSize = 7 * 1024;
+const defaultMinPdfSize = 7 * 1024;
+const fundingMinPdfSize = 10 * 1024;
+const resourcePacks = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "content", "resource-packs.json"), "utf8")
+);
 
 const routes = [
   "/",
@@ -19,26 +23,28 @@ const routes = [
   "/video-brief",
 ];
 
-const pdfs = [
-  "corentis-investor-overview.pdf",
-  "corentis-assurance-governance-summary.pdf",
-  "corentis-design-partner-pack.pdf",
-  "corentis-sample-pilot-report.pdf",
-  "corentis-control-matrix-example.pdf",
-  "corentis-runtime-checkpoint-explainer.pdf",
-];
+const fundingPdfSlugs = new Set([
+  "funding-readiness-overview",
+  "controlbench-rd-brief",
+  "fca-supercharged-sandbox-brief",
+  "ai-assurance-innovation-fund-readiness-brief",
+  "sovereign-ai-strategic-memo",
+  "90-day-funding-execution-plan",
+]);
+
+const pdfs = resourcePacks
+  .filter((resource) => resource.status === "Available" && resource.publicPdfPath)
+  .map((resource) => ({
+    file: path.basename(resource.publicPdfPath),
+    minSize: fundingPdfSlugs.has(resource.slug) ? fundingMinPdfSize : defaultMinPdfSize,
+  }));
 
 const htmlLinkChecks = [
   {
     route: "/resources",
-    links: [
-      "/packs/corentis-investor-overview.pdf",
-      "/packs/corentis-assurance-governance-summary.pdf",
-      "/packs/corentis-design-partner-pack.pdf",
-      "/packs/corentis-sample-pilot-report.pdf",
-      "/packs/corentis-control-matrix-example.pdf",
-      "/packs/corentis-runtime-checkpoint-explainer.pdf",
-    ],
+    links: resourcePacks
+      .filter((resource) => resource.status === "Available" && resource.publicPdfPath)
+      .map((resource) => resource.publicPdfPath),
   },
   { route: "/investors", links: ["/packs/corentis-investor-overview.pdf"] },
   { route: "/design-partners", links: ["/packs/corentis-design-partner-pack.pdf"] },
@@ -122,17 +128,17 @@ if (contactHtmlPath) {
 }
 
 for (const pdf of pdfs) {
-  const filePath = path.join(outDir, "packs", pdf);
+  const filePath = path.join(outDir, "packs", pdf.file);
   if (!fs.existsSync(filePath)) {
-    fail(`PDF missing from out/packs: ${pdf}`);
+    fail(`PDF missing from out/packs: ${pdf.file}`);
     continue;
   }
 
   const { size } = fs.statSync(filePath);
-  if (size <= minPdfSize) {
-    fail(`PDF appears too small (${size} bytes): ${pdf}`);
+  if (size <= pdf.minSize) {
+    fail(`PDF appears too small (${size} bytes, expected > ${pdf.minSize}): ${pdf.file}`);
   } else {
-    pass(`PDF exported: ${pdf} (${size} bytes)`);
+    pass(`PDF exported: ${pdf.file} (${size} bytes)`);
   }
 }
 

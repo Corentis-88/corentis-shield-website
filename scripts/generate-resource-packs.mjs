@@ -14,6 +14,9 @@ const resourcePacks = JSON.parse(
 const evidenceStats = JSON.parse(
   fs.readFileSync(path.join(rootDir, "content", "evidence-stats.json"), "utf8")
 );
+const fundingRoutes = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "content", "funding-routes.json"), "utf8")
+);
 
 const page = {
   width: 595.28,
@@ -40,6 +43,10 @@ const brand = {
 
 function evidenceByIds(ids = []) {
   return ids.map((id) => evidenceStats.find((item) => item.id === id)).filter(Boolean);
+}
+
+function fundingRoutesByIds(ids = []) {
+  return ids.map((id) => fundingRoutes.find((item) => item.id === id)).filter(Boolean);
 }
 
 function contentWidth() {
@@ -200,6 +207,7 @@ function callout(doc, title, body, tone = "cyan") {
 }
 
 function evidenceCards(doc, evidence) {
+  if (!evidence.length) return;
   sectionHeading(doc, "Evidence context", "Selected signals", 150);
   const gap = 12;
   const cardWidth = (contentWidth() - gap) / 2;
@@ -285,6 +293,7 @@ function matrixRows(doc, rows = []) {
 }
 
 function selectedSources(doc, evidence) {
+  if (!evidence.length) return;
   sectionHeading(doc, "Selected sources", undefined, 132);
   evidence.forEach((item) => {
     ensureSpace(doc, 34);
@@ -308,7 +317,77 @@ function selectedSources(doc, evidence) {
   });
 }
 
+function fundingRouteCards(doc, routes) {
+  if (!routes.length) return;
+  sectionHeading(doc, "Funding route references", "Current route context", 140);
+  routes
+    .sort((a, b) => a.priorityOrder - b.priorityOrder)
+    .forEach((route) => {
+      ensureSpace(doc, 94);
+      const y = doc.y;
+      doc.roundedRect(page.margin, y, contentWidth(), 76, 10).fillAndStroke("#f8fafc", "#cbd5e1");
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(9)
+        .fillColor(brand.ink)
+        .text(route.name, page.margin + 14, y + 12, { width: 190 });
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(7)
+        .fillColor("#0891b2")
+        .text(route.status, page.margin + 214, y + 13, { width: 130 });
+      doc
+        .font("Helvetica")
+        .fontSize(7)
+        .fillColor(brand.muted)
+        .text(`Opens: ${route.opens}`, page.margin + 356, y + 13, { width: 120 });
+      doc
+        .font("Helvetica")
+        .fontSize(7)
+        .fillColor(brand.muted)
+        .text(`Closes: ${route.closes}`, page.margin + 356, y + 25, { width: 120 });
+      doc
+        .font("Helvetica")
+        .fontSize(7.4)
+        .fillColor(brand.body)
+        .text(route.recommendedCorentisFraming, page.margin + 14, y + 35, {
+          width: contentWidth() - 28,
+          lineGap: 1.4,
+        });
+      doc.y = y + 90;
+    });
+}
+
+function fundingSources(doc, routes) {
+  if (!routes.length) return;
+  sectionHeading(doc, "Funding source references", undefined, 120);
+  routes.forEach((route) => {
+    ensureSpace(doc, 30);
+    const sourceReference = route.officialSourceUrl
+      ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
+      : "Source reference available";
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(7.6)
+      .fillColor(brand.ink)
+      .text(`${route.name}: ${route.status}`, { width: contentWidth(), lineGap: 1.8 });
+    doc
+      .font("Helvetica")
+      .fontSize(6.8)
+      .fillColor(brand.muted)
+      .text(
+        `Source reference: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
+        {
+          width: contentWidth(),
+          lineGap: 1.8,
+        }
+      );
+    doc.moveDown(0.2);
+  });
+}
+
 function bodyPages(doc, pack, evidence) {
+  const routeRefs = fundingRoutesByIds(pack.fundingRouteIds);
   addPageAccent(doc);
   sectionHeading(doc, "Overview", pack.audience);
   callout(
@@ -330,8 +409,10 @@ function bodyPages(doc, pack, evidence) {
   }
 
   matrixRows(doc, pack.matrixRows);
+  fundingRouteCards(doc, routeRefs);
   evidenceCards(doc, evidence);
   selectedSources(doc, evidence);
+  fundingSources(doc, routeRefs);
 
   sectionHeading(doc, "Next step", undefined, 190);
   callout(doc, "Call to action", pack.ctaText, "teal");

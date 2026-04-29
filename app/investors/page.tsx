@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { EvidenceStatCards } from "@/components/EvidenceStatCards";
+import { ResourceCard } from "@/components/ResourceCard";
 import { Section } from "@/components/Section";
+import resourcePacks from "@/content/resource-packs.json";
 
 export const metadata: Metadata = {
   title: "Investors & Funding | Corentis Shield",
@@ -32,6 +34,31 @@ const seeking = [
   "regulated workflow collaborators",
   "AI assurance research/commercial partners",
 ];
+
+const strategicRoutes = [
+  {
+    title: "Sovereign AI",
+    description: "Strategic investor/funding approach for UK AI control infrastructure.",
+  },
+  {
+    title: "Frontier AI Discovery",
+    description: "ControlBench R&D route around runtime assurance and benchmark testing.",
+  },
+  {
+    title: "AI Assurance Innovation Fund",
+    description: "Assurance route to monitor and prepare for when the live page opens.",
+  },
+  {
+    title: "FCA Supercharged Sandbox",
+    description: "Financial-services pilot route for complaints and vulnerable-customer workflows.",
+  },
+];
+
+const investorFundingPacks = resourcePacks.filter((pack) =>
+  ["funding-readiness-overview", "controlbench-rd-brief", "sovereign-ai-strategic-memo"].includes(
+    pack.slug
+  )
+);
 
 export default function InvestorsPage() {
   return (
@@ -102,6 +129,34 @@ export default function InvestorsPage() {
             <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
               {item}
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Strategic funding routes Corentis is preparing for"
+        intro="These are preparation routes, not awarded or accepted funding. Each route is subject to eligibility, scope and live application requirements."
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {strategicRoutes.map((route) => (
+            <div key={route.title} className="card-base card-info card-lift p-6">
+              <h2 className="text-lg font-semibold text-white">{route.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{route.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {investorFundingPacks.map((resource) => (
+            <ResourceCard
+              key={resource.slug}
+              title={resource.title}
+              audience={resource.audience}
+              description={resource.shortDescription}
+              evidenceHook={resource.evidenceHook}
+              href={resource.publicPdfPath}
+              status={resource.status as "Available" | "Coming soon"}
+            />
           ))}
         </div>
       </Section>

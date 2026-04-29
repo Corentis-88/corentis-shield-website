@@ -1,129 +1,207 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { CTABanner } from "@/components/CTABanner";
-import { PhotoPanel } from "@/components/PhotoPanel";
+import { EvidenceStatCards } from "@/components/EvidenceStatCards";
+import { ResourceCard } from "@/components/ResourceCard";
 import { Section } from "@/components/Section";
+import fundingRoutes from "@/content/funding-routes.json";
+import resourcePacks from "@/content/resource-packs.json";
 
-const builtItems = [
-  "Corentis Shield website",
-  "Shield product prototype",
-  "deterministic decision engine",
-  "regulated scenario library",
-  "evidence vault",
-  "review queue",
-  "agent API concept",
-  "pilot report",
-  "design partner pack",
+const priorityIds = [
+  "frontier-ai-discovery",
+  "sovereign-ai-fund",
+  "fca-supercharged-sandbox",
+  "ai-assurance-innovation-fund",
+  "frontier-ai-benchmarking-datasets",
+  "northern-powerhouse-investment-fund-ii",
 ];
 
-const nextPhase = [
-  "design partner pilot",
-  "scenario library expansion",
-  "policy-to-control engine",
-  "output evaluation benchmark",
-  "API/private gateway hardening",
-  "evidence report exports",
-  "security/privacy review",
+const routePriority = priorityIds
+  .map((id) => fundingRoutes.find((route) => route.id === id))
+  .filter((route): route is (typeof fundingRoutes)[number] => Boolean(route));
+
+const fundingPacks = resourcePacks.filter((pack) =>
+  [
+    "funding-readiness-overview",
+    "controlbench-rd-brief",
+    "fca-supercharged-sandbox-brief",
+    "ai-assurance-innovation-fund-readiness-brief",
+    "sovereign-ai-strategic-memo",
+    "90-day-funding-execution-plan",
+  ].includes(pack.slug)
+);
+
+const applicationTracks = [
+  {
+    title: "Track A: Corentis ControlBench",
+    subtitle: "For Frontier AI Discovery",
+    items: [
+      "R&D feasibility",
+      "runtime assurance benchmark",
+      "baseline comparisons",
+      "agentic workflow testing",
+      "evidence completeness scoring",
+      "scenario library",
+    ],
+  },
+  {
+    title: "Track B: Corentis Shield Financial Services Pilot",
+    subtitle: "For FCA Supercharged Sandbox",
+    items: [
+      "complaints workflow",
+      "vulnerable-customer signals",
+      "human review before action",
+      "evidence logs",
+      "non-production pilot",
+    ],
+  },
+  {
+    title: "Track C: Corentis AI Assurance Pack",
+    subtitle: "For AI Assurance Innovation Fund and assurance stakeholders",
+    items: [
+      "policy-to-control mapping",
+      "runtime checkpoints",
+      "human review",
+      "assurance artefacts",
+      "pilot reports",
+    ],
+  },
 ];
 
-const valueCards = [
-  {
-    title: "Practical AI assurance",
-    description:
-      "Corentis Shield gives teams a way to check AI outputs before action, route human review and record evidence. It turns AI risk into something visible, testable and reviewable.",
-    className: "card-info",
-  },
-  {
-    title: "Pilot-ready evidence",
-    description:
-      "Start with one sensitive workflow. Test draft replies, proposed actions and case updates before live use. Produce evidence that teams, partners and decision-makers can review.",
-    className: "card-premium",
-  },
-  {
-    title: "A reusable scenario library",
-    description:
-      "Each pilot can strengthen a growing library of regulated scenarios, expected decisions, risk labels and evidence requirements. Over time, that becomes a stronger way to test AI outputs across sectors.",
-    className: "card-premium",
-  },
-  {
-    title: "Output evaluation at scale",
-    description:
-      "Corentis can compare AI outputs across models, workflows and scenario packs to understand where agents fail, where review is needed and where controls should sit.",
-    className: "card-info",
-  },
-  {
-    title: "A commercial deployment path",
-    description:
-      "Corentis can start with focused reviews, grow through design-partner pilots, and scale through recurring software, API usage, private gateways and sector-specific assurance packs.",
-    className: "card-success",
-  },
+const technicalDefensibility = [
+  "policy-to-control mapping",
+  "runtime action checkpoints",
+  "scenario-based testing",
+  "evidence completeness scoring",
+  "human-review routing",
+  "reusable control patterns",
+  "audit and pilot artefact generation",
 ];
 
-const designPartners = [
-  "fintechs preparing AI workflow pilots",
-  "financial-services customer operations teams",
-  "complaints teams",
-  "AI vendors serving regulated firms",
-  "compliance and conduct-risk teams",
-  "outsourced customer-service providers",
+const readinessStatus = [
+  ["V2 website live", "Prepared"],
+  ["PDFs available", "Prepared"],
+  ["Application pack created", "Prepared"],
+  ["Company details confirmed", "To confirm"],
+  ["Contact form tested", "To confirm"],
+  ["Frontier AI Discovery draft prepared", "In progress"],
+  ["Sovereign AI memo prepared", "Prepared"],
+  ["FCA Sandbox draft prepared", "Prepared"],
+  ["AI Assurance pack prepared", "Prepared"],
+  ["First design partner list prepared", "In progress"],
 ];
 
-const audiences = [
-  {
-    title: "Assurance and responsible AI teams",
-    description: "A way to test and evidence AI outputs before deployment.",
-  },
-  {
-    title: "Regulated-sector design partners",
-    description: "A low-risk pilot path using one sensitive workflow.",
-  },
-  {
-    title: "Innovation and growth investors",
-    description: "A route from review to pilot to recurring software deployment.",
-  },
-  {
-    title: "AI infrastructure partners",
-    description:
-      "A checkpoint layer that can connect through API, SDK, webhook or private gateway.",
-  },
-  {
-    title: "Public-sector and research collaborators",
-    description: "A method for building reusable scenario packs and evaluation reports.",
-  },
+const nowEvidenceIds = [
+  "mckinsey-agentic-ai-2025",
+  "fca-complaints-redress-2025-h1",
+  "ibm-ai-governance-gap-2025",
 ];
+
+function statusTone(status: string) {
+  if (status.includes("Open now"))
+    return "border-emerald-300/30 bg-emerald-300/10 text-emerald-100";
+  if (status.includes("Opens soon")) return "border-cyan-300/30 bg-cyan-300/10 text-cyan-100";
+  if (status.includes("Expected")) return "border-amber-300/30 bg-amber-300/10 text-amber-100";
+  return "border-slate-300/20 bg-white/10 text-slate-100";
+}
 
 export default function FundingPage() {
   return (
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Partners and funding"
-        title="Corentis is building practical AI assurance infrastructure for the next phase of AI adoption."
-        intro="As AI agents move from chat to action, regulated workflows need a checkpoint before outputs reach customers, teams or live systems."
+        eyebrow="Funding readiness"
+        title="Funding-ready focus: building UK control infrastructure for regulated AI agents"
+        intro="Corentis Shield is being prepared for funding, sandbox and strategic investment routes that support safer AI adoption, AI assurance and regulated AI-agent infrastructure."
       >
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/why-corentis">Why Corentis?</ButtonLink>
-          <ButtonLink href="/contact#design-partner" variant="secondary">
-            Discuss a design partnership
-          </ButtonLink>
-        </div>
-      </Section>
-
-      <Section
-        title="What we are building"
-        intro="Corentis Shield is an AI checkpoint for regulated workflows. It checks outputs before action, routes human review and records evidence."
-      >
-        <div className="card-base card-premium p-7">
-          <p className="max-w-4xl text-lg leading-8 text-slate-300">
-            The product path is deliberately practical: start with one workflow, test the outputs,
-            find the review points, then move toward a deployable checkpoint through API, SDK,
-            webhook or private gateway options.
+        <div className="card-base card-warning max-w-4xl p-6">
+          <p className="text-sm leading-6 text-amber-50">
+            Corentis is early-stage. This page does not claim that funding has been awarded,
+            submitted or accepted. It explains the funding logic, current route priorities and
+            downloadable preparation packs.
           </p>
         </div>
       </Section>
 
-      <Section className="bg-white/[0.02]" title="What has already been built">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {builtItems.map((item) => (
+      <Section
+        title="Current funding route priorities"
+        intro="These routes are prioritised by timing, fit and usefulness. Applicants should confirm live eligibility and deadlines before submission."
+      >
+        <div className="grid gap-5 lg:grid-cols-2">
+          {routePriority.map((route, index) => (
+            <div key={route.id} className="card-base card-premium card-lift p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full border border-cyanx/30 bg-cyanx/10 px-3 py-1 text-xs font-semibold text-cyan-100">
+                  Priority {index + 1}
+                </span>
+                <span
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold ${statusTone(route.status)}`}
+                >
+                  {route.status}
+                </span>
+              </div>
+              <h2 className="mt-5 text-2xl font-semibold text-white">{route.name}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{route.corentisFit}</p>
+              <p className="mt-4 text-sm leading-6 text-cyan-50">
+                {route.recommendedCorentisFraming}
+              </p>
+              <div className="mt-5 grid gap-2 text-xs leading-5 text-slate-400 sm:grid-cols-2">
+                <p>Opens: {route.opens}</p>
+                <p>Closes: {route.closes}</p>
+                <p>Type: {route.fundingType}</p>
+                <p>Deadline risk: {route.deadlineRisk}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="bg-white/[0.02]" title="What we are preparing">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {applicationTracks.map((track) => (
+            <div key={track.title} className="card-base card-info card-lift p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyanx">
+                {track.subtitle}
+              </p>
+              <h2 className="mt-3 text-xl font-semibold text-white">{track.title}</h2>
+              <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
+                {track.items.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-cyanx" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        title="Why Corentis fits the funding landscape"
+        intro="AI adoption is moving from drafting to acting. Regulated teams need controls at the action boundary, where an AI output becomes a customer message, case update or workflow action."
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="card-base card-premium p-7">
+            <h2 className="text-2xl font-semibold text-white">
+              Infrastructure, assurance and evidence
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Corentis is not another chatbot. The funding story is about runtime checkpoint
+              infrastructure, assurance artefacts and evidence generation. The first wedge is
+              narrow, but the control pattern can be reused across regulated AI-agent workflows.
+            </p>
+          </div>
+          <EvidenceStatCards ids={nowEvidenceIds} tone="premium" />
+        </div>
+      </Section>
+
+      <Section
+        className="bg-white/[0.02]"
+        title="Technical defensibility: what Corentis needs to prove"
+        intro="This is the R&D and validation path, not a claim that every element is fully proven today."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {technicalDefensibility.map((item) => (
             <div key={item} className="card-base card-success card-lift p-5 text-teal-50">
               {item}
             </div>
@@ -131,89 +209,53 @@ export default function FundingPage() {
         </div>
       </Section>
 
-      <Section title="What the next phase needs">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {nextPhase.map((item) => (
-              <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
-                {item}
-              </div>
-            ))}
-          </div>
-          <PhotoPanel
-            src="/images/stock/team-reviewing-laptop-meeting.jpg"
-            alt="Team of professionals reviewing a laptop during a business meeting."
-            label="Pilot path"
-            caption="Funding and design partnerships turn the checkpoint into deployable assurance infrastructure."
-            objectPosition="center 44%"
-          />
+      <Section title="Download funding preparation packs">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {fundingPacks.map((resource) => (
+            <ResourceCard
+              key={resource.slug}
+              title={resource.title}
+              audience={resource.audience}
+              description={resource.shortDescription}
+              evidenceHook={resource.evidenceHook}
+              href={resource.publicPdfPath}
+              status={resource.status as "Available" | "Coming soon"}
+            />
+          ))}
         </div>
       </Section>
 
-      <Section
-        className="bg-white/[0.02]"
-        title="Where Corentis creates value"
-        intro="Corentis starts with a simple checkpoint before AI action. The same approach can support pilots, evidence reports, reusable scenario libraries and live deployment."
-      >
-        <div className="grid gap-5 lg:grid-cols-5">
-          {valueCards.map((item) => (
-            <div key={item.title} className={`card-base ${item.className} card-lift p-5`}>
-              <h3 className="text-base font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+      <Section className="bg-white/[0.02]" title="Funding readiness status">
+        <div className="grid gap-4 md:grid-cols-2">
+          {readinessStatus.map(([item, status]) => (
+            <div
+              key={item}
+              className="card-base card-premium flex items-center justify-between gap-4 p-5"
+            >
+              <span className="text-sm leading-6 text-slate-200">{item}</span>
+              <span className="rounded-full border border-cyanx/30 bg-cyanx/10 px-3 py-1 text-xs font-semibold text-cyan-100">
+                {status}
+              </span>
             </div>
           ))}
         </div>
-        <div className="card-base card-premium mt-8 p-6">
-          <h3 className="text-xl font-semibold text-white">Why this matters</h3>
-          <p className="mt-3 max-w-4xl text-base leading-7 text-slate-300">
-            AI adoption will not be limited by model capability alone. It will also depend on
-            whether organisations can prove that AI outputs were checked, reviewed and evidenced
-            before they reached the real world.
+      </Section>
+
+      <Section title="Company details to confirm before submission">
+        <div className="card-base card-warning p-7">
+          <p className="max-w-4xl text-base leading-8 text-amber-50">
+            Before any formal funding submission, Corentis should confirm the registered company
+            name, company number, registered office/contact details, and any required applicant
+            eligibility details.
           </p>
         </div>
       </Section>
 
-      <Section title="Design partner profile">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {designPartners.map((item) => (
-            <div key={item} className="card-base card-premium card-lift p-5 text-slate-100">
-              {item}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="bg-white/[0.02]" title="Who this speaks to">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {audiences.map((item) => (
-            <div key={item.title} className="card-base card-info card-lift p-5">
-              <h3 className="text-base font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Partner brief">
-        <div className="card-base card-info p-7">
-          <h2 className="text-2xl font-semibold text-white">Request the Corentis partner brief</h2>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-cyan-50">
-            A concise overview of the Corentis Shield opportunity, technical approach, pilot roadmap
-            and strategic asset pathway.
-          </p>
-          <div className="mt-6">
-            <ButtonLink href="/contact#investor" variant="secondary">
-              Request partner brief
-            </ButtonLink>
-          </div>
-        </div>
-      </Section>
-
-      <Section className="bg-white/[0.02]">
+      <Section>
         <CTABanner
-          title="Support the checkpoint layer for AI agents."
-          primaryLabel="Discuss a design partnership"
-          primaryHref="/design-partners"
+          title="Prepare the next funding conversation carefully."
+          primaryLabel="Download Funding Readiness Overview"
+          primaryHref="/packs/corentis-funding-readiness-overview.pdf"
           secondaryLabel="Book a conversation"
           secondaryHref="/contact#investor"
         />
