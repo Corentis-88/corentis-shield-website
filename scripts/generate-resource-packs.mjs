@@ -81,6 +81,7 @@ function measureTextHeight(doc, text, width, fontSize, options = {}) {
 }
 
 function safeText(doc, text, x = page.marginLeft, y = doc.y, width = contentWidth(), options = {}) {
+  markBodyContent(doc);
   const safeX = Math.max(x, page.marginLeft);
   const safeWidth = Math.max(1, Math.min(width, maxX() - safeX));
   doc.text(String(text || ""), safeX, y, { width: safeWidth, ...options });
@@ -122,6 +123,7 @@ function drawVerticalCard(doc, { title, body, meta, tone = "neutral", minHeight 
       metaHeight
   );
   ensureSpace(doc, boxHeight + 14);
+  markBodyContent(doc);
   const y = doc.y;
   const fill = tone === "teal" ? brand.tealSoft : tone === "amber" ? brand.amberSoft : "#f8fafc";
   const stroke = tone === "teal" ? "#99f6e4" : tone === "amber" ? "#fed7aa" : "#cbd5e1";
@@ -159,15 +161,30 @@ function drawVerticalCard(doc, { title, body, meta, tone = "neutral", minHeight 
 function ensureSpace(doc, needed = 90) {
   if (doc.y + needed > page.height - page.marginBottom) {
     doc.addPage();
-    addPageAccent(doc);
+    prepareBodyPage(doc);
   }
 }
 
-function addPageAccent(doc) {
-  doc.rect(0, 0, page.width, 8).fill(brand.cyan);
-  addFooter(doc);
+function prepareBodyPage(doc) {
+  doc._corentisBodyPageDecorated = false;
+  doc._corentisBodyPageHasContent = false;
   doc.x = page.marginLeft;
   doc.y = page.marginTop;
+}
+
+function markBodyContent(doc) {
+  if (doc._corentisBodyPageDecorated === false) {
+    const oldX = doc.x;
+    const oldY = doc.y;
+    doc.rect(0, 0, page.width, 8).fill(brand.cyan);
+    addFooter(doc);
+    doc.x = oldX;
+    doc.y = oldY;
+    doc._corentisBodyPageDecorated = true;
+  }
+  if (doc._corentisBodyPageHasContent === false) {
+    doc._corentisBodyPageHasContent = true;
+  }
 }
 
 function addFooter(doc, color = brand.muted) {
@@ -245,6 +262,7 @@ function coverPage(doc, pack) {
 
 function sectionHeading(doc, heading, eyebrow, needed = 82) {
   ensureSpace(doc, needed);
+  markBodyContent(doc);
   doc.x = page.marginLeft;
   if (eyebrow) {
     doc
@@ -286,6 +304,7 @@ function bulletList(doc, items = []) {
     const textHeight = measureTextHeight(doc, item, contentWidth() - 20, 9, { lineGap: 2 });
     ensureSpace(doc, Math.max(24, textHeight + 10));
     const y = doc.y + 5;
+    markBodyContent(doc);
     doc.circle(page.marginLeft + 4, y, 2.2).fill(brand.cyan);
     drawWrappedText(doc, item, page.marginLeft + 16, doc.y, contentWidth() - 20, {
       fontSize: 9,
@@ -310,6 +329,7 @@ function flowDiagram(doc, title, steps = []) {
   const totalHeight =
     heights.reduce((sum, height) => sum + height, 0) + cardGap * (steps.length - 1);
   ensureSpace(doc, totalHeight + 14);
+  markBodyContent(doc);
   let y = doc.y;
   steps.forEach((step, index) => {
     const x = page.marginLeft;
@@ -389,6 +409,7 @@ function evidenceCards(doc, evidence) {
       .heightOfString(source, { width: contentWidth() - 28, lineGap: 1.2 });
     const boxHeight = Math.max(72, titleHeight + statHeight + sourceHeight + 42);
     ensureSpace(doc, boxHeight + 12);
+    markBodyContent(doc);
     const y = doc.y;
     doc.roundedRect(x, y, contentWidth(), boxHeight, 10).fillAndStroke("#f8fafc", "#cbd5e1");
     doc
@@ -438,6 +459,7 @@ function matrixRows(doc, rows = []) {
     const titleHeight = measureTextHeight(doc, row.riskArea, innerWidth, 9, { bold: true });
     const boxHeight = 34 + titleHeight + fieldHeights.reduce((sum, height) => sum + height, 0);
     ensureSpace(doc, boxHeight + 16);
+    markBodyContent(doc);
     const y = doc.y;
     doc
       .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
@@ -478,6 +500,7 @@ function verticalBulletCards(doc, heading, bullets = [], eyebrow = "Structured d
       .heightOfString(item, { width: contentWidth() - 28, lineGap: 1.5 });
     const boxHeight = Math.max(48, textHeight + 26);
     ensureSpace(doc, boxHeight + 14);
+    markBodyContent(doc);
     const y = doc.y;
     doc
       .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
@@ -508,6 +531,7 @@ function selectedSources(doc, evidence) {
       (note ? measureTextHeight(doc, note, contentWidth(), 6.6, { lineGap: 1.8 }) : 0) +
       16;
     ensureSpace(doc, needed);
+    markBodyContent(doc);
     doc
       .font("Helvetica-Bold")
       .fontSize(7.6)
@@ -573,6 +597,7 @@ function fundingRouteCards(doc, routes) {
       const boxHeight = 34 + titleHeight + rowHeights.reduce((sum, height) => sum + height, 0);
 
       ensureSpace(doc, boxHeight + 18);
+      markBodyContent(doc);
       const y = doc.y;
       doc
         .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
@@ -618,6 +643,7 @@ function fundingSources(doc, routes) {
       measureTextHeight(doc, detail, contentWidth(), 6.8, { lineGap: 1.8 }) +
       14;
     ensureSpace(doc, needed);
+    markBodyContent(doc);
     doc
       .font("Helvetica-Bold")
       .fontSize(7.6)
@@ -660,7 +686,7 @@ function companyDetailsNote(doc) {
 
 function bodyPages(doc, pack, evidence) {
   const routeRefs = fundingRoutesByIds(pack.fundingRouteIds);
-  addPageAccent(doc);
+  prepareBodyPage(doc);
   sectionHeading(doc, "Overview", pack.audience);
   callout(
     doc,
