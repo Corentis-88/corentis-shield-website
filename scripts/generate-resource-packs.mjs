@@ -187,23 +187,96 @@ function bulletList(doc, items = []) {
   doc.moveDown(0.3);
 }
 
+function flowDiagram(doc, title, steps = []) {
+  if (!steps.length) return;
+  sectionHeading(doc, title, "Visual summary", 132);
+  const gap = 8;
+  const cardWidth = (contentWidth() - gap * (steps.length - 1)) / steps.length;
+  ensureSpace(doc, 76);
+  const y = doc.y;
+  steps.forEach((step, index) => {
+    const x = page.margin + index * (cardWidth + gap);
+    doc.roundedRect(x, y, cardWidth, 48, 8).fillAndStroke("#ecfeff", "#67e8f9");
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(6.8)
+      .fillColor("#075985")
+      .text(step, x + 8, y + 13, {
+        width: cardWidth - 16,
+        align: "center",
+        lineGap: 1.1,
+      });
+    if (index < steps.length - 1) {
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(10)
+        .fillColor("#0891b2")
+        .text("→", x + cardWidth + 1.5, y + 18, { width: gap - 3, align: "center" });
+    }
+  });
+  doc.y = y + 66;
+}
+
+function baselineCheckpointDiagram(doc) {
+  sectionHeading(doc, "Baseline vs checkpoint", "Evaluation shape", 140);
+  ensureSpace(doc, 116);
+  const y = doc.y;
+  const gap = 14;
+  const colWidth = (contentWidth() - gap) / 2;
+  const columns = [
+    {
+      title: "Baseline",
+      body: "AI proposes output or action without a runtime checkpoint. Review points and evidence gaps are assessed afterwards.",
+      fill: "#fff7ed",
+      stroke: "#fed7aa",
+    },
+    {
+      title: "Checkpointed",
+      body: "AI proposes output or action. Corentis checks controls, pauses risky items, routes human review and records evidence before action.",
+      fill: "#ecfdf5",
+      stroke: "#99f6e4",
+    },
+  ];
+  columns.forEach((column, index) => {
+    const x = page.margin + index * (colWidth + gap);
+    doc.roundedRect(x, y, colWidth, 86, 10).fillAndStroke(column.fill, column.stroke);
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(9)
+      .fillColor(brand.ink)
+      .text(column.title, x + 14, y + 14, { width: colWidth - 28 });
+    doc
+      .font("Helvetica")
+      .fontSize(8.1)
+      .fillColor(brand.body)
+      .text(column.body, x + 14, y + 33, { width: colWidth - 28, lineGap: 1.5 });
+  });
+  doc.y = y + 104;
+}
+
 function callout(doc, title, body, tone = "cyan") {
-  ensureSpace(doc, 78);
+  const innerWidth = contentWidth() - 32;
+  const bodyHeight = doc
+    .font("Helvetica")
+    .fontSize(8.7)
+    .heightOfString(body, { width: innerWidth, lineGap: 1.8 });
+  const boxHeight = Math.max(62, 34 + bodyHeight + 16);
+  ensureSpace(doc, boxHeight + 14);
   const y = doc.y;
   const fill = tone === "amber" ? brand.amberSoft : tone === "teal" ? brand.tealSoft : "#eff6ff";
   const stroke = tone === "amber" ? "#fed7aa" : tone === "teal" ? "#99f6e4" : "#bae6fd";
-  doc.roundedRect(page.margin, y, contentWidth(), 62, 10).fillAndStroke(fill, stroke);
+  doc.roundedRect(page.margin, y, contentWidth(), boxHeight, 10).fillAndStroke(fill, stroke);
   doc
     .font("Helvetica-Bold")
     .fontSize(8.6)
     .fillColor(tone === "amber" ? "#9a3412" : "#075985")
-    .text(title, page.margin + 16, y + 14, { width: contentWidth() - 32 });
+    .text(title, page.margin + 16, y + 14, { width: innerWidth });
   doc
     .font("Helvetica")
     .fontSize(8.7)
     .fillColor(brand.body)
-    .text(body, page.margin + 16, y + 30, { width: contentWidth() - 32, lineGap: 1.8 });
-  doc.y = y + 76;
+    .text(body, page.margin + 16, y + 30, { width: innerWidth, lineGap: 1.8 });
+  doc.y = y + boxHeight + 14;
 }
 
 function evidenceCards(doc, evidence) {
@@ -319,42 +392,81 @@ function selectedSources(doc, evidence) {
 
 function fundingRouteCards(doc, routes) {
   if (!routes.length) return;
-  sectionHeading(doc, "Funding route references", "Current route context", 140);
+  sectionHeading(doc, "Funding route references", "Current route context", 190);
   routes
     .sort((a, b) => a.priorityOrder - b.priorityOrder)
     .forEach((route) => {
-      ensureSpace(doc, 94);
+      ensureSpace(doc, 190);
       const y = doc.y;
-      doc.roundedRect(page.margin, y, contentWidth(), 76, 10).fillAndStroke("#f8fafc", "#cbd5e1");
-      doc
-        .font("Helvetica-Bold")
-        .fontSize(9)
-        .fillColor(brand.ink)
-        .text(route.name, page.margin + 14, y + 12, { width: 190 });
-      doc
-        .font("Helvetica-Bold")
-        .fontSize(7)
-        .fillColor("#0891b2")
-        .text(route.status, page.margin + 214, y + 13, { width: 130 });
-      doc
+      const sourceReference = route.officialSourceUrl
+        ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
+        : "Source reference available";
+      const importantDates =
+        route.opens === route.closes
+          ? route.opens
+          : `Opens: ${route.opens}. Closes: ${route.closes}.`;
+      const rows = [
+        ["Status", route.status],
+        ["Important dates", importantDates],
+        ["Corentis fit", route.corentisFit],
+        ["Recommended next action", route.immediateAction],
+        [
+          "Source reference",
+          `${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
+        ],
+      ];
+      const rowHeights = rows.map(([label, value]) => {
+        const valueHeight = doc
+          .font("Helvetica")
+          .fontSize(7.7)
+          .heightOfString(value, { width: contentWidth() - 172, lineGap: 1.4 });
+        return Math.max(18, valueHeight + 5);
+      });
+      const framingHeight = doc
         .font("Helvetica")
-        .fontSize(7)
-        .fillColor(brand.muted)
-        .text(`Opens: ${route.opens}`, page.margin + 356, y + 13, { width: 120 });
-      doc
-        .font("Helvetica")
-        .fontSize(7)
-        .fillColor(brand.muted)
-        .text(`Closes: ${route.closes}`, page.margin + 356, y + 25, { width: 120 });
-      doc
-        .font("Helvetica")
-        .fontSize(7.4)
-        .fillColor(brand.body)
-        .text(route.recommendedCorentisFraming, page.margin + 14, y + 35, {
+        .fontSize(7.8)
+        .heightOfString(route.recommendedCorentisFraming, {
           width: contentWidth() - 28,
-          lineGap: 1.4,
+          lineGap: 1.5,
         });
-      doc.y = y + 90;
+      const boxHeight = 48 + framingHeight + rowHeights.reduce((sum, height) => sum + height, 0);
+
+      ensureSpace(doc, boxHeight + 18);
+      doc
+        .roundedRect(page.margin, y, contentWidth(), boxHeight, 10)
+        .fillAndStroke("#f8fafc", "#cbd5e1");
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(9.4)
+        .fillColor(brand.ink)
+        .text(route.name, page.margin + 14, y + 14, { width: contentWidth() - 28 });
+      doc
+        .font("Helvetica")
+        .fontSize(7.8)
+        .fillColor(brand.body)
+        .text(route.recommendedCorentisFraming, page.margin + 14, y + 31, {
+          width: contentWidth() - 28,
+          lineGap: 1.5,
+        });
+      let rowY = doc.y + 7;
+      rows.forEach(([label, value], index) => {
+        const rowHeight = rowHeights[index];
+        doc
+          .font("Helvetica-Bold")
+          .fontSize(7.2)
+          .fillColor("#075985")
+          .text(label, page.margin + 14, rowY, { width: 130 });
+        doc
+          .font("Helvetica")
+          .fontSize(7.7)
+          .fillColor(brand.body)
+          .text(value, page.margin + 160, rowY, {
+            width: contentWidth() - 174,
+            lineGap: 1.4,
+          });
+        rowY += rowHeight;
+      });
+      doc.y = y + boxHeight + 18;
     });
 }
 
@@ -400,6 +512,23 @@ function bodyPages(doc, pack, evidence) {
     doc,
     "AI needs a checkpoint before it acts. Corentis provides it. Corentis Shield is designed to help teams check AI outputs before they reach customers, teams or live systems."
   );
+  flowDiagram(doc, "Checkpoint flow", [
+    "AI proposes output/action",
+    "Corentis checkpoint",
+    "Human review",
+    "Evidence logged",
+  ]);
+  if (
+    [
+      "investor-overview",
+      "funding-readiness-overview",
+      "controlbench-rd-brief",
+      "fca-supercharged-sandbox-brief",
+      "ai-assurance-innovation-fund-readiness-brief",
+    ].includes(pack.slug)
+  ) {
+    baselineCheckpointDiagram(doc);
+  }
 
   for (const section of pack.sections || []) {
     const expectedSectionHeight = section.bullets?.length ? 104 : 76;
