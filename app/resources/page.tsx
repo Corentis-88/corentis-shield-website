@@ -8,13 +8,13 @@ const chooser = [
   {
     audience: "Investors/funding",
     pack: "Investor Overview PDF",
-    description: "Market timing, platform potential and route to deployment.",
+    description: "Market timing, platform potential and the path to validation.",
     href: "/packs/corentis-investor-overview.pdf",
   },
   {
     audience: "Regulated operations/governance",
-    pack: "Assurance & Governance Summary PDF",
-    description: "Control loop, evidence outputs and governance usefulness.",
+    pack: "Assurance & Evidence Brief PDF",
+    description: "Control loop, evidence outputs and assurance usefulness.",
     href: "/packs/corentis-assurance-governance-summary.pdf",
   },
   {
@@ -43,11 +43,9 @@ const chooser = [
   },
   {
     audience: "Funding reviewers",
-    pack: "Funding Readiness Overview PDF",
-    description:
-      "Start here for route-specific funding preparation, grant readiness and strategic funding conversations.",
-    helperText:
-      "Start with the Funding Readiness Overview, then use the route-specific packs below.",
+    pack: "Vision & Funding Readiness Overview PDF",
+    description: "Start here for the vision, timing and strategic funding conversation.",
+    helperText: "Use this when a funder, investor or strategic partner needs the big picture.",
     href: "/packs/corentis-funding-readiness-overview.pdf",
   },
 ];

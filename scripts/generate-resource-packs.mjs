@@ -14,9 +14,6 @@ const resourcePacks = JSON.parse(
 const evidenceStats = JSON.parse(
   fs.readFileSync(path.join(rootDir, "content", "evidence-stats.json"), "utf8")
 );
-const fundingRoutes = JSON.parse(
-  fs.readFileSync(path.join(rootDir, "content", "funding-routes.json"), "utf8")
-);
 const companyDetails = JSON.parse(
   fs.readFileSync(path.join(rootDir, "content", "company-details.json"), "utf8")
 );
@@ -50,10 +47,6 @@ const brand = {
 
 function evidenceByIds(ids = []) {
   return ids.map((id) => evidenceStats.find((item) => item.id === id)).filter(Boolean);
-}
-
-function fundingRoutesByIds(ids = []) {
-  return ids.map((id) => fundingRoutes.find((item) => item.id === id)).filter(Boolean);
 }
 
 function contentWidth() {
@@ -563,108 +556,6 @@ function selectedSources(doc, evidence) {
   });
 }
 
-function fundingRouteCards(doc, routes) {
-  if (!routes.length) return;
-  sectionHeading(doc, "Funding route references", "Current route context", 190);
-  routes
-    .sort((a, b) => a.priorityOrder - b.priorityOrder)
-    .forEach((route) => {
-      const sourceReference = route.officialSourceUrl
-        ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
-        : "Source reference available";
-      const importantDates =
-        route.opens === route.closes
-          ? route.opens
-          : `Opens: ${route.opens}. Closes: ${route.closes}.`;
-      const rows = [
-        ["Status", route.status],
-        ["Important dates", importantDates],
-        ["Corentis fit", route.corentisFit],
-        ["Application framing", route.recommendedCorentisFraming],
-        ["Recommended next action", route.immediateAction],
-        [
-          "Source reference",
-          `${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`,
-        ],
-      ];
-      const innerWidth = contentWidth() - 28;
-      const rowHeights = rows.map(([label, value]) => {
-        const labelHeight = measureTextHeight(doc, label, innerWidth, 7.2, { bold: true });
-        const valueHeight = measureTextHeight(doc, value, innerWidth, 7.8, { lineGap: 1.4 });
-        return labelHeight + valueHeight + 11;
-      });
-      const titleHeight = measureTextHeight(doc, route.name, innerWidth, 9.4, { bold: true });
-      const boxHeight = 34 + titleHeight + rowHeights.reduce((sum, height) => sum + height, 0);
-
-      ensureSpace(doc, boxHeight + 18);
-      markBodyContent(doc);
-      const y = doc.y;
-      doc
-        .roundedRect(page.marginLeft, y, contentWidth(), boxHeight, 10)
-        .fillAndStroke("#f8fafc", "#cbd5e1");
-      let rowY = drawWrappedText(doc, route.name, page.marginLeft + 14, y + 14, innerWidth, {
-        bold: true,
-        fontSize: 9.4,
-        color: brand.ink,
-        lineGap: 1.2,
-      });
-      rowY += 9;
-      rows.forEach(([label, value], index) => {
-        const rowStart = rowY;
-        const valueLabel = label === "Recommended next action" ? "Next action" : label;
-        let textY = drawWrappedText(doc, valueLabel, page.marginLeft + 14, rowStart, innerWidth, {
-          bold: true,
-          fontSize: 7.2,
-          color: "#075985",
-        });
-        drawWrappedText(doc, value, page.marginLeft + 14, textY + 2, innerWidth, {
-          fontSize: 7.8,
-          color: brand.body,
-          lineGap: 1.4,
-        });
-        rowY = rowStart + rowHeights[index];
-      });
-      doc.y = y + boxHeight + 18;
-      doc.x = page.marginLeft;
-    });
-}
-
-function fundingSources(doc, routes) {
-  if (!routes.length) return;
-  sectionHeading(doc, "Funding source references", undefined, 120);
-  routes.forEach((route) => {
-    const sourceReference = route.officialSourceUrl
-      ? new URL(route.officialSourceUrl).hostname.replace(/^www\./, "")
-      : "Source reference available";
-    const heading = `${route.name}: ${route.status}`;
-    const detail = `Type/status: ${route.fundingType}. Source domain: ${sourceReference}. Applicants should confirm live eligibility and deadlines before submission.`;
-    const needed =
-      measureTextHeight(doc, heading, contentWidth(), 7.6, { bold: true, lineGap: 1.8 }) +
-      measureTextHeight(doc, detail, contentWidth(), 6.8, { lineGap: 1.8 }) +
-      14;
-    ensureSpace(doc, needed);
-    markBodyContent(doc);
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(7.6)
-      .fillColor(brand.ink)
-      .text(heading, page.marginLeft, doc.y, {
-        width: contentWidth(),
-        lineGap: 1.8,
-      });
-    doc
-      .font("Helvetica")
-      .fontSize(6.8)
-      .fillColor(brand.muted)
-      .text(detail, page.marginLeft, doc.y, {
-        width: contentWidth(),
-        lineGap: 1.8,
-      });
-    doc.moveDown(0.2);
-    doc.x = page.marginLeft;
-  });
-}
-
 function companyDetailsNote(doc) {
   sectionHeading(doc, "Company details and next step", undefined, 130);
   const body = [
@@ -685,7 +576,6 @@ function companyDetailsNote(doc) {
 }
 
 function bodyPages(doc, pack, evidence) {
-  const routeRefs = fundingRoutesByIds(pack.fundingRouteIds);
   prepareBodyPage(doc);
   sectionHeading(doc, "Overview", pack.audience);
   callout(
