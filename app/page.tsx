@@ -150,8 +150,13 @@ const sprintPathways = [
   },
   {
     title: "Resources",
-    description: "Placeholder packs for investors, buyers and design partners.",
+    description: "Investor, buyer and design-partner packs.",
     href: "/resources",
+  },
+  {
+    title: "ControlBench UK",
+    description: "A strategic AI assurance dataset and evaluation harness for regulated AI agents.",
+    href: "/controlbench-uk",
   },
   {
     title: "Partners",
@@ -415,6 +420,35 @@ export default function Home() {
           <ButtonLink href="/resources" variant="secondary">
             Explore evidence packs
           </ButtonLink>
+        </div>
+      </Section>
+
+      <Section
+        title="From AI policy to proof of control"
+        intro="Corentis helps organisations move beyond policy documents and into operational assurance. It checks whether AI-assisted work follows defined controls, identifies when human review is required, blocks unsafe actions, and captures evidence that can be reviewed before deployment."
+      >
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+          <div className="card-base card-premium p-7">
+            <h2 className="text-2xl font-semibold text-white">ControlBench UK</h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              ControlBench UK is a strategic AI assurance dataset and evaluation harness for
+              regulated AI agents. It brings together realistic workflow scenarios, policy-control
+              checks, blocked-action tests, human-review gates and audit-ready evidence outputs.
+            </p>
+            <div className="mt-6">
+              <ButtonLink href="/controlbench-uk" variant="secondary">
+                Explore ControlBench UK
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="card-base card-info p-7">
+            <h2 className="text-2xl font-semibold text-white">Funding and sandbox readiness</h2>
+            <p className="mt-4 text-base leading-7 text-cyan-50">
+              Corentis is preparing for design-partner, sandbox and funding validation. Current work
+              is focused on financial-services complaints, vulnerable-customer handling, AI-agent
+              checkpointing, assurance datasets and evidence-backed human review.
+            </p>
+          </div>
         </div>
       </Section>
 

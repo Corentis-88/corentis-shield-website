@@ -6,7 +6,7 @@ import { PilotReportPreview } from "@/components/PilotReportPreview";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "Walkthrough | Corentis Shield",
+  title: "Guided Product Walkthrough | Corentis Shield",
   description:
     "Walk through how Corentis Shield can pause risky AI outputs, route human review and capture evidence.",
 };
@@ -36,14 +36,17 @@ export default function WalkthroughPage() {
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Walkthrough"
-        title="See the checkpoint before the action"
-        intro="A simple walkthrough of how Corentis Shield can pause risky AI outputs, route human review and capture evidence."
+        eyebrow="Guided product walkthrough"
+        title="See how Corentis Shield checks an AI-assisted complaints workflow before action."
+        intro="This walkthrough uses a realistic financial-services complaint scenario to show how Corentis detects risk signals, applies policy controls, blocks unsafe actions, routes the case to human review and captures an evidence trail."
       >
         <ButtonLink href="/contact#walkthrough">Request a walkthrough</ButtonLink>
       </Section>
 
-      <Section title="How the walkthrough works">
+      <Section
+        title="How the walkthrough works"
+        intro="This guided product walkthrough is designed for funders, buyers, investors and design partners. It demonstrates the intended control flow and evidence model for a pre-deployment pilot."
+      >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div key={step} className="card-base card-info card-lift p-5">
@@ -76,7 +79,9 @@ export default function WalkthroughPage() {
           <ControlMatrixPreview />
         </div>
         <p className="mt-6 max-w-3xl text-sm leading-6 text-slate-400">
-          This is a walkthrough request path, not a live public interactive demo.
+          The walkthrough shows the intended Corentis Shield control flow for an AI-assisted
+          complaints workflow. It is designed to demonstrate the checkpoint logic, escalation path
+          and evidence trail before a live pilot environment is connected.
         </p>
       </Section>
     </>

@@ -3,7 +3,8 @@ import Link from "next/link";
 import companyDetails from "@/content/company-details.json";
 
 const footerLinks = [
-  { label: "Shield Products", href: "/offerings" },
+  { label: "Corentis Shield", href: "/offerings" },
+  { label: "ControlBench UK", href: "/controlbench-uk" },
   { label: "Why Corentis", href: "/why-corentis" },
   { label: "Resources", href: "/resources" },
   { label: "Partners", href: "/partners" },
@@ -12,10 +13,10 @@ const footerLinks = [
   { label: "Assurance", href: "/assurance" },
   { label: "Walkthrough", href: "/walkthrough" },
   { label: "Founder", href: "/founder" },
-  { label: "Corentis Shield", href: "/runtime-guard" },
+  { label: "Runtime Guard", href: "/runtime-guard" },
   { label: "Assurance Lab", href: "/assurance-lab" },
   { label: "Financial Services", href: "/financial-services" },
-  { label: "Partner funding legacy", href: "/funding" },
+  { label: "Funding readiness", href: "/funding" },
   { label: "Contact", href: "/contact" },
   { label: "Cookies", href: "/cookies" },
   { label: "Privacy", href: "/privacy" },

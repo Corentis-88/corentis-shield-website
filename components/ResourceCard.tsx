@@ -4,7 +4,7 @@ type ResourceCardProps = {
   title: string;
   audience: string;
   description: string;
-  status: "Available" | "Coming soon";
+  status: "Available" | "Available on request";
   href?: string;
   evidenceHook?: string;
 };
@@ -45,7 +45,7 @@ export function ResourceCard({
             disabled
             className="inline-flex cursor-not-allowed items-center justify-center rounded-lg border border-slate-600/60 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-500"
           >
-            Coming soon
+            Available on request
           </button>
         )}
       </div>

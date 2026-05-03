@@ -84,9 +84,9 @@ const readinessStatus = [
   ["Application pack created", "Prepared"],
   ["Company details confirmed", "Prepared"],
   ["Contact form tested", "To confirm"],
-  ["Frontier AI Discovery draft prepared", "In progress"],
+  ["Innovation application materials prepared", "In progress"],
   ["Sovereign AI memo prepared", "Prepared"],
-  ["FCA Sandbox draft prepared", "Prepared"],
+  ["Financial-services sandbox pack prepared", "Prepared"],
   ["AI Assurance pack prepared", "Prepared"],
   ["First design partner list prepared", "In progress"],
 ];
@@ -220,7 +220,7 @@ export default function FundingPage() {
               description={resource.shortDescription}
               evidenceHook={resource.evidenceHook}
               href={resource.publicPdfPath}
-              status={resource.status as "Available" | "Coming soon"}
+              status={resource.status as "Available" | "Available on request"}
             />
           ))}
         </div>

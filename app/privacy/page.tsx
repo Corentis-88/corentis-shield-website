@@ -23,8 +23,8 @@ const privacyItems = [
     text: "Information is used to respond to enquiries, understand potential pilot or partnership opportunities, and maintain appropriate records of business conversations.",
   },
   {
-    title: "Retention placeholder",
-    text: "Enquiry records should be kept only for as long as needed for the relevant business purpose, legal requirement or follow-up conversation. A final retention schedule should be confirmed before public launch.",
+    title: "Retention approach",
+    text: "Enquiry records are kept only for as long as needed for the relevant business purpose, legal requirement or follow-up conversation. Retention periods should be reviewed as Corentis moves from early-stage conversations into pilot activity.",
   },
   {
     title: "Cookies and analytics status",

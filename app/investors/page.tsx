@@ -35,22 +35,23 @@ const seeking = [
   "AI assurance research/commercial partners",
 ];
 
-const strategicRoutes = [
+const validationUses = [
   {
-    title: "Sovereign AI",
-    description: "Strategic investor/funding approach for UK AI control infrastructure.",
+    title: "Product development",
+    description: "Strengthen Corentis Shield as the commercial runtime-control layer.",
   },
   {
-    title: "Frontier AI Discovery",
-    description: "ControlBench R&D route around runtime assurance and benchmark testing.",
+    title: "ControlBench UK",
+    description: "Develop the strategic AI assurance dataset and evaluation harness.",
   },
   {
-    title: "AI Assurance Innovation Fund",
-    description: "Assurance route to monitor and prepare for when the live page opens.",
+    title: "Sandbox and pilot validation",
+    description: "Prepare financial-services complaints and vulnerable-customer workflow testing.",
   },
   {
-    title: "FCA Supercharged Sandbox",
-    description: "Financial-services pilot route for complaints and vulnerable-customer workflows.",
+    title: "Design-partner work",
+    description:
+      "Turn real workflow insight into scenario libraries, controls and evidence outputs.",
   },
 ];
 
@@ -74,7 +75,7 @@ export default function InvestorsPage() {
             Download Investor Overview
           </ButtonLink>
           <ButtonLink href="/contact#investor" variant="secondary">
-            Start an investor/funding conversation
+            Register investor interest
           </ButtonLink>
         </div>
       </Section>
@@ -141,6 +142,27 @@ export default function InvestorsPage() {
         </div>
       </Section>
 
+      <Section
+        title="ControlBench UK as a strategic asset"
+        intro="ControlBench UK is being developed as a strategic AI assurance dataset and evaluation harness for regulated AI agents. It supports the wider infrastructure story behind Corentis Shield."
+      >
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.9fr]">
+          <div className="card-base card-premium p-7">
+            <p className="text-base leading-7 text-slate-300">
+              The asset brings together regulated-workflow scenarios, vulnerability-handling tests,
+              policy-control checks, human-review gates, blocked-action examples, escalation logic
+              and audit-ready evidence outputs.
+            </p>
+          </div>
+          <div className="card-base card-success p-7">
+            <p className="text-base leading-7 text-teal-50">
+              Corentis Shield is the commercial checkpoint layer. ControlBench UK helps validate the
+              scenarios, controls and evidence model that make the checkpoint credible.
+            </p>
+          </div>
+        </div>
+      </Section>
+
       <Section title="What Corentis is seeking">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {seeking.map((item) => (
@@ -153,11 +175,11 @@ export default function InvestorsPage() {
 
       <Section
         className="bg-white/[0.02]"
-        title="Strategic funding routes Corentis is preparing for"
-        intro="These are preparation routes, not awarded or accepted funding. Each route is subject to eligibility, scope and live application requirements."
+        title="Strategic support and validation use cases"
+        intro="Corentis is preparing an early-stage funding round and is interested in speaking with experienced angels, strategic partners and investors focused on AI assurance, RegTech and regulated AI infrastructure. This page is for interest and conversation only; it does not offer shares or investment terms."
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {strategicRoutes.map((route) => (
+          {validationUses.map((route) => (
             <div key={route.title} className="card-base card-info card-lift p-6">
               <h2 className="text-lg font-semibold text-white">{route.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-300">{route.description}</p>
@@ -173,7 +195,7 @@ export default function InvestorsPage() {
               description={resource.shortDescription}
               evidenceHook={resource.evidenceHook}
               href={resource.publicPdfPath}
-              status={resource.status as "Available" | "Coming soon"}
+              status={resource.status as "Available" | "Available on request"}
             />
           ))}
         </div>

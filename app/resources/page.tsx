@@ -24,6 +24,12 @@ const chooser = [
     href: "/packs/corentis-design-partner-pack.pdf",
   },
   {
+    audience: "For financial-services reviewers",
+    pack: "Financial Services Pilot Vision PDF",
+    description: "Complaints, vulnerable customers, human review and evidence before deployment.",
+    href: "/packs/corentis-fca-supercharged-sandbox-brief.pdf",
+  },
+  {
     audience: "For technical/product readers",
     pack: "Runtime Checkpoint Explainer PDF",
     description: "A simple explanation of checkpoint before action.",
@@ -71,7 +77,7 @@ export default function ResourcesPage() {
         className="grid-bg pt-20"
         eyebrow="Resources"
         title="Resources"
-        intro="Choose the right pack for the conversation you want to have."
+        intro="Resources for investors, design partners, assurance reviewers and regulated-sector teams exploring how Corentis checks AI-assisted work before it reaches customers or live systems."
       />
 
       <Section title="Choose the right pack">
@@ -120,7 +126,7 @@ export default function ResourcesPage() {
               description={resource.shortDescription}
               evidenceHook={resource.evidenceHook}
               href={resource.publicPdfPath}
-              status={resource.status as "Available" | "Coming soon"}
+              status={resource.status as "Available" | "Available on request"}
             />
           ))}
         </div>
@@ -136,12 +142,12 @@ export default function ResourcesPage() {
       <Section title="Video brief / storyboard">
         <div className="card-base card-premium card-lift p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyanx">
-            Draft asset
+            Product video planning
           </p>
           <h3 className="mt-3 text-2xl font-semibold text-white">Corentis video brief</h3>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
-            A structured internal brief for future product or investor video production, including
-            messages, visual beats, proof moments and CTA options.
+            A structured brief for product or investor video production, including messages, visual
+            beats, proof moments and CTA options.
           </p>
           <div className="mt-6">
             <a

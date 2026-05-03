@@ -229,7 +229,7 @@ export default function PartnersPage() {
               description={resource.shortDescription}
               evidenceHook={resource.evidenceHook}
               href={resource.publicPdfPath}
-              status={resource.status as "Available" | "Coming soon"}
+              status={resource.status as "Available" | "Available on request"}
             />
           ))}
         </div>

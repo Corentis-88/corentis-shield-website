@@ -2,16 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "Corentis Shield", href: "/offerings" },
-  { label: "Why Corentis?", href: "/why-corentis" },
+  { label: "ControlBench UK", href: "/controlbench-uk" },
+  { label: "Financial Services", href: "/financial-services" },
+  { label: "Walkthrough", href: "/walkthrough" },
   { label: "Resources", href: "/resources" },
-  { label: "Partners", href: "/partners" },
-  { label: "Founder", href: "/founder" },
+  { label: "Investors", href: "/investors" },
   { label: "Contact", href: "/contact" },
 ];
 
 const navLinkClassName = [
-  "inline-flex min-h-14 w-24 items-center justify-start rounded-md px-3 py-2",
+  "inline-flex min-h-14 items-center justify-start rounded-md px-3 py-2",
   "text-left text-sm text-slate-300 transition hover:bg-white/[0.07] hover:text-white",
 ].join(" ");
 

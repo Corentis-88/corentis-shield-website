@@ -58,9 +58,9 @@ export default function VideoBriefPage() {
     <>
       <Section
         className="grid-bg pt-20"
-        eyebrow="Draft resource"
+        eyebrow="Product video planning"
         title="Corentis video brief"
-        intro="A structured internal brief for future product and investor video production. This is not a finished public video."
+        intro="A structured brief for product and investor video production, showing the core message, proof moments, visual beats and CTA options."
       />
 
       <Section title="60-second product video structure">
