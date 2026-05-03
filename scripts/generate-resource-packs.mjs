@@ -569,7 +569,7 @@ function companyDetailsNote(doc) {
   ensureSpace(doc, 30);
   doc.font("Helvetica-Bold").fontSize(10).fillColor("#075985");
   safeText(doc, "Start a Conversation", page.marginLeft, doc.y, contentWidth(), {
-    link: "https://www.corentis.co.uk/contact",
+    link: "https://corentis.co.uk/contact",
     underline: true,
   });
   doc.x = page.marginLeft;

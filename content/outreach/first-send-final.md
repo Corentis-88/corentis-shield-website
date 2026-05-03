@@ -21,9 +21,9 @@ Would you be open to a short investor/funder conversation?
 
 Useful links:
 
-- https://www.corentis.co.uk/investors
-- https://www.corentis.co.uk/packs/corentis-investor-overview.pdf
-- https://www.corentis.co.uk/walkthrough
+- https://corentis.co.uk/investors
+- https://corentis.co.uk/packs/corentis-investor-overview.pdf
+- https://corentis.co.uk/walkthrough
 
 ## 2. Design partner email
 
@@ -43,9 +43,9 @@ Would you be open to a short design partner conversation?
 
 Useful links:
 
-- https://www.corentis.co.uk/design-partners
-- https://www.corentis.co.uk/packs/corentis-design-partner-pack.pdf
-- https://www.corentis.co.uk/resources
+- https://corentis.co.uk/design-partners
+- https://corentis.co.uk/packs/corentis-design-partner-pack.pdf
+- https://corentis.co.uk/resources
 
 ## 3. Assurance/governance email
 
@@ -64,9 +64,9 @@ Would you be open to reviewing the control/evidence approach?
 
 Useful links:
 
-- https://www.corentis.co.uk/assurance
-- https://www.corentis.co.uk/packs/corentis-assurance-governance-summary.pdf
-- https://www.corentis.co.uk/packs/corentis-control-matrix-example.pdf
+- https://corentis.co.uk/assurance
+- https://corentis.co.uk/packs/corentis-assurance-governance-summary.pdf
+- https://corentis.co.uk/packs/corentis-control-matrix-example.pdf
 
 ## 4. Follow-up after 5-7 days
 
@@ -77,7 +77,7 @@ Just following up in case Corentis is relevant to [Organisation].
 The core idea is simple: if AI can act in a sensitive workflow, it needs a checkpoint before that
 output becomes a real-world action.
 
-One useful link: https://www.corentis.co.uk/[best-page]
+One useful link: https://corentis.co.uk/[best-page]
 
 Would a short conversation be useful?
 

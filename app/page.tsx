@@ -228,7 +228,7 @@ export default function Home() {
             <div className="mt-5 inline-flex rounded-full border border-amber-200/25 bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100">
               If it can act, it needs a checkpoint.
             </div>
-            <h1 className={heroTitleClassName}>Ai is here.</h1>
+            <h1 className={heroTitleClassName}>AI is moving from answers to actions.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               McKinsey says 62% of surveyed organisations are at least experimenting with AI agents.
               Deloitte says worker access to AI rose by 50% in 2025, and companies expect more AI
@@ -468,7 +468,7 @@ export default function Home() {
           <PhotoPanel
             src="/images/stock/business-data-review-meeting.jpg"
             alt="Business team reviewing data and charts during a meeting."
-            label="Pilot evidence"
+            label="Evidence pack"
             caption="Pilot evidence people can review."
             objectPosition="center 48%"
           />

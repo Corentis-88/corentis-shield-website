@@ -21,7 +21,10 @@ const description = [
 ].join(" ");
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.corentis.co.uk"),
+  metadataBase: new URL("https://corentis.co.uk"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Corentis Shield | AI checkpoint for regulated workflows",
     template: "%s | Corentis Technologies",
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Corentis Shield | AI checkpoint for regulated workflows",
     description,
-    url: "https://www.corentis.co.uk",
+    url: "https://corentis.co.uk",
     siteName: "Corentis Technologies",
     images: [
       {

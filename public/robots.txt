@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.corentis.co.uk/sitemap.xml
+Sitemap: https://corentis.co.uk/sitemap.xml

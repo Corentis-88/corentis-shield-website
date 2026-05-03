@@ -54,7 +54,7 @@ with people who care about practical AI assurance.
 
 Useful links:
 
-- Website: https://www.corentis.co.uk
-- Investor/funder page: https://www.corentis.co.uk/investors
-- Design partner page: https://www.corentis.co.uk/design-partners
-- Resources: https://www.corentis.co.uk/resources
+- Website: https://corentis.co.uk
+- Investor/funder page: https://corentis.co.uk/investors
+- Design partner page: https://corentis.co.uk/design-partners
+- Resources: https://corentis.co.uk/resources

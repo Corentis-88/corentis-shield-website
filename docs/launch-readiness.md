@@ -58,7 +58,8 @@ This checklist is for the founder before public launch, Cloudflare deployment an
 - [ ] Framework preset: None/static or Next.js static export.
 - [ ] Node version: 20 or 22.
 - [ ] Confirm Cloudflare is not using OpenNext, Wrangler, Workers or `WORKER_SELF_REFERENCE`.
-- [ ] Confirm custom domain: `www.corentis.co.uk`.
+- [ ] Confirm canonical custom domain: `corentis.co.uk`.
+- [ ] Confirm `www.corentis.co.uk` redirects to the apex domain or serves the same latest content.
 - [ ] Confirm `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` is set in Cloudflare Pages.
 - [ ] Confirm Privacy, Terms and Cookies pages still work.
 - [ ] After deployment, purge Cloudflare cache if old assets or PDFs appear.
@@ -76,7 +77,7 @@ This checklist is for the founder before public launch, Cloudflare deployment an
 
 ## 5b. SEO and social preview status
 
-- [ ] `public/sitemap.xml` exists and uses `https://www.corentis.co.uk`.
+- [ ] `public/sitemap.xml` exists and uses `https://corentis.co.uk`.
 - [ ] `public/robots.txt` allows indexing and references the sitemap.
 - [ ] `public/og-corentis-shield.svg` exists for social preview metadata.
 - [ ] `/video-brief` is intentionally excluded from the sitemap because it is a production brief.
@@ -125,14 +126,15 @@ domain has not been allowed in Formspree.
 
 ## 9. Post-deployment live checks
 
-- [ ] Homepage loads at `https://www.corentis.co.uk`.
+- [ ] Homepage loads at `https://corentis.co.uk`.
+- [ ] `https://www.corentis.co.uk/` returns a 301 redirect to `https://corentis.co.uk/` or serves the same latest content.
 - [ ] Core audience pages load: `/design-partners`, `/investors`, `/assurance`, `/walkthrough`.
 - [ ] PDF downloads work from `/resources`.
 - [ ] Contact form displays and can be tested safely.
 - [ ] Main pages work on mobile.
 - [ ] Social preview uses the Corentis Shield OG image.
-- [ ] `https://www.corentis.co.uk/sitemap.xml` loads.
-- [ ] `https://www.corentis.co.uk/robots.txt` loads.
+- [ ] `https://corentis.co.uk/sitemap.xml` loads.
+- [ ] `https://corentis.co.uk/robots.txt` loads.
 
 ## 10. Final pre-launch manual actions for founder
 

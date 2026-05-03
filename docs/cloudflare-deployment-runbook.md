@@ -69,7 +69,8 @@ After pushing:
 - [ ] Confirm `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` is set.
 - [ ] Confirm no OpenNext/Wrangler/Worker deployment path is enabled.
 - [ ] Trigger deployment by GitHub push or Cloudflare dashboard action.
-- [ ] Confirm custom domain: `www.corentis.co.uk`.
+- [ ] Confirm canonical custom domain: `corentis.co.uk`.
+- [ ] Confirm `www.corentis.co.uk` redirects to the apex domain or serves the same latest content.
 - [ ] Check deployment logs for warnings or missing assets.
 
 ## 6. Post-deployment checks
