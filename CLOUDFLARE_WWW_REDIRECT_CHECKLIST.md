@@ -38,7 +38,9 @@ https://corentis.co.uk
 - preserve path suffix
 
 8. Create the bulk redirect rule using that list.
-9. Confirm DNS has a `www` record configured as Cloudflare expects for the redirect.
+9. Go to **DNS**.
+10. Confirm there is a proxied `www` DNS record configured as Cloudflare requires for the
+    redirect.
 
 ## Tests
 
@@ -51,7 +53,7 @@ curl -I https://www.corentis.co.uk/
 Expected result:
 
 ```text
-301 redirect to https://corentis.co.uk/
+HTTP 301 with location header pointing to https://corentis.co.uk/
 ```
 
 Also test a path:
@@ -63,7 +65,7 @@ curl -I https://www.corentis.co.uk/resources
 Expected result:
 
 ```text
-301 redirect to https://corentis.co.uk/resources
+HTTP 301 with location header pointing to https://corentis.co.uk/resources
 ```
 
 The acceptable fallback is that `www` and apex both serve the same latest content, but the preferred

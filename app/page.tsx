@@ -468,7 +468,6 @@ export default function Home() {
           <PhotoPanel
             src="/images/stock/business-data-review-meeting.jpg"
             alt="Business team reviewing data and charts during a meeting."
-            label="Evidence pack"
             caption="Pilot evidence people can review."
             objectPosition="center 48%"
           />
