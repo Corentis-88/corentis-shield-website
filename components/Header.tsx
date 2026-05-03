@@ -13,8 +13,8 @@ const navItems = [
 ];
 
 const navLinkClassName = [
-  "inline-flex min-h-14 items-center justify-start rounded-md px-3 py-2",
-  "text-left text-sm text-slate-300 transition hover:bg-white/[0.07] hover:text-white",
+  "inline-flex min-h-12 items-center justify-center rounded-md px-2.5 py-2",
+  "whitespace-nowrap text-center text-[13px] leading-5 text-slate-300 transition hover:bg-white/[0.07] hover:text-white 2xl:text-sm",
 ].join(" ");
 
 const contactLinkClassName = [
@@ -38,8 +38,8 @@ function NavLinks({ className = "" }: { className?: string }) {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-center gap-3" aria-label="Corentis home">
+      <nav className="mx-auto flex max-w-7xl items-center gap-4 px-5 py-4 sm:px-8 lg:px-10">
+        <Link href="/" className="flex flex-none items-center gap-3" aria-label="Corentis home">
           <Image
             src="/images/corentis/corentis-logo-v1-header.png"
             alt="Corentis"
@@ -50,7 +50,7 @@ export function Header() {
           />
         </Link>
 
-        <NavLinks className="hidden items-stretch gap-1 xl:flex" />
+        <NavLinks className="hidden min-w-0 flex-1 items-stretch justify-center gap-0.5 xl:flex" />
 
         <Link href="/contact" className={contactLinkClassName}>
           Book a conversation
