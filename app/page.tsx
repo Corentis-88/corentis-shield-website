@@ -223,7 +223,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyanx">
-              Corentis Shield - AI checkpoint for regulated workflows
+              Corentis - AI checkpoint for regulated workflows
             </p>
             <div className="mt-5 inline-flex rounded-full border border-amber-200/25 bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100">
               If it can act, it needs a checkpoint.
